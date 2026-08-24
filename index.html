@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CookShip Creative — Creative Intelligence for Skincare Brands</title>
+<meta name="description" content="Research-led creative strategy and production for acne & problem-solution skincare brands. We find what your customers actually believe, then build and test ads against it.">
+<meta property="og:title" content="CookShip Creative — Creative Intelligence for Skincare Brands">
+<meta property="og:description" content="We don't guess what wins. We research it, build it, test it, and prove why it worked.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F2ED;
+  --card:#FFFFFF;
+  --ink:#181614;
+  --ink-2:#4A443C;
+  --muted:#8C8578;
+  --line:#DDD6C8;
+  --accent:#8A3B2E;
+  --accent-soft:#F0E3DB;
+  --maxw:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;background-image:radial-gradient(circle at 1px 1px, rgba(24,22,20,.035) 1px, transparent 0);background-size:22px 22px}
+.serif{font-family:'Fraunces',Georgia,serif}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--muted)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* logo lockup: CookShip = house, Creative = vertical */
+.logo{display:flex;align-items:baseline;gap:9px;font-family:'Fraunces',serif}
+.logo .house{font-weight:600;font-size:20px;letter-spacing:-.01em;color:var(--ink)}
+.logo .vert{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:3px 8px;border-radius:999px}
+
+nav{position:sticky;top:0;z-index:50;background:rgba(244,242,237,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:18px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.navlinks{display:flex;gap:28px;font-size:14.5px;font-weight:500}
+.navlinks a{text-decoration:none;color:var(--ink-2)}
+.navlinks a:hover{color:var(--ink)}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);padding:13px 22px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14.5px;transition:background .18s ease,transform .16s ease}
+.btn:hover{background:var(--accent);transform:translateY(-1px)}
+.btn-lg{padding:16px 28px;font-size:15.5px}
+.btn-ghost{border:1px solid var(--line);padding:15px 26px;border-radius:999px;text-decoration:none;font-weight:500;font-size:15px;color:var(--ink-2)}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
+
+header{padding:80px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start;padding-bottom:56px}
+.eyebrow{margin-bottom:22px}
+h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(36px,4.6vw,58px);line-height:1.04;letter-spacing:-.02em}
+h1 i{font-style:italic;color:var(--accent)}
+.sub{margin-top:22px;font-size:19px;color:var(--ink-2);max-width:44ch}
+.hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.cta-note{color:var(--muted);font-size:13.5px;margin-top:14px}
+
+.exhibit{position:relative;padding:14px 6px 0}
+.ex-tag{position:absolute;top:-14px;right:18px;background:var(--accent);color:#FFF6EE;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:7px 14px;border-radius:3px;transform:rotate(3deg);box-shadow:0 3px 8px rgba(0,0,0,.18);z-index:3}
+.ex-stack{position:relative}
+.ad-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px 18px;box-shadow:0 10px 26px -12px rgba(24,22,20,.22);position:relative}
+.ad-card.a{transform:rotate(-2deg);margin-bottom:-6px;z-index:1}
+.ad-card.b{transform:rotate(1.4deg);margin-left:26px;z-index:2}
+.ad-card .pin{position:absolute;top:-9px;left:22px;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#D98F63,var(--accent));box-shadow:0 3px 5px rgba(0,0,0,.28)}
+.ad-card .ach{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+.ad-card .avatar{width:22px;height:22px;border-radius:50%;background:var(--accent-soft);border:1px solid var(--accent);flex:none}
+.ad-card .abrand{font-weight:700;font-size:13.5px}
+.ad-card .aspon{font-size:11px;color:var(--muted)}
+.ad-card .abody{font-size:14.5px;line-height:1.55;color:var(--ink-2);font-family:'Inter',sans-serif}
+.ad-card .circled{position:relative;font-weight:700;color:var(--ink);white-space:nowrap}
+.ad-card .circled svg{position:absolute;left:-7px;top:-9px;width:calc(100% + 14px);height:calc(100% + 16px);overflow:visible;pointer-events:none}
+.ad-card .circled svg path{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linecap:round}
+.ex-vs{display:flex;align-items:center;justify-content:center;gap:10px;margin:16px 0 14px;color:var(--muted)}
+.ex-vs .ln{flex:1;height:1px;background:var(--line)}
+.ex-vs span{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.ex-cap{font-size:14px;color:var(--ink-2);line-height:1.55}
+.ex-cap b{color:var(--accent)}
+.ex-foot{margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--muted);line-height:1.6}
+
+.trust{padding:20px 0 64px;border-bottom:1px solid var(--line)}
+.trust p{color:var(--muted);font-size:14px;max-width:70ch}
+
+section{padding:76px 0;border-bottom:1px solid var(--line)}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,3.6vw,40px);letter-spacing:-.015em;line-height:1.1;margin-top:14px}
+.sec-head p{margin-top:16px;color:var(--ink-2);font-size:17.5px}
+
+.flywheel{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.fw-step{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 24px}
+.fw-step .fn{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);font-weight:600}
+.fw-step h3{font-family:'Fraunces',serif;font-weight:600;font-size:21px;margin-top:12px}
+.fw-step p{margin-top:10px;color:var(--ink-2);font-size:14.5px;line-height:1.55}
+.fw-loop{grid-column:1/-1;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 24px;display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13.5px}
+.fw-loop b{color:var(--accent)}
+
+.standard{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+.std-item{background:var(--card);padding:30px 26px}
+.std-item .num{font-family:'Fraunces',serif;font-weight:600;font-size:38px;letter-spacing:-.02em;color:var(--accent)}
+.std-item .lbl{margin-top:10px;font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.std-note{margin-top:20px;color:var(--muted);font-size:13.5px;max-width:64ch;line-height:1.6}
+
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:44px}
+.comp-col{background:var(--card);padding:32px}
+.comp-col.bad{background:#F7F1EC}
+.comp-col h4{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+.comp-col.good h4{color:var(--accent)}
+.comp-col ul{margin-top:16px;list-style:none}
+.comp-col li{padding:10px 0;border-top:1px solid var(--line);font-size:15px;color:var(--ink-2)}
+.comp-col li:first-child{border-top:0}
+.comp-col.good li{color:var(--ink)}
+
+.fit{margin-top:8px;background:var(--accent-soft);border:1px solid var(--line);border-radius:6px;padding:34px 36px}
+.fit .fit-row{display:flex;justify-content:space-between;gap:24px;padding:14px 0;border-top:1px solid #E2CFC3}
+.fit .fit-row:first-child{border-top:0}
+.fit .fit-row .k{font-weight:600;font-size:16px;max-width:36ch}
+.fit .fit-row .v{color:var(--ink-2);font-size:15px;text-align:right;max-width:34ch}
+
+.content-block{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-top:8px}
+.content-block .cb-text p{color:var(--ink-2);font-size:16px;margin-top:14px}
+.cb-video{background:var(--card);border:1px solid var(--line);border-radius:6px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:var(--muted)}
+.cb-video .play{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--accent)}
+
+.faq{margin-top:8px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{padding:22px 0;cursor:pointer;font-weight:600;font-size:17.5px;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center;font-family:'Fraunces',serif}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:20px;flex:none}
+details[open] summary::after{content:"–"}
+details p{padding:0 0 24px;color:var(--ink-2);max-width:68ch;font-size:16px;line-height:1.65}
+
+.apply-sec{padding:88px 0 0}
+.apply-box{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.apply-list{list-style:none;margin-top:26px}
+.apply-list li{padding:10px 0 10px 26px;position:relative;color:var(--ink-2);font-size:15.5px}
+.apply-list li::before{content:"—";position:absolute;left:0;color:var(--accent)}
+.apply-form{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:30px}
+.apply-form .af-row{margin-bottom:16px}
+.apply-form label{display:block;font-size:12.5px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:7px}
+.apply-form .af-val{border:1px solid var(--line);border-radius:3px;padding:11px 13px;font-size:15px;color:var(--ink-2);background:var(--paper)}
+
+footer{padding:36px 0 50px}
+.foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:13.5px;align-items:center}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* cycling hero word */
+.cycle{color:var(--accent);position:relative;display:inline-block}
+
+/* interactive tier-flip card */
+.tierbox{padding-top:8px}
+.tb-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;text-align:right}
+.tb-card{
+  position:relative;height:230px;border-radius:10px;cursor:pointer;
+  perspective:1000px;
+}
+.tb-front,.tb-back{
+  position:absolute;inset:0;border-radius:10px;border:1px solid var(--line);
+  backface-visibility:hidden;transition:transform .5s cubic-bezier(.4,.2,.2,1);
+  padding:26px;display:flex;flex-direction:column;justify-content:center;
+}
+.tb-front{background:var(--card);transform:rotateY(0)}
+.tb-back{background:var(--ink);color:#EFE9DE;transform:rotateY(180deg)}
+.tb-card.flipped .tb-front{transform:rotateY(-180deg)}
+.tb-card.flipped .tb-back{transform:rotateY(0)}
+.tb-name{font-family:'Fraunces',serif;font-weight:600;font-size:26px;margin-top:10px;letter-spacing:-.01em}
+.tb-hint{margin-top:16px;color:var(--muted);font-size:13px}
+.tb-grade{font-family:'Fraunces',serif;font-weight:700;font-size:52px;color:#D8955F;line-height:1}
+.tb-back p{margin-top:12px;font-size:14.5px;line-height:1.55;color:#C9C2B4}
+.tb-dots{display:flex;justify-content:center;gap:7px;margin-top:16px}
+.tb-dots span{width:6px;height:6px;border-radius:50%;background:var(--line);cursor:pointer;transition:background .2s}
+.tb-dots span.on{background:var(--accent)}
+
+/* video carousel */
+#carousel{padding-bottom:64px}
+#carousel .sec-head{margin-bottom:32px}
+.carousel-track{
+  display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:4px 30px 18px;-webkit-overflow-scrolling:touch;
+}
+.carousel-track::-webkit-scrollbar{height:6px}
+.carousel-track::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.car-card{flex:none;width:172px;scroll-snap-align:start;cursor:pointer}
+.car-thumb{position:relative;border-radius:10px;overflow:hidden;background:var(--ink);aspect-ratio:9/16;border:1px solid var(--line)}
+.car-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
+.car-card:hover .car-thumb img{transform:scale(1.06)}
+.car-play{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:14px;background:rgba(20,16,12,.28);transition:background .2s ease;
+}
+.car-card:hover .car-play{background:rgba(20,16,12,.15)}
+.car-play::before{
+  content:"";position:absolute;width:40px;height:40px;border-radius:50%;
+  background:rgba(20,16,12,.55);z-index:-1;
+}
+.car-meta{margin-top:10px}
+.car-brand{display:block;font-weight:700;font-size:13.5px}
+.car-title{display:block;color:var(--muted);font-size:12px;margin-top:2px;line-height:1.4}
+.car-yt{display:inline-block;margin-top:5px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:var(--accent);text-decoration:none}
+.car-yt:hover{text-decoration:underline}
+.car-note{margin-top:4px;text-align:center}
+.car-thumb iframe{width:100%;height:100%;border:0;display:block}
+
+@media(max-width:880px){
+  .hero-grid,.apply-box,.content-block,.compare{grid-template-columns:1fr}
+  .flywheel{grid-template-columns:1fr 1fr}
+  .standard{grid-template-columns:1fr}
+  .navlinks{display:none}
+  .ad-card.a{transform:rotate(-1deg);margin-bottom:10px}
+  .ad-card.b{transform:rotate(1deg);margin-left:0}
+  .ex-tag{right:auto;left:18px}
+  .tb-card{height:210px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div class="logo"><span class="house">CookShip</span><span class="vert">Creative</span></div>
+    <div class="navlinks">
+      <a href="#method">Method</a>
+      <a href="#standard">The Standard</a>
+      <a href="#fit">Fit</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="btn" href="#apply">Apply in 2 minutes</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow mono">Creative intelligence for skincare brands</div>
+      <h1>Most <span class="cycle" id="cycleWord">acne</span><br>ad creative is a<br><i>guess.</i></h1>
+      <p class="sub">We research what your customers actually believe &mdash; from reviews, Reddit, and their own words &mdash; before a single ad gets built. Then we produce it, test it, and tell you exactly why the winner won.</p>
+      <div class="hero-cta">
+        <a class="btn btn-lg" href="#apply">Apply in 2 minutes</a>
+        <a class="btn-ghost" href="#carousel">See what's winning &darr;</a>
+      </div>
+      <p class="cta-note">2-minute application. No pitch deck. You'll get a straight answer either way.</p>
+    </div>
+
+    <div class="tierbox" id="tierbox">
+      <div class="tb-tag">Flip a format &darr;</div>
+      <div class="tb-card" id="tbCard" tabindex="0" role="button" aria-label="Flip to see how this format is rated">
+        <div class="tb-face tb-front">
+          <span class="mono">Meta ad format</span>
+          <div class="tb-name" id="tbName">Product-only ASMR</div>
+          <div class="tb-hint">tap to reveal the grade &rarr;</div>
+        </div>
+        <div class="tb-face tb-back">
+          <div class="tb-grade" id="tbGrade">C</div>
+          <p id="tbNote">Ranked low on general lists. In the skincare accounts we've researched, it's quietly one of the best-performing structures there is.</p>
+        </div>
+      </div>
+      <div class="tb-dots" id="tbDots"></div>
+    </div>
+  </div>
+
+  <div class="wrap trust">
+    <p>No client roster yet &mdash; we're early, and we'd rather say that than fabricate one. What you can check today: our research, our method, and one honest teardown of your own account.</p>
+  </div>
+</header>
+
+
+<section id="carousel">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">What's actually winning right now</span>
+      <h2>We watch the whole category, not just yours.</h2>
+      <p>Real, current video from skincare brands people are actually watching. Click to play &mdash; nothing loads until you do, so this page stays fast.</p>
+    </div>
+  </div>
+  <div class="carousel-track" id="carTrack">
+    <div class="car-card" data-yt="Vz-d5O5rCzs">
+      <div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/Vz-d5O5rCzs/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+      <div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">POV: your cleanser has been wrong all along</span><br><a class="car-yt" href="https://www.youtube.com/shorts/Vz-d5O5rCzs" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
+    </div>
+    <div class="car-card" data-yt="m1RaBE5_4n4">
+      <div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/m1RaBE5_4n4/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+      <div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">if your pores look like this...</span><br><a class="car-yt" href="https://www.youtube.com/shorts/m1RaBE5_4n4" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
+    </div>
+    <div class="car-card" data-yt="wU5PDXlLXj4">
+      <div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/wU5PDXlLXj4/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+      <div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">If you thought you knew what a cleanser sounded like</span><br><a class="car-yt" href="https://www.youtube.com/shorts/wU5PDXlLXj4" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
+    </div>
+    <div class="car-card" data-yt="2QU2ai7wFw0">
+      <div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/2QU2ai7wFw0/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+      <div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">One of a kind workout, if you ask me</span><br><a class="car-yt" href="https://www.youtube.com/shorts/2QU2ai7wFw0" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
+    </div>
+    <div class="car-card" data-yt="beJh0qVzohU">
+      <div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/beJh0qVzohU/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+      <div class="car-meta"><span class="car-brand">Bubble</span><span class="car-title">If your routine takes longer than this...</span><br><a class="car-yt" href="https://www.youtube.com/shorts/beJh0qVzohU" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
+    </div>
+    <div class="car-card" data-yt="i5pvZr086oo">
+      <div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/i5pvZr086oo/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+      <div class="car-meta"><span class="car-brand">Bubble</span><span class="car-title">Yes, the white part stays in.</span><br><a class="car-yt" href="https://www.youtube.com/shorts/i5pvZr086oo" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
+    </div>
+  </div>
+  <p class="wrap car-note mono">Real videos, official brand channels &middot; click to play &middot; not our work, just our homework</p>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">The method</span>
+      <h2>A loop, not a delivery schedule.</h2>
+      <p>Every round of testing feeds the next round of research. Nothing gets produced without a reason attached to it.</p>
+    </div>
+    <div class="flywheel">
+      <div class="fw-step">
+        <span class="fn">01</span>
+        <h3>Research</h3>
+        <p>Reviews, Reddit, Amazon, your own ad account. What customers actually say, not what we assume.</p>
+      </div>
+      <div class="fw-step">
+        <span class="fn">02</span>
+        <h3>Strategy</h3>
+        <p>Personas ranked by how strongly people feel, mapped against every angle and awareness stage you're not reaching.</p>
+      </div>
+      <div class="fw-step">
+        <span class="fn">03</span>
+        <h3>Produce</h3>
+        <p>Concepts built to fill a named gap. Every asset ships tagged: persona, angle, why it exists.</p>
+      </div>
+      <div class="fw-step">
+        <span class="fn">04</span>
+        <h3>Test &amp; prove</h3>
+        <p>Hook rate first, cheap and fast. Cost per result second, once it's earned the spend. Winners and losers both write back to research.</p>
+      </div>
+      <div class="fw-loop">&#8635; &nbsp;<b>Back to 01.</b> A winner fatigues in weeks, not months — the loop is the product, not a phase you finish.</div>
+    </div>
+  </div>
+</section>
+
+<section id="standard">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">The standard</span>
+      <h2>What we can show you before you're a client.</h2>
+      <p>Not results — we don't have paid case studies yet, and we're not going to invent them. This is the volume and rigor of the research itself.</p>
+    </div>
+    <div class="standard">
+      <div class="std-item"><div class="num">51</div><div class="lbl">Meta ad creative formats ranked and mapped against what actually performs in skincare specifically — not assumed from general DTC.</div></div>
+      <div class="std-item"><div class="num">4-step</div><div class="lbl">Every account gets the same discipline: content and persona before metrics, comparison before conclusions, evidence before a single concept is built.</div></div>
+      <div class="std-item"><div class="num">0</div><div class="lbl">Invented statistics on this page. Every number here is checkable in the public Meta Ad Library, today.</div></div>
+    </div>
+    <p class="std-note">If a claim on this site can't be traced to something you could verify yourself, it doesn't belong here. That's the standard we're asking you to hold your own creative to.</p>
+
+    <div class="compare">
+      <div class="comp-col bad">
+        <h4 class="mono">Most creative decisions</h4>
+        <ul>
+          <li>"This trend is working for everyone"</li>
+          <li>Concepts built from a swipe file</li>
+          <li>One format, scaled until it stops</li>
+          <li>Reported on spend and ROAS only</li>
+        </ul>
+      </div>
+      <div class="comp-col good">
+        <h4 class="mono">Ours</h4>
+        <ul>
+          <li>"Here's the review that says it, and how many people agree"</li>
+          <li>Concepts built to fill a named, ranked gap</li>
+          <li>A tested library of angles, mapped to who they're for</li>
+          <li>Reported on why it won, not just that it did</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="produce">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">Production</span>
+      <h2>Video-first, today. Built to expand.</h2>
+      <p>Right now we build and test video — the format range with the most room to find a genuine gap in most skincare accounts. Not a permanent ceiling, a starting depth.</p>
+    </div>
+    <div class="compare" style="margin-top:0">
+      <div class="comp-col good">
+        <h4 class="mono">What's in scope now</h4>
+        <ul>
+          <li>Long-form education (VSL)</li>
+          <li>Story and B-roll-driven concepts</li>
+          <li>Product-led demonstration</li>
+          <li>Comparison and objection-handling formats</li>
+        </ul>
+      </div>
+      <div class="comp-col bad">
+        <h4 class="mono">What stays yours</h4>
+        <ul>
+          <li>Media buying — we design the test, your buyer runs it</li>
+          <li>Founder-led content — we'll script and direct it</li>
+          <li>Real testimonials — we won't fabricate a customer</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fit">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">Who this is for</span>
+      <h2>Two minutes tells us both if it's a fit.</h2>
+    </div>
+    <div class="fit">
+      <div class="fit-row"><span class="k">Category</span><span class="v">Acne and problem-solution skincare — DTC, you own the product</span></div>
+      <div class="fit-row"><span class="k">Market</span><span class="v">US, UK, or Canada</span></div>
+      <div class="fit-row"><span class="k">Paid social spend</span><span class="v">Roughly $10k+/month. Below that, testing properly isn't affordable yet — we'll tell you straight</span></div>
+      <div class="fit-row"><span class="k">What you're missing</span><span class="v">Either a video gap in an account that's mostly static, or a persona gap in an account that only speaks to one type of buyer</span></div>
+      <div class="fit-row"><span class="k">Not there yet?</span><span class="v">Apply anyway. Worth two minutes to find out.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="content">
+  <div class="wrap">
+    <div class="content-block">
+      <div class="cb-text">
+        <span class="mono">We give the research away</span>
+        <h2 class="serif" style="font-size:30px;font-weight:600;margin-top:12px;letter-spacing:-.015em">Every teardown we run gets published.</h2>
+        <p>Full breakdowns of real skincare ad accounts — what's working, what's missing, and what we'd test first. Not client work. Research, done in public, on brands we'd love to work with.</p>
+        <p><a href="#" style="color:var(--accent);font-weight:600;text-decoration:none">&rarr; Follow the breakdowns on YouTube &amp; LinkedIn</a></p>
+      </div>
+      <div class="cb-video"><div class="play">&#9654;</div><span class="mono">First teardown &mdash; coming soon</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">Fair questions</span>
+      <h2>Straight answers.</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Do you only do video?</summary><p>For now, yes, deliberately. It's where the sharpest, most common gap sits across the accounts we've researched, and we'd rather be genuinely good at one range of formats than thin across all of them on day one. Static and founder-content direction are on the roadmap as we take on capacity.</p></details>
+      <details><summary>Is AI involved in production?</summary><p>Yes, and it's disclosed &mdash; Meta requires it on any AI-assisted ad. What we won't do is generate a synthetic person claiming your product gave them a personal result. That's the one thing audiences reliably punish, and it's a hard line for us regardless of the format.</p></details>
+      <details><summary>How do you know what to make?</summary><p>Reviews &mdash; including the bad ones &mdash; Reddit threads, Amazon's own buyer-persona data, your ad account's real history. Competitors come last in our process, never first: leading with a competitor scan just means arriving at the idea they already had.</p></details>
+      <details><summary>Do you run our ads?</summary><p>No, and we don't want to. We build the creative and design the test; your buyer executes it. That's also why our guarantee sits on hook rate, not ROAS &mdash; hook rate is the thing our work actually controls.</p></details>
+      <details><summary>What do you guarantee?</summary><p>Within 90 days, one concept beats your current best ad on hook rate, or the next month is free. We agree the benchmark from your own account data before any work starts, so there's no argument later about what "current best" meant.</p></details>
+      <details><summary>What's the contract?</summary><p>90 days standard. Long enough to test properly. Short enough that we have to earn the renewal every quarter.</p></details>
+      <details><summary>Why should we trust an agency with no case studies?</summary><p>You shouldn't, blindly &mdash; check the work instead. Everything on this page traces to something public: the Meta Ad Library, our published teardowns, the research standard above. Founding clients get a rate reflecting exactly this stage, in exchange for read-only ad-account access and permission to publish real results once they exist.</p></details>
+      <details><summary>Is CookShip Creative the whole company?</summary><p>CookShip is the parent. Creative is the first thing we're building inside it &mdash; skincare ad research and production. Other verticals come later, once this one works.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="apply" class="apply-sec">
+  <div class="wrap apply-box">
+    <div>
+      <span class="mono">Start here</span>
+      <h2 class="serif" style="font-size:36px;font-weight:600;margin-top:14px;letter-spacing:-.015em">Two minutes tells us both.</h2>
+      <p style="margin-top:16px;color:var(--ink-2);font-size:17px">Send this over and we'll come back with a real teardown of your account &mdash; not a sales deck. If it's a fit, we'll book a call. If it's not, you'll get a straight answer and keep the teardown either way.</p>
+      <ul class="apply-list">
+        <li>2-minute application, no pitch deck</li>
+        <li>A free teardown of your own ad account either way</li>
+        <li>An honest call, not a hard sell</li>
+      </ul>
+    </div>
+    <div class="apply-form">
+      <div class="af-row"><label>Brand &amp; site</label><div class="af-val">yourbrand.com</div></div>
+      <div class="af-row"><label>Monthly paid social spend</label><div class="af-val">Roughly $______ /month</div></div>
+      <div class="af-row"><label>Your Meta Ad Library link</label><div class="af-val">facebook.com/ads/library/...</div></div>
+      <div class="af-row"><label>Biggest creative gap right now</label><div class="af-val">In your own words</div></div>
+      <a class="btn btn-lg" style="width:100%;text-align:center;margin-top:10px;display:block" href="mailto:hello@cookshipcreative.com?subject=Application%3A%20%5BBrand%20name%5D&body=Brand%20%26%20site%3A%0AMonthly%20paid%20social%20spend%3A%0AAd%20Library%20link%3A%0ABiggest%20creative%20gap%20right%20now%3A">Send application &rarr;</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <footer>
+      <div class="foot-in">
+        <div class="logo"><span class="house">CookShip</span><span class="vert">Creative</span></div>
+        <span class="mono">AI-assisted production &middot; always disclosed</span>
+      </div>
+    </footer>
+  </div>
+</section>
+
+
+<script>
+// 1. Cycling hero pain-point word
+(function(){
+  const words = ['acne','redness','breakout','dark spot','texture'];
+  const el = document.getElementById('cycleWord');
+  if(!el) return;
+  let i = 0;
+  setInterval(()=>{
+    i = (i+1) % words.length;
+    el.style.opacity = 0;
+    setTimeout(()=>{ el.textContent = words[i]; el.style.opacity = 1; }, 220);
+  }, 2200);
+  el.style.transition = 'opacity .22s ease';
+})();
+
+// 2. Interactive format tier-flip card
+(function(){
+  const formats = [
+    {name:'Product-only ASMR', grade:'C', note:"Ranked low on general lists. In the skincare accounts we've researched, it's quietly one of the best-performing structures there is."},
+    {name:'VSL / long-form', grade:'S', note:"The single highest-ranked format on Meta that needs no on-camera talent at all. Education first, offer last."},
+    {name:'Text-only static', grade:'E', note:"Fast to make, which is exactly the problem \u2014 most of it reads like it was written by the same tool that made everyone else's."},
+    {name:'David & Goliath', grade:'A', note:"Their problem as the villain, your product as the underdog. Needs strong B-roll, nothing else."},
+    {name:'Founder content', grade:'S', note:"The highest-performing format on Meta, full stop. It also requires an actual founder \u2014 which is why we script it, not fake it."},
+    {name:'AI avatar testimonial', grade:'C', note:'A synthetic person claiming a personal result. Works until an audience clocks it, then it works against you.'}
+  ];
+  const card = document.getElementById('tbCard');
+  const nameEl = document.getElementById('tbName');
+  const gradeEl = document.getElementById('tbGrade');
+  const noteEl = document.getElementById('tbNote');
+  const dots = document.getElementById('tbDots');
+  if(!card) return;
+  let idx = 0;
+  formats.forEach((_,i)=>{
+    const d = document.createElement('span');
+    if(i===0) d.classList.add('on');
+    dots.appendChild(d);
+  });
+  function render(){
+    const f = formats[idx];
+    nameEl.textContent = f.name;
+    gradeEl.textContent = f.grade;
+    noteEl.textContent = f.note;
+    [...dots.children].forEach((d,i)=>d.classList.toggle('on', i===idx));
+  }
+  function flipNext(){
+    card.classList.toggle('flipped');
+    if(!card.classList.contains('flipped')){
+      idx = (idx+1) % formats.length;
+      setTimeout(render, 250);
+    }
+  }
+  card.addEventListener('click', flipNext);
+  card.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); flipNext(); }});
+  render();
+})();
+
+// 3. Click-to-load video carousel (keeps the page light until you actually want a video)
+(function(){
+  document.querySelectorAll('.car-card').forEach(card=>{
+    card.addEventListener('click', ()=>{
+      const id = card.dataset.yt;
+      const thumb = card.querySelector('.car-thumb');
+      thumb.innerHTML = '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&mute=1&playsinline=1" title="video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+    }, {once:true});
+  });
+})();
+
+// 4. Scroll reveal
+if ('IntersectionObserver' in window){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+}
+</script>
+</body>
+</html>
