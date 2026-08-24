@@ -10,7 +10,8 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
 <style>
 :root{
 --paper:#F4F2ED;
@@ -25,7 +26,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;background-image:radial-gradient(circle at 1px 1px, rgba(24,22,20,.035) 1px, transparent 0);background-size:22px 22px}
+body{background:var(--paper);color:var(--ink);font-family:'Switzer',system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;background-image:radial-gradient(circle at 1px 1px, rgba(24,22,20,.035) 1px, transparent 0);background-size:22px 22px}
 .serif{font-family:'Fraunces',Georgia,serif}
 .mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--muted)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
@@ -45,8 +46,8 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,242,237,.92);backdrop-f
 .btn-lg{padding:16px 28px;font-size:15.5px}
 .btn-ghost{border:1px solid var(--line);padding:15px 26px;border-radius:999px;text-decoration:none;font-weight:500;font-size:15px;color:var(--ink-2)}
 .btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
-header{padding:80px 0 0}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start;padding-bottom:56px}
+header{padding:0}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start;padding:28px 0}
 .eyebrow{margin-bottom:22px}
 h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(36px,4.6vw,58px);line-height:1.04;letter-spacing:-.02em}
 h1 i{font-style:italic;color:var(--accent)}
@@ -64,7 +65,7 @@ h1 i{font-style:italic;color:var(--accent)}
 .ad-card .avatar{width:22px;height:22px;border-radius:50%;background:var(--accent-soft);border:1px solid var(--accent);flex:none}
 .ad-card .abrand{font-weight:700;font-size:13.5px}
 .ad-card .aspon{font-size:11px;color:var(--muted)}
-.ad-card .abody{font-size:14.5px;line-height:1.55;color:var(--ink-2);font-family:'Inter',sans-serif}
+.ad-card .abody{font-size:14.5px;line-height:1.55;color:var(--ink-2);font-family:'Switzer',sans-serif}
 .ad-card .circled{position:relative;font-weight:700;color:var(--ink);white-space:nowrap}
 .ad-card .circled svg{position:absolute;left:-7px;top:-9px;width:calc(100% + 14px);height:calc(100% + 16px);overflow:visible;pointer-events:none}
 .ad-card .circled svg path{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linecap:round}
@@ -79,13 +80,33 @@ h1 i{font-style:italic;color:var(--accent)}
 section{padding:76px 0;border-bottom:1px solid var(--line)}
 .sec-head{max-width:640px;margin-bottom:44px}
 .sec-head h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,3.6vw,40px);letter-spacing:-.015em;line-height:1.1;margin-top:14px}
+.em-accent{font-style:italic;font-weight:700}
 .sec-head p{margin-top:16px;color:var(--ink-2);font-size:17.5px}
 .flywheel{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
 .fw-step{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 24px}
-.fw-step .fn{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);font-weight:600}
+.fw-step .fn{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);font-weight:600;display:inline-block}
+.fw-step:nth-child(1) .fn{animation:fnPulse 7s ease-in-out infinite}
+.fw-step:nth-child(2) .fn{animation:fnPulse 7s ease-in-out infinite;animation-delay:1.75s}
+.fw-step:nth-child(3) .fn{animation:fnPulse 7s ease-in-out infinite;animation-delay:3.5s}
+.fw-step:nth-child(4) .fn{animation:fnPulse 7s ease-in-out infinite;animation-delay:5.25s}
+@keyframes fnPulse{
+0%,90%,100%{color:var(--accent);text-shadow:none;transform:scale(1)}
+4%{color:#C2624E;text-shadow:0 0 10px rgba(138,59,46,.45);transform:scale(1.18)}
+}
+.loop-track{position:relative;height:2px;background:var(--line);margin-bottom:14px;overflow:visible}
+.loop-dot{position:absolute;top:50%;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft),0 0 12px rgba(138,59,46,.5);transform:translate(-50%,-50%);animation:loopTravel 7s linear infinite}
+@keyframes loopTravel{
+0%{left:0%;opacity:0}
+6%{opacity:1}
+94%{left:100%;opacity:1}
+100%{left:100%;opacity:0}
+}
+.loop-spin{display:inline-block;animation:loopSpin 3s linear infinite}
+@keyframes loopSpin{to{transform:rotate(360deg)}}
 .fw-step h3{font-family:'Fraunces',serif;font-weight:600;font-size:21px;margin-top:12px}
 .fw-step p{margin-top:10px;color:var(--ink-2);font-size:14.5px;line-height:1.55}
-.fw-loop{grid-column:1/-1;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 24px;display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13.5px}
+.fw-loop{grid-column:1/-1;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 24px;display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13.5px;background-image:repeating-linear-gradient(135deg,var(--accent-soft) 0 8px,transparent 8px 18px);background-size:220% 100%;animation:footFlow 14s linear infinite}
+@keyframes footFlow{to{background-position:-220% 0}}
 .fw-loop b{color:var(--accent)}
 .standard{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
 .std-item{background:var(--card);padding:30px 26px}
@@ -155,8 +176,10 @@ padding:26px;display:flex;flex-direction:column;justify-content:center;
 .tb-dots{display:flex;justify-content:center;gap:7px;margin-top:16px}
 .tb-dots span{width:6px;height:6px;border-radius:50%;background:var(--line);cursor:pointer;transition:background .2s}
 .tb-dots span.on{background:var(--accent)}
+.tb-legend{margin-top:22px;text-align:center;line-height:1.8}
+.tb-foot{margin-top:14px;color:var(--muted);font-size:13px;line-height:1.6;text-align:center;max-width:38ch;margin-left:auto;margin-right:auto}
 /* video carousel */
-#carousel{padding-bottom:64px}
+#carousel{padding-top:36px;padding-bottom:64px}
 #carousel .sec-head{margin-bottom:32px}
 .carousel-viewport{
 overflow:hidden;
@@ -198,8 +221,8 @@ background:rgba(20,16,12,.55);z-index:-1;
 .car-yt:hover{text-decoration:underline}
 .car-note{margin-top:4px;text-align:center}
 .car-thumb iframe{width:100%;height:100%;border:0;display:block;position:absolute;inset:0}
-.car-cover{position:absolute;inset:0;z-index:1;transition:opacity .35s ease}
-.car-cover.hide{opacity:0;pointer-events:none}
+.car-cover{position:absolute;inset:0;z-index:2;transition:opacity .35s ease}
+.car-cover.hide{opacity:0}
 @media(max-width:880px){
 .hero-grid,.apply-box,.content-block,.compare{grid-template-columns:1fr}
 .flywheel{grid-template-columns:1fr 1fr}
@@ -210,7 +233,7 @@ background:rgba(20,16,12,.55);z-index:-1;
 .ex-tag{right:auto;left:18px}
 .tb-card{height:210px}
 }
-@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}.loop-dot,.loop-spin,.fw-loop,.fw-step .fn{animation:none!important}.loop-dot{opacity:0}}
 </style>
 </head>
 <body>
@@ -218,10 +241,10 @@ background:rgba(20,16,12,.55);z-index:-1;
 <div class="nav-in">
 <div class="logo"><span class="house">CookShip</span><span class="vert">Creative</span></div>
 <div class="navlinks">
-<a href="#method">Method</a>
+<a href="#method">Creative Loop</a>
 <a href="#standard">The Standard</a>
-<a href="#fit">Fit</a>
-<a href="#faq">FAQ</a>
+<a href="#fit">Who It's For</a>
+<a href="#faq">Fair Questions</a>
 </div>
 <a class="btn" href="#apply">Apply in 2 minutes</a>
 </div>
@@ -231,7 +254,7 @@ background:rgba(20,16,12,.55);z-index:-1;
 <div class="wrap hero-grid">
 <div>
 <div class="eyebrow mono">Creative intelligence for skincare brands</div>
-<h1>Most <span class="cycle" id="cycleWord">acne</span><br>ad creative is a<br><i>guess. We read the<br>reviews first.</i></h1>
+<h1>Your <span class="cycle" id="cycleWord">satisfied</span><br>customers already<br><i>wrote the ad.</i></h1>
 <p class="sub">We research what your customers actually believe &mdash; from reviews, Reddit, and their own words &mdash; before a single ad gets built. Then we produce it, test it, and tell you exactly why the winner won.</p>
 <div class="hero-cta">
 <a class="btn btn-lg" href="#apply">Apply in 2 minutes</a>
@@ -253,6 +276,7 @@ background:rgba(20,16,12,.55);z-index:-1;
 </div>
 </div>
 <div class="tb-dots" id="tbDots"></div>
+<div class="tb-legend mono">S = must-run &nbsp;&middot;&nbsp; A/B = solid &nbsp;&middot;&nbsp; C = situational &nbsp;&middot;&nbsp; D/E = skip it</div>
 </div>
 </div>
 </header>
@@ -261,8 +285,8 @@ background:rgba(20,16,12,.55);z-index:-1;
 <div class="wrap">
 <div class="sec-head reveal">
 <span class="mono">What's actually winning right now</span>
-<h2>We watch the whole category, not just yours.</h2>
-<p>Real, current video from skincare brands people are actually watching. Click to play &mdash; nothing loads until you do, so this page stays fast.</p>
+<h2>Same feed. <span class="em-accent">Different lens</span> to watch it.</h2>
+<p>Live ads from category leaders, earning attention right now. Hover to preview, tap for sound.</p>
 </div>
 </div>
 <div class="carousel-viewport">
@@ -275,29 +299,21 @@ background:rgba(20,16,12,.55);z-index:-1;
 <div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/beJh0qVzohU/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Bubble</span><span class="car-title">If your routine takes longer than this...</span><br><a class="car-yt" href="https://www.youtube.com/shorts/beJh0qVzohU" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
-<div class="car-card" data-yt="m1RaBE5_4n4">
-<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/m1RaBE5_4n4/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
-<div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">if your pores look like this...</span><br><a class="car-yt" href="https://www.youtube.com/shorts/m1RaBE5_4n4" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
+<div class="car-card" data-yt="ASFrBT3J0Xs">
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/ASFrBT3J0Xs/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
+<div class="car-meta"><span class="car-brand">Topicals</span><span class="car-title">Acne scar primer?!</span><br><a class="car-yt" href="https://www.youtube.com/shorts/ASFrBT3J0Xs" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="5b5cwWGJG0g">
 <div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/5b5cwWGJG0g/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">CeraVe</span><span class="car-title">Start your acne routine today</span><br><a class="car-yt" href="https://www.youtube.com/shorts/5b5cwWGJG0g" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
-<div class="car-card" data-yt="wU5PDXlLXj4">
-<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/wU5PDXlLXj4/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
-<div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">If you thought you knew what a cleanser sounded like</span><br><a class="car-yt" href="https://www.youtube.com/shorts/wU5PDXlLXj4" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
+<div class="car-card" data-yt="TW2VvxMUktI">
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/TW2VvxMUktI/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
+<div class="car-meta"><span class="car-brand">Peace Out</span><span class="car-title">Which acne dot is for you?</span><br><a class="car-yt" href="https://www.youtube.com/shorts/TW2VvxMUktI" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
-<div class="car-card" data-yt="ASFrBT3J0Xs">
-<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/ASFrBT3J0Xs/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
-<div class="car-meta"><span class="car-brand">Topicals</span><span class="car-title">Acne scar primer?!</span><br><a class="car-yt" href="https://www.youtube.com/shorts/ASFrBT3J0Xs" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
-</div>
-<div class="car-card" data-yt="2QU2ai7wFw0">
-<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/2QU2ai7wFw0/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
-<div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">One of a kind workout, if you ask me</span><br><a class="car-yt" href="https://www.youtube.com/shorts/2QU2ai7wFw0" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
-</div>
-<div class="car-card" data-yt="i5pvZr086oo">
-<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/i5pvZr086oo/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
-<div class="car-meta"><span class="car-brand">Bubble</span><span class="car-title">Yes, the white part stays in.</span><br><a class="car-yt" href="https://www.youtube.com/shorts/i5pvZr086oo" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
+<div class="car-card" data-yt="sbi3-4GU7_k">
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/sbi3-4GU7_k/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
+<div class="car-meta"><span class="car-brand">Differin</span><span class="car-title">Fast Fix patches for acne emergencies</span><br><a class="car-yt" href="https://www.youtube.com/shorts/sbi3-4GU7_k" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="Vz-d5O5rCzs" aria-hidden="true">
 <div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/Vz-d5O5rCzs/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
@@ -307,29 +323,21 @@ background:rgba(20,16,12,.55);z-index:-1;
 <div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/beJh0qVzohU/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Bubble</span><span class="car-title">If your routine takes longer than this...</span><br><a class="car-yt" href="https://www.youtube.com/shorts/beJh0qVzohU" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
-<div class="car-card" data-yt="m1RaBE5_4n4" aria-hidden="true">
-<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/m1RaBE5_4n4/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
-<div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">if your pores look like this...</span><br><a class="car-yt" href="https://www.youtube.com/shorts/m1RaBE5_4n4" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
+<div class="car-card" data-yt="ASFrBT3J0Xs" aria-hidden="true">
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/ASFrBT3J0Xs/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
+<div class="car-meta"><span class="car-brand">Topicals</span><span class="car-title">Acne scar primer?!</span><br><a class="car-yt" href="https://www.youtube.com/shorts/ASFrBT3J0Xs" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="5b5cwWGJG0g" aria-hidden="true">
 <div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/5b5cwWGJG0g/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">CeraVe</span><span class="car-title">Start your acne routine today</span><br><a class="car-yt" href="https://www.youtube.com/shorts/5b5cwWGJG0g" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
-<div class="car-card" data-yt="wU5PDXlLXj4" aria-hidden="true">
-<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/wU5PDXlLXj4/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
-<div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">If you thought you knew what a cleanser sounded like</span><br><a class="car-yt" href="https://www.youtube.com/shorts/wU5PDXlLXj4" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
+<div class="car-card" data-yt="TW2VvxMUktI" aria-hidden="true">
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/TW2VvxMUktI/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
+<div class="car-meta"><span class="car-brand">Peace Out</span><span class="car-title">Which acne dot is for you?</span><br><a class="car-yt" href="https://www.youtube.com/shorts/TW2VvxMUktI" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
-<div class="car-card" data-yt="ASFrBT3J0Xs" aria-hidden="true">
-<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/ASFrBT3J0Xs/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
-<div class="car-meta"><span class="car-brand">Topicals</span><span class="car-title">Acne scar primer?!</span><br><a class="car-yt" href="https://www.youtube.com/shorts/ASFrBT3J0Xs" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
-</div>
-<div class="car-card" data-yt="2QU2ai7wFw0" aria-hidden="true">
-<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/2QU2ai7wFw0/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
-<div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">One of a kind workout, if you ask me</span><br><a class="car-yt" href="https://www.youtube.com/shorts/2QU2ai7wFw0" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
-</div>
-<div class="car-card" data-yt="i5pvZr086oo" aria-hidden="true">
-<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/i5pvZr086oo/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
-<div class="car-meta"><span class="car-brand">Bubble</span><span class="car-title">Yes, the white part stays in.</span><br><a class="car-yt" href="https://www.youtube.com/shorts/i5pvZr086oo" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
+<div class="car-card" data-yt="sbi3-4GU7_k" aria-hidden="true">
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/sbi3-4GU7_k/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
+<div class="car-meta"><span class="car-brand">Differin</span><span class="car-title">Fast Fix patches for acne emergencies</span><br><a class="car-yt" href="https://www.youtube.com/shorts/sbi3-4GU7_k" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 </div>
 </div>
@@ -343,6 +351,7 @@ background:rgba(20,16,12,.55);z-index:-1;
 <h2>A loop, not a delivery schedule.</h2>
 <p>Every round of testing feeds the next round of research. Nothing gets produced without a reason attached to it.</p>
 </div>
+<div class="loop-track"><span class="loop-dot"></span></div>
 <div class="flywheel">
 <div class="fw-step">
 <span class="fn">01</span>
@@ -364,7 +373,7 @@ background:rgba(20,16,12,.55);z-index:-1;
 <h3>Test &amp; prove</h3>
 <p>Hook rate first, cheap and fast. Cost per result second, once it's earned the spend. Winners and losers both write back to research.</p>
 </div>
-<div class="fw-loop">&#8635; &nbsp;<b>Back to 01.</b> A winner fatigues in weeks, not months — the loop is the product, not a phase you finish.</div>
+<div class="fw-loop"><span class="loop-spin">&#8635;</span>&nbsp;<b>Back to 01.</b> A winner fatigues in weeks, not months — the loop is the product, not a phase you finish.</div>
 </div>
 </div>
 </section>
@@ -374,14 +383,12 @@ background:rgba(20,16,12,.55);z-index:-1;
 <div class="sec-head reveal">
 <span class="mono">The standard</span>
 <h2>What we can show you before you're a client.</h2>
-<p>Not results — we don't have paid case studies yet, and we're not going to invent them. This is the volume and rigor of the research itself.</p>
 </div>
 <div class="standard">
-<div class="std-item"><div class="num">51</div><div class="lbl">Meta ad creative formats ranked and mapped against what actually performs in skincare specifically — not assumed from general DTC.</div></div>
+<div class="std-item"><div class="num">50+</div><div class="lbl">Meta ad creative formats ranked and mapped against what actually performs in skincare specifically — not assumed from general DTC.</div></div>
 <div class="std-item"><div class="num">4-step</div><div class="lbl">Every account gets the same discipline: content and persona before metrics, comparison before conclusions, evidence before a single concept is built.</div></div>
-<div class="std-item"><div class="num">0</div><div class="lbl">Invented statistics on this page. Every number here is checkable in the public Meta Ad Library, today.</div></div>
+<div class="std-item"><div class="num">9</div><div class="lbl">Sellable formats we'll actually put in front of your audience &mdash; narrowed from those 50+, chosen for what a synthetic voice can defensibly claim.</div></div>
 </div>
-<p class="std-note">If a claim on this site can't be traced to something you could verify yourself, it doesn't belong here. That's the standard we're asking you to hold your own creative to.</p>
 <div class="compare">
 <div class="comp-col bad">
 <h4 class="mono">Most creative decisions</h4>
@@ -516,7 +523,7 @@ background:rgba(20,16,12,.55);z-index:-1;
 <script>
 // 1. Cycling hero pain-point word
 (function(){
-const words = ['acne','redness','breakout','dark spot','texture'];
+const words = ['satisfied','angry','curious','loyal','skeptical','obsessed'];
 const el = document.getElementById('cycleWord');
 if(!el) return;
 let i = 0;
@@ -533,10 +540,17 @@ el.style.transition = 'opacity .22s ease';
 const formats = [
 {name:'Product-only ASMR', grade:'C', note:"Ranked low on general lists. In the skincare accounts we've researched, it's quietly one of the best-performing structures there is."},
 {name:'VSL / long-form', grade:'S', note:"The single highest-ranked format on Meta that needs no on-camera talent at all. Education first, offer last."},
-{name:'Text-only static', grade:'E', note:"Fast to make, which is exactly the problem \u2014 most of it reads like it was written by the same tool that made everyone else's."},
-{name:'David & Goliath', grade:'A', note:"Their problem as the villain, your product as the underdog. Needs strong B-roll, nothing else."},
 {name:'Founder content', grade:'S', note:"The highest-performing format on Meta, full stop. It also requires an actual founder \u2014 which is why we script it, not fake it."},
-{name:'AI avatar testimonial', grade:'C', note:'A synthetic person claiming a personal result. Works until an audience clocks it, then it works against you.'}
+{name:'Partnership ads', grade:'S', note:"A creator's own audience, already trusting them before your product shows up. The other S-tier format that needs a real human you don't own."},
+{name:'David & Goliath', grade:'A', note:"Their problem as the villain, your product as the underdog. Needs strong B-roll, nothing else."},
+{name:'Objection handling', grade:'A', note:"Answers the doubt before it's typed in the comments. Underused, because it means admitting the product has a weak point."},
+{name:'Challenging your beliefs', grade:'B', note:"Attacks a belief the customer already holds, not a competitor. Harder to write, harder to scroll past."},
+{name:'Us vs. them', grade:'B', note:"The oldest move in direct response. Still works, because the villain doesn't have to be a real brand."},
+{name:'Callout', grade:'B', note:"Names the exact person mid-scroll \u2014 the skin type, the age, the symptom. Weak copy, strong targeting."},
+{name:'Mood board', grade:'D', note:"Beautiful, forgettable. Builds a vibe, rarely a purchase. Better suited to brand awareness than performance."},
+{name:'Motion explainer', grade:'C', note:"Clean and cheap to produce. Nobody hate-shares it, but nobody stops scrolling for it either."},
+{name:'AI avatar testimonial', grade:'C', note:'A synthetic person claiming a personal result. Works until an audience clocks it, then it works against you.'},
+{name:'Text-only static', grade:'E', note:"Fast to make, which is exactly the problem \u2014 most of it reads like it was written by the same tool that made everyone else's."}
 ];
 const card = document.getElementById('tbCard');
 const nameEl = document.getElementById('tbName');
