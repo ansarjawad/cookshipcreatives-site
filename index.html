@@ -197,7 +197,9 @@ background:rgba(20,16,12,.55);z-index:-1;
 .car-yt{display:inline-block;margin-top:5px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:var(--accent);text-decoration:none}
 .car-yt:hover{text-decoration:underline}
 .car-note{margin-top:4px;text-align:center}
-.car-thumb iframe{width:100%;height:100%;border:0;display:block}
+.car-thumb iframe{width:100%;height:100%;border:0;display:block;position:absolute;inset:0}
+.car-cover{position:absolute;inset:0;z-index:1;transition:opacity .35s ease}
+.car-cover.hide{opacity:0;pointer-events:none}
 @media(max-width:880px){
 .hero-grid,.apply-box,.content-block,.compare{grid-template-columns:1fr}
 .flywheel{grid-template-columns:1fr 1fr}
@@ -229,7 +231,7 @@ background:rgba(20,16,12,.55);z-index:-1;
 <div class="wrap hero-grid">
 <div>
 <div class="eyebrow mono">Creative intelligence for skincare brands</div>
-<h1>Most <span class="cycle" id="cycleWord">acne</span><br>ad creative is a<br><i>guess. Ours comes<br>from your reviews.</i></h1>
+<h1>Most <span class="cycle" id="cycleWord">acne</span><br>ad creative is a<br><i>guess. We read the<br>reviews first.</i></h1>
 <p class="sub">We research what your customers actually believe &mdash; from reviews, Reddit, and their own words &mdash; before a single ad gets built. Then we produce it, test it, and tell you exactly why the winner won.</p>
 <div class="hero-cta">
 <a class="btn btn-lg" href="#apply">Apply in 2 minutes</a>
@@ -266,67 +268,67 @@ background:rgba(20,16,12,.55);z-index:-1;
 <div class="carousel-viewport">
 <div class="carousel-track" id="carTrack">
 <div class="car-card" data-yt="Vz-d5O5rCzs">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/Vz-d5O5rCzs/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/Vz-d5O5rCzs/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">POV: your cleanser has been wrong all along</span><br><a class="car-yt" href="https://www.youtube.com/shorts/Vz-d5O5rCzs" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="beJh0qVzohU">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/beJh0qVzohU/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/beJh0qVzohU/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Bubble</span><span class="car-title">If your routine takes longer than this...</span><br><a class="car-yt" href="https://www.youtube.com/shorts/beJh0qVzohU" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="m1RaBE5_4n4">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/m1RaBE5_4n4/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/m1RaBE5_4n4/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">if your pores look like this...</span><br><a class="car-yt" href="https://www.youtube.com/shorts/m1RaBE5_4n4" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="5b5cwWGJG0g">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/5b5cwWGJG0g/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/5b5cwWGJG0g/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">CeraVe</span><span class="car-title">Start your acne routine today</span><br><a class="car-yt" href="https://www.youtube.com/shorts/5b5cwWGJG0g" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="wU5PDXlLXj4">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/wU5PDXlLXj4/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/wU5PDXlLXj4/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">If you thought you knew what a cleanser sounded like</span><br><a class="car-yt" href="https://www.youtube.com/shorts/wU5PDXlLXj4" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="ASFrBT3J0Xs">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/ASFrBT3J0Xs/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/ASFrBT3J0Xs/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Topicals</span><span class="car-title">Acne scar primer?!</span><br><a class="car-yt" href="https://www.youtube.com/shorts/ASFrBT3J0Xs" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="2QU2ai7wFw0">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/2QU2ai7wFw0/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/2QU2ai7wFw0/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">One of a kind workout, if you ask me</span><br><a class="car-yt" href="https://www.youtube.com/shorts/2QU2ai7wFw0" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="i5pvZr086oo">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/i5pvZr086oo/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/i5pvZr086oo/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Bubble</span><span class="car-title">Yes, the white part stays in.</span><br><a class="car-yt" href="https://www.youtube.com/shorts/i5pvZr086oo" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="Vz-d5O5rCzs" aria-hidden="true">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/Vz-d5O5rCzs/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/Vz-d5O5rCzs/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">POV: your cleanser has been wrong all along</span><br><a class="car-yt" href="https://www.youtube.com/shorts/Vz-d5O5rCzs" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="beJh0qVzohU" aria-hidden="true">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/beJh0qVzohU/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/beJh0qVzohU/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Bubble</span><span class="car-title">If your routine takes longer than this...</span><br><a class="car-yt" href="https://www.youtube.com/shorts/beJh0qVzohU" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="m1RaBE5_4n4" aria-hidden="true">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/m1RaBE5_4n4/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/m1RaBE5_4n4/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">if your pores look like this...</span><br><a class="car-yt" href="https://www.youtube.com/shorts/m1RaBE5_4n4" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="5b5cwWGJG0g" aria-hidden="true">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/5b5cwWGJG0g/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/5b5cwWGJG0g/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">CeraVe</span><span class="car-title">Start your acne routine today</span><br><a class="car-yt" href="https://www.youtube.com/shorts/5b5cwWGJG0g" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="wU5PDXlLXj4" aria-hidden="true">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/wU5PDXlLXj4/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/wU5PDXlLXj4/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">If you thought you knew what a cleanser sounded like</span><br><a class="car-yt" href="https://www.youtube.com/shorts/wU5PDXlLXj4" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="ASFrBT3J0Xs" aria-hidden="true">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/ASFrBT3J0Xs/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/ASFrBT3J0Xs/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Topicals</span><span class="car-title">Acne scar primer?!</span><br><a class="car-yt" href="https://www.youtube.com/shorts/ASFrBT3J0Xs" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="2QU2ai7wFw0" aria-hidden="true">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/2QU2ai7wFw0/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/2QU2ai7wFw0/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Hero Cosmetics</span><span class="car-title">One of a kind workout, if you ask me</span><br><a class="car-yt" href="https://www.youtube.com/shorts/2QU2ai7wFw0" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 <div class="car-card" data-yt="i5pvZr086oo" aria-hidden="true">
-<div class="car-thumb"><img loading="lazy" src="https://img.youtube.com/vi/i5pvZr086oo/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div>
+<div class="car-thumb"><div class="car-cover"><img loading="lazy" src="https://img.youtube.com/vi/i5pvZr086oo/hqdefault.jpg" alt=""><span class="car-play">&#9654;</span></div></div>
 <div class="car-meta"><span class="car-brand">Bubble</span><span class="car-title">Yes, the white part stays in.</span><br><a class="car-yt" href="https://www.youtube.com/shorts/i5pvZr086oo" target="_blank" rel="noopener" onclick="event.stopPropagation()">Watch on YouTube &#8599;</a></div>
 </div>
 </div>
@@ -567,35 +569,73 @@ card.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preven
 render();
 })();
 
-// 3. Interactive video carousel: hover previews muted, click/tap plays with sound
+// 3. Interactive video carousel: hover previews muted (branding flash masked),
+// tap unmutes the SAME iframe in place (no reload = no pause bug)
 (function(){
 const track = document.getElementById('carTrack');
 if(!track) return;
 
+function ytUrl(id, muted){
+return 'https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&mute='+(muted?1:0)+
+'&controls=0&loop=1&playlist='+id+'&playsinline=1&modestbranding=1&rel=0'+
+'&iv_load_policy=3&disablekb=1&fs=0&enablejsapi=1';
+}
+
 document.querySelectorAll('.car-card').forEach(card=>{
 const id = card.dataset.yt;
 const thumb = card.querySelector('.car-thumb');
-const thumbSrc = 'https://img.youtube.com/vi/'+id+'/hqdefault.jpg';
-let hoverTimer = null;
+const cover = card.querySelector('.car-cover');
+let iframe = null, hint = null, hoverTimer = null, revealTimer = null;
 
-function showStill(){
-thumb.innerHTML = '<img loading="lazy" src="'+thumbSrc+'" alt=""><span class="car-play">&#9654;</span>';
+function createPreview(){
+if(iframe) return;
+iframe = document.createElement('iframe');
+iframe.src = ytUrl(id, true);
+iframe.title = 'preview';
+iframe.setAttribute('allow','autoplay; encrypted-media');
+iframe.setAttribute('frameborder','0');
+thumb.appendChild(iframe);
+hint = document.createElement('span');
+hint.className = 'sound-hint';
+hint.innerHTML = '&#128266; tap for sound';
+thumb.appendChild(hint);
+// keep our cover on top a beat so YouTube's branded loading card never shows
+revealTimer = setTimeout(()=>cover.classList.add('hide'), 550);
 }
-function showMutedPreview(){
-thumb.innerHTML = '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&mute=1&controls=0&loop=1&playlist='+id+'&playsinline=1" title="preview" allow="autoplay; encrypted-media" frameborder="0"></iframe><span class="sound-hint">&#128266; tap for sound</span>';
+function destroyPreview(){
+clearTimeout(revealTimer);
+if(iframe){ iframe.remove(); iframe = null; }
+if(hint){ hint.remove(); hint = null; }
+cover.classList.remove('hide');
 }
 function playWithSound(){
 card.classList.add('playing-sound');
-thumb.innerHTML = '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&mute=0&playsinline=1" title="video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen frameborder="0"></iframe>';
+if(hint){ hint.remove(); hint = null; }
+if(iframe){
+// same iframe, just unmute + resume — never rebuild it
+iframe.contentWindow.postMessage(JSON.stringify({event:'command',func:'unMute',args:[]}), '*');
+iframe.contentWindow.postMessage(JSON.stringify({event:'command',func:'playVideo',args:[]}), '*');
+cover.classList.add('hide');
+} else {
+// direct tap with no prior hover (touch devices)
+iframe = document.createElement('iframe');
+iframe.src = ytUrl(id, false);
+iframe.title = 'video';
+iframe.setAttribute('allow','autoplay; encrypted-media; picture-in-picture');
+iframe.setAttribute('allowfullscreen','');
+iframe.setAttribute('frameborder','0');
+thumb.appendChild(iframe);
+setTimeout(()=>cover.classList.add('hide'), 450);
+}
 }
 
 card.addEventListener('mouseenter', ()=>{
 if(card.classList.contains('playing-sound')) return;
-hoverTimer = setTimeout(showMutedPreview, 200);
+hoverTimer = setTimeout(createPreview, 180);
 });
 card.addEventListener('mouseleave', ()=>{
 clearTimeout(hoverTimer);
-if(!card.classList.contains('playing-sound')) showStill();
+if(!card.classList.contains('playing-sound')) destroyPreview();
 });
 thumb.addEventListener('click', e=>{
 e.stopPropagation();
