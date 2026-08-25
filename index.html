@@ -41,6 +41,21 @@ a{color:inherit}
 .logo .vert{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:3px 8px;border-radius:999px}
 nav{position:sticky;top:0;z-index:50;background:rgba(244,242,237,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav-in{max-width:var(--maxw);margin:0 auto;padding:18px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav-toggle-input{display:none}
+.nav-toggle{display:none;width:34px;height:34px;flex:none;position:relative;cursor:pointer}
+.nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{
+content:"";position:absolute;left:6px;width:22px;height:2px;background:var(--ink);transition:transform .25s ease,opacity .2s ease;
+}
+.nav-toggle span{top:16px}
+.nav-toggle span::before{top:-7px}
+.nav-toggle span::after{top:7px}
+.nav-mobile{display:none;flex-direction:column;padding:6px 30px 20px;border-top:1px solid var(--line);background:var(--paper)}
+.nav-mobile a{padding:13px 0;font-size:15.5px;color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line)}
+.nav-mobile a.btn{text-align:center;margin-top:14px;border-bottom:0;color:var(--paper)}
+.nav-toggle-input:checked ~ .nav-mobile{display:flex}
+.nav-toggle-input:checked ~ .nav-in .nav-toggle span{background:transparent}
+.nav-toggle-input:checked ~ .nav-in .nav-toggle span::before{transform:translateY(7px) rotate(45deg)}
+.nav-toggle-input:checked ~ .nav-in .nav-toggle span::after{transform:translateY(-7px) rotate(-45deg)}
 .navlinks{display:flex;gap:28px;font-size:14.5px;font-weight:500}
 .navlinks a{text-decoration:none;color:var(--ink-2)}
 .navlinks a:hover{color:var(--ink)}
@@ -238,16 +253,45 @@ background:rgba(20,16,12,.55);z-index:-1;
 .flywheel{grid-template-columns:1fr 1fr}
 .standard{grid-template-columns:1fr}
 .navlinks{display:none}
+.nav-toggle{display:block}
+.nav-cta{display:none}
 .ad-card.a{transform:rotate(-1deg);margin-bottom:10px}
 .ad-card.b{transform:rotate(1deg);margin-left:0}
 .ex-tag{right:auto;left:18px}
-.tb-card{height:210px}
+.tb-card{height:auto;min-height:210px}
+/* the CSS-only marquee has no way to pause on touch (no :hover) — swap to a native,
+swipeable scroller below desktop widths so mobile users can actually browse it */
+.carousel-viewport{overflow-x:auto;-webkit-overflow-scrolling:touch;mask-image:none;-webkit-mask-image:none}
+.carousel-track{animation:none!important;width:max-content;scroll-snap-type:x proximity}
+.car-card{scroll-snap-align:start}
+}
+@media(max-width:640px){
+.wrap{padding:0 20px}
+.nav-in{padding:14px 20px}
+h1{font-size:clamp(30px,8vw,40px)}
+.sub{font-size:16.5px}
+.hero-cta{gap:10px}
+.btn-lg{padding:14px 20px;font-size:14.5px}
+.flywheel{grid-template-columns:1fr}
+.fw-step{padding:22px 20px}
+.loop-wrap{padding:14px}
+.compare{margin-top:28px}
+.comp-col{padding:24px 20px}
+.fit{padding:24px 22px}
+.fit .fit-row{flex-direction:column;align-items:flex-start;gap:8px}
+.fit .fit-row .v{text-align:left;max-width:none}
+.std-item{padding:24px 20px}
+.std-item .num{font-size:30px}
+.car-card{width:148px}
+.tierbox{margin-top:24px}
+.apply-form{padding:22px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}.loop-spin,.fw-step .fn{animation:none!important}.loop-dot animateMotion{repeatCount:1}}
 </style>
 </head>
 <body>
 <nav>
+<input type="checkbox" id="navToggle" class="nav-toggle-input">
 <div class="nav-in">
 <div class="logo"><svg class="logo-mark" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="256" height="256" rx="56" fill="#8A3B2E"/><text x="128" y="178" font-family="Georgia, 'Times New Roman', serif" font-size="150" font-weight="700" font-style="italic" fill="#F4F2ED" text-anchor="middle">C</text></svg><span class="house">CookShip</span><span class="vert">Creatives</span></div>
 <div class="navlinks">
@@ -256,6 +300,14 @@ background:rgba(20,16,12,.55);z-index:-1;
 <a href="#fit">Who It's For</a>
 <a href="#faq">Fair Questions</a>
 </div>
+<a class="btn nav-cta" href="#apply">Apply in 2 minutes</a>
+<label for="navToggle" class="nav-toggle" aria-label="Menu"><span></span></label>
+</div>
+<div class="nav-mobile">
+<a href="#method">Creative Loop</a>
+<a href="#standard">The Standard</a>
+<a href="#fit">Who It's For</a>
+<a href="#faq">Fair Questions</a>
 <a class="btn" href="#apply">Apply in 2 minutes</a>
 </div>
 </nav>
