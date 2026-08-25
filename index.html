@@ -93,20 +93,15 @@ section{padding:76px 0;border-bottom:1px solid var(--line)}
 0%,90%,100%{color:var(--accent);text-shadow:none;transform:scale(1)}
 4%{color:#C2624E;text-shadow:0 0 10px rgba(138,59,46,.45);transform:scale(1.18)}
 }
-.loop-track{position:relative;height:2px;background:var(--line);margin-bottom:14px;overflow:visible}
-.loop-dot{position:absolute;top:50%;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft),0 0 12px rgba(138,59,46,.5);transform:translate(-50%,-50%);animation:loopTravel 7s linear infinite}
-@keyframes loopTravel{
-0%{left:0%;opacity:0}
-6%{opacity:1}
-94%{left:100%;opacity:1}
-100%{left:100%;opacity:0}
-}
+.loop-wrap{position:relative;padding:22px}
+.loop-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.loop-path{fill:none;stroke:var(--line);stroke-width:2;stroke-dasharray:5 7}
+.loop-dot{fill:var(--accent);filter:drop-shadow(0 0 6px rgba(138,59,46,.6))}
 .loop-spin{display:inline-block;animation:loopSpin 3s linear infinite}
 @keyframes loopSpin{to{transform:rotate(360deg)}}
 .fw-step h3{font-family:'Fraunces',serif;font-weight:600;font-size:21px;margin-top:12px}
 .fw-step p{margin-top:10px;color:var(--ink-2);font-size:14.5px;line-height:1.55}
-.fw-loop{grid-column:1/-1;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 24px;display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13.5px;background-image:repeating-linear-gradient(135deg,var(--accent-soft) 0 8px,transparent 8px 18px);background-size:220% 100%;animation:footFlow 14s linear infinite}
-@keyframes footFlow{to{background-position:-220% 0}}
+.fw-loop{grid-column:1/-1;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 24px;display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13.5px}
 .fw-loop b{color:var(--accent)}
 .standard{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
 .std-item{background:var(--card);padding:30px 26px}
@@ -245,7 +240,7 @@ background:rgba(20,16,12,.55);z-index:-1;
 .ex-tag{right:auto;left:18px}
 .tb-card{height:210px}
 }
-@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}.loop-dot,.loop-spin,.fw-loop,.fw-step .fn{animation:none!important}.loop-dot{opacity:0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}.loop-spin,.fw-step .fn{animation:none!important}.loop-dot animateMotion{repeatCount:1}}
 </style>
 </head>
 <body>
@@ -363,7 +358,15 @@ background:rgba(20,16,12,.55);z-index:-1;
 <h2>A loop, not a delivery schedule.</h2>
 <p>Every round of testing feeds the next round of research. Nothing gets produced without a reason attached to it.</p>
 </div>
-<div class="loop-track"><span class="loop-dot"></span></div>
+<div class="loop-wrap">
+<svg class="loop-svg" viewBox="0 0 1000 460" preserveAspectRatio="none" aria-hidden="true">
+<path id="loopTrackPath" class="loop-path" d="M40 15 L960 15 Q985 15 985 40 L985 420 Q985 445 960 445 L40 445 Q15 445 15 420 L15 40 Q15 15 40 15 Z"/>
+<circle class="loop-dot" r="7">
+<animateMotion dur="7s" repeatCount="indefinite" rotate="auto">
+<mpath href="#loopTrackPath"/>
+</animateMotion>
+</circle>
+</svg>
 <div class="flywheel">
 <div class="fw-step">
 <span class="fn">01</span>
@@ -386,6 +389,7 @@ background:rgba(20,16,12,.55);z-index:-1;
 <p>Hook rate first, cheap and fast. Cost per result second, once it's earned the spend. Winners and losers both write back to research.</p>
 </div>
 <div class="fw-loop"><span class="loop-spin">&#8635;</span>&nbsp;<b>Back to 01.</b> A winner fatigues in weeks, not months — the loop is the product, not a phase you finish.</div>
+</div>
 </div>
 </div>
 </section>
