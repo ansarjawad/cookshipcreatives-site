@@ -36,7 +36,7 @@ a{color:inherit}
 .logo{display:flex;align-items:baseline;gap:9px;font-family:'Fraunces',serif}
 .logo .house{font-weight:600;font-size:20px;letter-spacing:-.01em;color:var(--ink)}
 .logo .vert{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:3px 8px;border-radius:999px}
-nav{position:sticky;top:0;z-index:50;background:rgba(244,242,237,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{position:static;background:var(--paper);border-bottom:1px solid var(--line)}
 .nav-in{max-width:var(--maxw);margin:0 auto;padding:18px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .navlinks{display:flex;gap:28px;font-size:14.5px;font-weight:500}
 .navlinks a{text-decoration:none;color:var(--ink-2)}
@@ -113,19 +113,31 @@ section{padding:76px 0;border-bottom:1px solid var(--line)}
 .std-item .num{font-family:'Fraunces',serif;font-weight:600;font-size:38px;letter-spacing:-.02em;color:var(--accent)}
 .std-item .lbl{margin-top:10px;font-size:14.5px;color:var(--ink-2);line-height:1.5}
 .std-note{margin-top:20px;color:var(--muted);font-size:13.5px;max-width:64ch;line-height:1.6}
-.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:44px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:44px;position:relative}
+.compare::after{
+content:"VS";position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;
+font-size:10px;letter-spacing:.12em;padding:6px 13px;border-radius:999px;
+box-shadow:0 4px 12px rgba(24,22,20,.22);z-index:2;
+}
 .comp-col{background:var(--card);padding:32px}
 .comp-col.bad{background:#F7F1EC}
 .comp-col h4{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
 .comp-col.good h4{color:var(--accent)}
 .comp-col ul{margin-top:16px;list-style:none}
-.comp-col li{padding:10px 0;border-top:1px solid var(--line);font-size:15px;color:var(--ink-2)}
+.comp-col li{padding:10px 0 10px 30px;border-top:1px solid var(--line);font-size:15px;color:var(--ink-2);position:relative;transition:transform .18s ease,color .18s ease}
+.comp-col li:hover{transform:translateX(5px)}
 .comp-col li:first-child{border-top:0}
 .comp-col.good li{color:var(--ink)}
+.comp-col.good li::before{content:"\2713";position:absolute;left:0;top:11px;color:var(--accent);font-weight:700;font-size:13px}
+.comp-col.bad li::before{content:"\2715";position:absolute;left:0;top:12px;color:#C4A493;font-size:11px}
+.comp-col.bad.handoff li::before{content:"\2192";color:var(--accent);font-weight:700}
+.comp-col.bad.handoff li:hover{color:var(--ink)}
 .fit{margin-top:8px;background:var(--accent-soft);border:1px solid var(--line);border-radius:6px;padding:34px 36px}
-.fit .fit-row{display:flex;justify-content:space-between;gap:24px;padding:14px 0;border-top:1px solid #E2CFC3}
+.fit .fit-row{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px 0;border-top:1px solid #E2CFC3;transition:padding-left .18s ease}
 .fit .fit-row:first-child{border-top:0}
-.fit .fit-row .k{font-weight:600;font-size:16px;max-width:36ch}
+.fit .fit-row:hover{padding-left:8px}
+.fit .fit-row .k{font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;font-family:'JetBrains Mono',monospace;color:var(--accent);background:var(--card);border:1px solid #E2CFC3;padding:7px 13px;border-radius:999px;flex:none;white-space:nowrap}
 .fit .fit-row .v{color:var(--ink-2);font-size:15px;text-align:right;max-width:34ch}
 .content-block{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-top:8px}
 .content-block .cb-text p{color:var(--ink-2);font-size:16px;margin-top:14px}
@@ -239,7 +251,7 @@ background:rgba(20,16,12,.55);z-index:-1;
 <body>
 <nav>
 <div class="nav-in">
-<div class="logo"><span class="house">CookShip</span><span class="vert">Creative</span></div>
+<div class="logo"><span class="house">CookShip</span><span class="vert">Creatives</span></div>
 <div class="navlinks">
 <a href="#method">Creative Loop</a>
 <a href="#standard">The Standard</a>
@@ -255,7 +267,7 @@ background:rgba(20,16,12,.55);z-index:-1;
 <div>
 <div class="eyebrow mono">Creative intelligence for skincare brands</div>
 <h1>Your <span class="cycle" id="cycleWord">satisfied</span><br>customers already<br><i>wrote the ad.</i></h1>
-<p class="sub">We research what your potential customers actually believe &mdash; from reviews, Reddit, and their own words &mdash; before a single ad gets built.</p>
+<p class="sub">We research what your customers actually believe &mdash; from reviews, Reddit, and their own words &mdash; before a single ad gets built. Then we produce it, test it, and tell you exactly why the winner won.</p>
 <div class="hero-cta">
 <a class="btn btn-lg" href="#apply">Apply in 2 minutes</a>
 <a class="btn-ghost" href="#carousel">See what's winning &darr;</a>
@@ -286,7 +298,7 @@ background:rgba(20,16,12,.55);z-index:-1;
 <div class="sec-head reveal">
 <span class="mono">What's actually winning right now</span>
 <h2>Same feed. <span class="em-accent">Different lens</span> to watch it.</h2>
-<p>Live ads from category leaders, earning attention right now.</p>
+<p>Live ads from category leaders, playing on loop, always muted. Hover to pause and take a closer look.</p>
 </div>
 </div>
 <div class="carousel-viewport">
@@ -429,7 +441,7 @@ background:rgba(20,16,12,.55);z-index:-1;
 <li>Comparison and objection-handling formats</li>
 </ul>
 </div>
-<div class="comp-col bad">
+<div class="comp-col bad handoff">
 <h4 class="mono">What stays yours</h4>
 <ul>
 <li>Media buying — we design the test, your buyer runs it</li>
@@ -448,9 +460,9 @@ background:rgba(20,16,12,.55);z-index:-1;
 <h2>Two minutes tells us both if it's a fit.</h2>
 </div>
 <div class="fit">
-<div class="fit-row"><span class="k">Category</span><span class="v">Acne and problem-solution skincare — DTC.</span></div>
+<div class="fit-row"><span class="k">Category</span><span class="v">Acne and problem-solution skincare — DTC, you own the product</span></div>
 <div class="fit-row"><span class="k">Market</span><span class="v">US, UK, or Canada</span></div>
-<div class="fit-row"><span class="k">Paid social spend</span><span class="v">Roughly $10k+/month. Below that, testing properly isn't affordable yet.</span></div>
+<div class="fit-row"><span class="k">Paid social spend</span><span class="v">Roughly $10k+/month. Below that, testing properly isn't affordable yet — we'll tell you straight</span></div>
 <div class="fit-row"><span class="k">What you're missing</span><span class="v">Either a video gap in an account that's mostly static, or a persona gap in an account that only speaks to one type of buyer</span></div>
 <div class="fit-row"><span class="k">Not there yet?</span><span class="v">Apply anyway. Worth two minutes to find out.</span></div>
 </div>
@@ -485,7 +497,6 @@ background:rgba(20,16,12,.55);z-index:-1;
 <details><summary>What do you guarantee?</summary><p>Within 90 days, one concept beats your current best ad on hook rate, or the next month is free. We agree the benchmark from your own account data before any work starts, so there's no argument later about what "current best" meant.</p></details>
 <details><summary>What's the contract?</summary><p>90 days standard. Long enough to test properly. Short enough that we have to earn the renewal every quarter.</p></details>
 <details><summary>Why should we trust an agency with no case studies?</summary><p>You shouldn't, blindly &mdash; check the work instead. Everything on this page traces to something public: the Meta Ad Library, our published teardowns, the research standard above. Founding clients get a rate reflecting exactly this stage, in exchange for read-only ad-account access and permission to publish real results once they exist.</p></details>
-<details><summary>Is CookShip Creative the whole company?</summary><p>CookShip is the parent. Creative is the first thing we're building inside it &mdash; skincare ad research and production. Other verticals come later, once this one works.</p></details>
 </div>
 </div>
 </section>
@@ -503,18 +514,22 @@ background:rgba(20,16,12,.55);z-index:-1;
 </ul>
 </div>
 <div class="apply-form">
-<div class="af-row"><label>Brand &amp; site</label><div class="af-val">yourbrand.com</div></div>
-<div class="af-row"><label>Monthly paid social spend</label><div class="af-val">Roughly $______ /month</div></div>
-<div class="af-row"><label>Your Meta Ad Library link</label><div class="af-val">facebook.com/ads/library/...</div></div>
-<div class="af-row"><label>Biggest creative gap right now</label><div class="af-val">In your own words</div></div>
-<a class="btn btn-lg" style="width:100%;text-align:center;margin-top:10px;display:block" href="mailto:hello@cookshipcreative.com?subject=Application%3A%20%5BBrand%20name%5D&body=Brand%20%26%20site%3A%0AMonthly%20paid%20social%20spend%3A%0AAd%20Library%20link%3A%0ABiggest%20creative%20gap%20right%20now%3A">Send application &rarr;</a>
+<iframe data-tally-src="https://tally.so/embed/obLD01?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="450" frameborder="0" marginheight="0" marginwidth="0" title="Application"></iframe>
 </div>
 </div>
+<script>
+(function(){
+var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};
+if("undefined"!=typeof Tally)v();
+else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s)}
+else v();
+})();
+</script>
 <div class="wrap">
 <footer>
 <div class="foot-in">
-<div class="logo"><span class="house">CookShip</span><span class="vert">Creative</span></div>
-<span class="mono">AI-assisted production &middot; always disclosed</span>
+<div class="logo"><span class="house">CookShip</span><span class="vert">Creatives</span></div>
+<span class="mono">Your customers already wrote the ad.</span>
 </div>
 </footer>
 </div>
@@ -583,81 +598,33 @@ card.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preven
 render();
 })();
 
-// 3. Interactive video carousel: hover previews muted (branding flash masked),
-// tap unmutes the SAME iframe in place (no reload = no pause bug)
+// 3. Video carousel: every tile is muted, autoplaying, and looping from page load.
+// No click/sound interaction anymore — hover just pauses the marquee (handled by CSS).
 (function(){
 const track = document.getElementById('carTrack');
 if(!track) return;
 
-function ytUrl(id, muted){
-return 'https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&mute='+(muted?1:0)+
+function ytUrl(id){
+return 'https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&mute=1'+
 '&controls=0&loop=1&playlist='+id+'&playsinline=1&modestbranding=1&rel=0'+
-'&iv_load_policy=3&disablekb=1&fs=0&enablejsapi=1';
+'&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0';
 }
 
 document.querySelectorAll('.car-card').forEach(card=>{
 const id = card.dataset.yt;
 const thumb = card.querySelector('.car-thumb');
 const cover = card.querySelector('.car-cover');
-let iframe = null, hint = null, hoverTimer = null, revealTimer = null;
-
-function createPreview(){
-if(iframe) return;
-iframe = document.createElement('iframe');
-iframe.src = ytUrl(id, true);
-iframe.title = 'preview';
+const iframe = document.createElement('iframe');
+iframe.src = ytUrl(id);
+iframe.title = 'video';
 iframe.setAttribute('allow','autoplay; encrypted-media');
 iframe.setAttribute('frameborder','0');
 thumb.appendChild(iframe);
-hint = document.createElement('span');
-hint.className = 'sound-hint';
-hint.innerHTML = '&#128266; tap for sound';
-thumb.appendChild(hint);
-// keep our cover on top a beat so YouTube's branded loading card never shows
-revealTimer = setTimeout(()=>cover.classList.add('hide'), 550);
-}
-function destroyPreview(){
-clearTimeout(revealTimer);
-if(iframe){ iframe.remove(); iframe = null; }
-if(hint){ hint.remove(); hint = null; }
-cover.classList.remove('hide');
-}
-function playWithSound(){
-card.classList.add('playing-sound');
-if(hint){ hint.remove(); hint = null; }
-if(iframe){
-// same iframe, just unmute + resume — never rebuild it
-iframe.contentWindow.postMessage(JSON.stringify({event:'command',func:'unMute',args:[]}), '*');
-iframe.contentWindow.postMessage(JSON.stringify({event:'command',func:'playVideo',args:[]}), '*');
-cover.classList.add('hide');
-} else {
-// direct tap with no prior hover (touch devices)
-iframe = document.createElement('iframe');
-iframe.src = ytUrl(id, false);
-iframe.title = 'video';
-iframe.setAttribute('allow','autoplay; encrypted-media; picture-in-picture');
-iframe.setAttribute('allowfullscreen','');
-iframe.setAttribute('frameborder','0');
-thumb.appendChild(iframe);
-setTimeout(()=>cover.classList.add('hide'), 450);
-}
-}
-
-card.addEventListener('mouseenter', ()=>{
-if(card.classList.contains('playing-sound')) return;
-hoverTimer = setTimeout(createPreview, 180);
-});
-card.addEventListener('mouseleave', ()=>{
-clearTimeout(hoverTimer);
-if(!card.classList.contains('playing-sound')) destroyPreview();
-});
-thumb.addEventListener('click', e=>{
-e.stopPropagation();
-if(!card.classList.contains('playing-sound')) playWithSound();
-});
+// keep the static thumbnail up a beat so YouTube's own branded loading card never flashes
+setTimeout(()=>cover.classList.add('hide'), 550);
 });
 
-// press-and-hold pauses the marquee (touch/click drag intent)
+// press-and-hold also pauses the marquee (touch/click drag intent)
 ['pointerdown'].forEach(evt=>track.addEventListener(evt, ()=>track.classList.add('dragging')));
 ['pointerup','pointerleave','pointercancel'].forEach(evt=>track.addEventListener(evt, ()=>track.classList.remove('dragging')));
 })();
