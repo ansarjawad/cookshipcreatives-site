@@ -73,13 +73,34 @@ const FORMATS = {
   P:  [ {name:"Format name", desc:"One line on what this format does."} ],
 };
 
-/* The library. One line per ad: stage (T, Ex, Ev, P), format (must match a name above),
+/* Visual styles and industries the library can be browsed by.
+   Only tags that at least one ad uses show up on the site. Rename, add or remove freely. */
+const VISUALS = [
+  { name:"3D animation",    desc:"Soft, Pixar-style characters with real depth." },
+  { name:"2D cartoon",      desc:"Flat, bold and fast. Made for the scroll." },
+  { name:"Claymation",      desc:"Handmade texture that feels warm and real." },
+  { name:"Anime",           desc:"Big emotion, bigger expressions." },
+  { name:"Motion graphics", desc:"Clean shapes and type that explain in seconds." },
+];
+const INDUSTRIES = [
+  { name:"Skincare & beauty", desc:"" },
+  { name:"Food & drink",      desc:"" },
+  { name:"Health & wellness", desc:"" },
+  { name:"Fashion",           desc:"" },
+  { name:"Home & kitchen",    desc:"" },
+  { name:"Pets",              desc:"" },
+  { name:"Apps & tech",       desc:"" },
+];
+
+/* The library. One line per ad:
+   stage (T, Ex, Ev, P), format (must match a name in FORMATS),
+   visual (must match a name in VISUALS), industry (must match a name in INDUSTRIES),
    YouTube link or ID, a title, and a credit line. vertical:true for 9:16 Shorts. */
 const ADS = [
-  { stage:"T",  format:"Format name", youtube:"", title:"Ad title", credit:"Brand · creator", vertical:true },
-  { stage:"Ex", format:"Format name", youtube:"", title:"Ad title", credit:"Brand · creator", vertical:true },
-  { stage:"Ev", format:"Format name", youtube:"", title:"Ad title", credit:"Brand · creator", vertical:true },
-  { stage:"P",  format:"Format name", youtube:"", title:"Ad title", credit:"Brand · creator", vertical:true },
+  { stage:"T",  format:"Format name", visual:"3D animation", industry:"Skincare & beauty", youtube:"", title:"Ad title", credit:"Brand · creator", vertical:true },
+  { stage:"Ex", format:"Format name", visual:"2D cartoon",   industry:"Food & drink",      youtube:"", title:"Ad title", credit:"Brand · creator", vertical:true },
+  { stage:"Ev", format:"Format name", visual:"3D animation", industry:"Health & wellness", youtube:"", title:"Ad title", credit:"Brand · creator", vertical:true },
+  { stage:"P",  format:"Format name", visual:"Claymation",   industry:"Skincare & beauty", youtube:"", title:"Ad title", credit:"Brand · creator", vertical:true },
 ];
 
 /* Packages: ads per buying stage in "split" (Trigger, Exploration, Evaluation, Purchase) */

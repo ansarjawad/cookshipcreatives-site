@@ -161,6 +161,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .tab .art{width:60px;background:var(--white)}
 @media (max-width:560px){.tabs{display:grid;grid-template-columns:1fr;gap:8px}.tab{font-size:17px;padding:6px 18px 6px 6px;gap:12px;width:100%}.tab .art{width:56px}}
 .tab[aria-selected="true"]{background:var(--ink);color:var(--white)}
+.browse[hidden]{display:none!important}
+.browse{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px}
+.browse .lbl{font:800 13px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted)}
+.modes{display:inline-grid;grid-auto-flow:column;gap:6px;background:var(--ink);padding:6px;border-radius:16px}
+.modes button{font:800 16px/1 var(--body);border:0;cursor:pointer;border-radius:11px;padding:12px 20px;background:transparent;color:var(--white);white-space:nowrap}
+.modes button[aria-pressed="true"]{background:var(--sun);color:var(--ink)}
+@media (max-width:560px){.browse{display:grid;gap:8px}.modes{display:grid;grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr))}.modes button{font-size:14px;padding:11px 4px;white-space:normal}}
+.tabs.text .tab{padding:14px 22px;font-size:16px}
+@media (max-width:560px){.tabs.text{display:flex}.tabs.text .tab{width:auto;padding:12px 18px;font-size:15px}}
+.ad .meta .chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.ad .meta .chips i{font-style:normal;font-weight:800;font-size:11px;line-height:1;padding:5px 8px;border-radius:var(--r-pill);background:var(--chip);color:var(--ink)}
+.ad .meta .chips i.st{background:var(--c);color:var(--white)}
 .format{margin-top:26px}
 .format h3{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .format h3 small{font:800 12px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted)}
@@ -273,7 +285,8 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px
     <div class="wrap">
       <p class="eyebrow">Ad library</p>
       <h2 id="lib-h">See what's possible for your brand</h2>
-      <div class="tabs" role="tablist" aria-label="Buying stages" id="tabs"></div>
+      <div class="browse"><span class="lbl" id="browse-l">Browse by</span><div class="modes" id="modes" role="group" aria-labelledby="browse-l"></div></div>
+      <div class="tabs" role="tablist" aria-label="Ad categories" id="tabs"></div>
       <div id="panel" role="tabpanel"></div>
     </div>
   </section>
@@ -433,29 +446,62 @@ function renderJoined(){
 }
 renderJoined();
 
-/* library */
-let current = "T";
+/* library: browse by journey (TEEP), visual style or industry */
+const MODES = [
+  { id:"journey",  label:"Journey" },
+  { id:"visual",   label:"Visual style", key:"visual",   list:(typeof VISUALS!=="undefined"?VISUALS:[]) },
+  { id:"industry", label:"Industry",     key:"industry", list:(typeof INDUSTRIES!=="undefined"?INDUSTRIES:[]) },
+].filter(m => !m.key || m.list.some(t => ADS.some(a => a[m.key] === t.name)));
+let mode = "journey", current = "T";
+const tagsFor = m => m.list.filter(t => ADS.some(a => a[m.key] === t.name));
+function renderModes(){
+  $("#modes").innerHTML = MODES.map(m => `<button type="button" aria-pressed="${m.id===mode}" data-m="${m.id}">${esc(m.label)}</button>`).join("");
+  $(".browse").hidden = MODES.length < 2;
+}
+$("#modes").addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return; mode = b.dataset.m;
+  const m = MODES.find(x => x.id === mode); current = mode === "journey" ? "T" : tagsFor(m)[0].name; renderModes(); renderTabs(); renderPanel(); });
 function renderTabs(){
-  $("#tabs").innerHTML = PHASES.map(p => `<button class="tab" role="tab" aria-selected="${p.id===current}" data-id="${p.id}">${art(p.img, p.cls)}${esc(p.name)} ads</button>`).join("");
+  const t = $("#tabs");
+  if(mode === "journey"){
+    t.classList.remove("text");
+    t.innerHTML = PHASES.map(p => `<button class="tab" role="tab" aria-selected="${p.id===current}" data-id="${p.id}">${art(p.img, p.cls)}${esc(p.name)} ads</button>`).join("");
+  } else {
+    t.classList.add("text");
+    t.innerHTML = tagsFor(MODES.find(x => x.id === mode)).map(g => `<button class="tab" role="tab" aria-selected="${g.name===current}" data-id="${esc(g.name)}">${esc(g.name)}</button>`).join("");
+  }
 }
 $("#tabs").addEventListener("click", e => { const b = e.target.closest(".tab"); if(!b) return; current = b.dataset.id; renderTabs(); renderPanel(); });
+function adCard(a, chips){
+  const c = document.createElement("div"); c.className = "ad";
+  c.append(videoEl(a.youtube, a.title, a.vertical));
+  const m = document.createElement("div"); m.className = "meta";
+  m.innerHTML = `<b>${esc(a.title)}</b><span>${esc(a.credit)}</span>` + (chips.length ? `<span class="chips">${chips.join("")}</span>` : "");
+  c.append(m); return c;
+}
 function renderPanel(){
   const panel = $("#panel"); panel.innerHTML = "";
-  (FORMATS[current] || []).forEach(f => {
-    const ads = ADS.filter(a => a.stage === current && a.format === f.name);
-    const sec = document.createElement("div"); sec.className = "format";
-    sec.innerHTML = `<h3>${esc(f.name)} <small>${ads.length} ${ads.length===1?"ad":"ads"}</small></h3><p>${esc(f.desc)}</p>`;
-    const g = document.createElement("div"); g.className = "grid";
-    ads.forEach(a => {
-      const c = document.createElement("div"); c.className = "ad";
-      c.append(videoEl(a.youtube, a.title, a.vertical));
-      const m = document.createElement("div"); m.className = "meta"; m.innerHTML = `<b>${esc(a.title)}</b><span>${esc(a.credit)}</span>`;
-      c.append(m); g.append(c);
+  if(mode === "journey"){
+    (FORMATS[current] || []).forEach(f => {
+      const ads = ADS.filter(a => a.stage === current && a.format === f.name);
+      const sec = document.createElement("div"); sec.className = "format";
+      sec.innerHTML = `<h3>${esc(f.name)} <small>${ads.length} ${ads.length===1?"ad":"ads"}</small></h3><p>${esc(f.desc)}</p>`;
+      const g = document.createElement("div"); g.className = "grid";
+      ads.forEach(a => g.append(adCard(a, [a.visual, a.industry].filter(Boolean).map(x => `<i>${esc(x)}</i>`))));
+      sec.append(g); panel.append(sec);
     });
-    sec.append(g); panel.append(sec);
-  });
+    return;
+  }
+  const m = MODES.find(x => x.id === mode), tag = m.list.find(t => t.name === current) || {};
+  const other = mode === "visual" ? "industry" : "visual";
+  const ads = ADS.filter(a => a[m.key] === current);
+  const sec = document.createElement("div"); sec.className = "format";
+  sec.innerHTML = `<h3>${esc(current)} <small>${ads.length} ${ads.length===1?"ad":"ads"}</small></h3>${tag.desc ? `<p>${esc(tag.desc)}</p>` : ""}`;
+  const g = document.createElement("div"); g.className = "grid";
+  ads.forEach(a => { const p = phase(a.stage);
+    g.append(adCard(a, [p ? `<i class="st ${p.cls}">${esc(p.name)} ad</i>` : "", a[other] ? `<i>${esc(a[other])}</i>` : ""].filter(Boolean))); });
+  sec.append(g); panel.append(sec);
 }
-renderTabs(); renderPanel();
+renderModes(); renderTabs(); renderPanel();
 
 /* packages */
 $("#plans").innerHTML = PLANS.map(p => `
