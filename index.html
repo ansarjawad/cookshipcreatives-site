@@ -208,7 +208,8 @@ input[type=range]{width:100%;accent-color:var(--tomato-deep);height:28px}
 .single .note{margin:8px 0 18px;color:var(--ink-muted);font-size:15px;font-variant-numeric:tabular-nums}
 
 /* footer */
-footer{background:var(--ink);color:#EADFD2;padding-block:44px}
+.endcta{text-align:center;margin-top:36px}
+footer{border-top:1px solid rgba(255,251,243,.14);background:var(--ink);color:#EADFD2;padding-block:44px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between}
 footer a{color:var(--white)} footer .brand{color:var(--white)}
 footer p{margin:10px 0 0;max-width:44ch;font-size:15px}
@@ -246,9 +247,9 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px
   <div class="wrap">
     <a class="brand" href="#top"><img class="logo" src="assets/cookie.webp" alt="" width="36" height="36"><span>Cookshipcreatives</span></a>
     <nav aria-label="Sections">
-      <a class="link" href="#path">How people buy</a>
       <a class="link" href="#library">Ad library</a>
       <a class="link" href="#packages">Packages</a>
+      <a class="link" href="#path">How people buy</a>
       <a class="btn teal" href="#library">Watch the ads</a>
       <a class="btn" href="#packages">See packages</a>
     </nav>
@@ -264,6 +265,38 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px
       <div class="ctas">
         <a class="btn" href="#packages">See packages</a>
         <a class="btn ghost" href="#library">Watch the ads</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="library" aria-labelledby="lib-h">
+    <div class="wrap">
+      <p class="eyebrow">Ad library</p>
+      <h2 id="lib-h">See what's possible for your brand</h2>
+      <div class="tabs" role="tablist" aria-label="Buying stages" id="tabs"></div>
+      <div id="panel" role="tabpanel"></div>
+    </div>
+  </section>
+
+  <section class="packages" id="packages" aria-labelledby="pk-h">
+    <div class="wrap">
+      <p class="eyebrow">Packages</p>
+      <h2 id="pk-h">Choose the help you need</h2>
+      <p class="sub" style="color:var(--ink)">Every package covers all 4 steps of your customer's journey.</p>
+      <div class="plans" id="plans"></div>
+
+      <div class="single" aria-labelledby="sv-h">
+        <div>
+          <h3 id="sv-h">Need a custom video ad?</h3>
+          <label for="len">Length <output id="lenOut">1 min</output></label>
+          <input id="len" type="range" step="5">
+          <div class="ticks"><span id="tMin"></span><span id="tMax"></span></div>
+        </div>
+        <div aria-live="polite">
+          <div class="total" id="total">$0</div>
+          <p class="note" id="note"></p>
+          <button class="btn" type="button" id="orderOne">Order this video ad</button>
+        </div>
       </div>
     </div>
   </section>
@@ -301,40 +334,10 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px
       <p class="sub">Tell us how crowded your market is, and see how each ad would speak to your customers.</p>
       <div class="pickrow"><span class="lbl" id="pick-l">Your market</span><div class="seg" id="seg" role="group" aria-labelledby="pick-l"></div></div>
       <div class="joined" id="joined"></div>
+      <p class="endcta"><a class="btn" href="#packages">See packages</a></p>
     </div>
   </section>
 
-  <section id="library" aria-labelledby="lib-h">
-    <div class="wrap">
-      <p class="eyebrow">Ad library</p>
-      <h2 id="lib-h">See what's possible for your brand</h2>
-      <div class="tabs" role="tablist" aria-label="Buying stages" id="tabs"></div>
-      <div id="panel" role="tabpanel"></div>
-    </div>
-  </section>
-
-  <section class="packages" id="packages" aria-labelledby="pk-h">
-    <div class="wrap">
-      <p class="eyebrow">Packages</p>
-      <h2 id="pk-h">Choose the help you need</h2>
-      <p class="sub" style="color:var(--ink)">Every package covers all 4 steps of your customer's journey.</p>
-      <div class="plans" id="plans"></div>
-
-      <div class="single" aria-labelledby="sv-h">
-        <div>
-          <h3 id="sv-h">Need a custom video ad?</h3>
-          <label for="len">Length <output id="lenOut">1 min</output></label>
-          <input id="len" type="range" step="5">
-          <div class="ticks"><span id="tMin"></span><span id="tMax"></span></div>
-        </div>
-        <div aria-live="polite">
-          <div class="total" id="total">$0</div>
-          <p class="note" id="note"></p>
-          <button class="btn" type="button" id="orderOne">Order this video ad</button>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -352,7 +355,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px
   </div>
 </footer>
 
-<a class="btn float" id="float" href="#packages">See packages ↓</a>
+<a class="btn float" id="float" href="#packages">See packages</a>
 
 <div class="sheet" id="contact" hidden>
   <div class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="ct-h">
