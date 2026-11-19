@@ -6,7 +6,8 @@
    ===================================================================== */
 const SITE = {
   introVideo: "",                       // YouTube link or ID of your intro video
-  bookingLink: "",                      // Calendly (or similar) link: custom packages and single videos
+  calLink: "",                          // cal.com booking link (Book a meeting)
+  whatsapp: "923233874756",             // WhatsApp number, country code first, digits only
   email: "hello@cookshipcreatives.com",
   logo: "assets/logo.png",              // your logo with the background removed (falls back to Cookie)
 };
@@ -83,9 +84,9 @@ const ADS = [
 
 /* Packages: ads per buying stage in "split" (Trigger, Exploration, Evaluation, Purchase) */
 const PLANS = [
-  { name:"Basic",   ads:4,  split:[1,1,1,1], price:2200, checkout:"" },
-  { name:"Premium", ads:8,  split:[2,2,2,2], price:4000, checkout:"", featured:true },
-  { name:"Ultra",   ads:20, split:[5,5,5,5], price:9000, checkout:"" },
+  { name:"Basic",   ads:4,  split:[1,1,1,1], price:2200, checkout:"https://whop.com/checkout/plan_PclwyBf7yhqez" },
+  { name:"Premium", ads:8,  split:[2,2,2,2], price:4000, checkout:"https://whop.com/checkout/plan_4z5tGnP3Z1HNQ", featured:true },
+  { name:"Ultra",   ads:20, split:[5,5,5,5], price:9000, checkout:"https://whop.com/checkout/plan_IFkXNRnojoSZe" },
 ];
 
 /* Single custom video: price up to includedSeconds, then a rate per extra second */

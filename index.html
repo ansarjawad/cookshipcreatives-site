@@ -216,6 +216,24 @@ footer .cols{display:flex;gap:40px;flex-wrap:wrap}
 footer h4{margin:0 0 10px;font:800 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:#BFAE9F}
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px;overflow-wrap:anywhere}
 
+/* contact sheet */
+.sheet[hidden],.opt[hidden]{display:none!important}
+.sheet{position:fixed;inset:0;z-index:50;background:rgba(42,26,18,.55);display:grid;place-items:center;padding:20px max(16px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.sheet-card{position:relative;width:100%;max-width:440px;background:var(--cloud);border-radius:24px;padding:28px 22px 22px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.sheet-card h3{font-size:26px;padding-right:36px}
+.ct-sub{margin:6px 0 0;color:var(--ink-muted);font-size:15px}
+.x{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;border:0;background:var(--chip);font:800 22px/1 var(--body);cursor:pointer;color:var(--ink)}
+.opts{display:grid;gap:10px;margin-top:20px}
+.opt{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:16px;background:var(--white);box-shadow:inset 0 0 0 2px var(--line);text-decoration:none;color:var(--ink);cursor:pointer}
+.opt:hover{box-shadow:inset 0 0 0 2px var(--ink)}
+.opt b{display:block;font-size:17px}
+.opt small{display:block;color:var(--ink-muted);font-size:13px;font-weight:600;overflow-wrap:anywhere}
+.ic{flex:none;width:46px;height:46px;border-radius:14px;background:center/26px no-repeat}
+.ic.cal{background-color:var(--tomato-deep);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'%3E%3Crect x='3' y='5' width='18' height='16' rx='3'/%3E%3Cpath d='M3 10h18M8 3v4M16 3v4'/%3E%3C/svg%3E")}
+.ic.wa{background-color:#1F8F4E;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M4 20l1.3-3.9A8 8 0 1 1 8 18.7z'/%3E%3Cpath d='M9 9.5c.3 2 2.5 4.2 4.5 4.5l1-1.2 1.8.8c-.2 1.2-1 1.9-2.3 1.9-3.2 0-6-2.8-6-6 0-1.3.7-2.1 1.9-2.3l.8 1.8z' fill='white' stroke='none'/%3E%3C/svg%3E")}
+.ic.mail{background-color:var(--teal);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='14' rx='3'/%3E%3Cpath d='M4 7l8 6 8-6'/%3E%3C/svg%3E")}
+@media (max-width:560px){.sheet{align-items:end;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}}
+
 /* sticky packages button */
 .float{position:fixed;z-index:30;right:max(16px,calc(env(safe-area-inset-right,0px) + 16px));bottom:calc(16px + env(safe-area-inset-bottom,0px));box-shadow:0 10px 26px -8px rgba(42,26,18,.55);transition:opacity .2s ease,transform .2s ease}
 .float.hide{opacity:0;transform:translateY(12px);pointer-events:none}
@@ -312,7 +330,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px
         <div aria-live="polite">
           <div class="total" id="total">$0</div>
           <p class="note" id="note"></p>
-          <a class="btn" id="orderOne" href="#packages">Order this video ad</a>
+          <button class="btn" type="button" id="orderOne">Order this video ad</button>
         </div>
       </div>
     </div>
@@ -326,7 +344,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px
       <p>We make animated ads people are glad to watch, and teach others how in our Viral AI Animation course.</p>
     </div>
     <div class="cols">
-      <div><h4>Work with us</h4><ul><li><a href="#packages">Packages</a></li><li><a id="f-book" href="#packages">Book a call</a></li><li id="f-email"></li></ul></div>
+      <div><h4>Work with us</h4><ul><li><a href="#packages">Packages</a></li><li><a id="f-book" href="#contact">Contact us</a></li><li id="f-email"></li></ul></div>
       <div><h4>Learn</h4><ul id="f-learn"></ul></div>
       <div><h4>Cookshipcreatives</h4><ul id="f-studio"></ul></div>
       <div><h4>The Cooper Family</h4><ul id="f-coopers"></ul></div>
@@ -335,6 +353,19 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px
 </footer>
 
 <a class="btn float" id="float" href="#packages">See packages ↓</a>
+
+<div class="sheet" id="contact" hidden>
+  <div class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="ct-h">
+    <button class="x" type="button" id="ctClose" aria-label="Close">×</button>
+    <h3 id="ct-h">How would you like to reach us?</h3>
+    <p class="ct-sub" id="ctSub"></p>
+    <div class="opts">
+      <a class="opt" id="optCal" target="_blank" rel="noopener"><span class="ic cal"></span><span><b>Book a meeting</b><small>Pick a time that suits you</small></span></a>
+      <a class="opt" id="optWa" target="_blank" rel="noopener"><span class="ic wa"></span><span><b>Message on WhatsApp</b><small>We usually reply within the day</small></span></a>
+      <a class="opt" id="optMail"><span class="ic mail"></span><span><b>Send an email</b><small id="ctMail"></small></span></a>
+    </div>
+  </div>
+</div>
 
 <script src="config.js"></script>
 <script>
@@ -435,12 +466,12 @@ $("#plans").innerHTML = PLANS.map(p => `
     <a class="btn" href="${esc(p.checkout || "#packages")}"${p.checkout?' target="_blank" rel="noopener"':""}>Start with ${esc(p.name)}</a>
   </div>`).join("") + `
   <div class="plan custom">
-    <h3>Custom</h3>
+    <h3>Not sure?</h3>
     <div class="price" style="font-size:38px">Let's talk</div>
     <p>Have something special in mind? We'd love to hear about your brand and build a plan around it.</p>
-    <a class="btn" id="bookCustom" href="#packages">Book a call</a>
+    <button class="btn" type="button" id="bookCustom">Contact us now</button>
   </div>`;
-ext($("#bookCustom"), SITE.bookingLink);
+$("#bookCustom").addEventListener("click", () => openContact("custom"));
 
 /* single video */
 const len = $("#len");
@@ -456,13 +487,35 @@ function price(){
     : `Flat ${money(SINGLE.base)} for up to ${dur(SINGLE.includedSeconds)}`;
 }
 len.addEventListener("input", price); price();
-ext($("#orderOne"), SITE.bookingLink);
+$("#orderOne").addEventListener("click", () => openContact("single"));
 
 /* footer */
-ext($("#f-book"), SITE.bookingLink);
+$("#f-book").addEventListener("click", e => { e.preventDefault(); openContact("general"); });
 const linkList = (el, items) => { items.filter(x => x.url).forEach(x => { const li = document.createElement("li"), a = document.createElement("a"); a.textContent = x.name; ext(a, x.url); li.append(a); el.append(li); }); if(!el.children.length) el.closest("div").remove(); };
 linkList($("#f-learn"), COURSES); linkList($("#f-studio"), SOCIAL.studio); linkList($("#f-coopers"), SOCIAL.coopers);
 if(SITE.email){ const a = document.createElement("a"); a.href = "mailto:" + SITE.email; a.textContent = SITE.email; $("#f-email").append(a); }
+
+/* contact sheet: book a meeting, WhatsApp, email */
+const sheet = $("#contact");
+function openContact(kind){
+  let topic, sub;
+  if(kind === "single"){
+    const sec = +$("#len").value, total = SINGLE.base + Math.max(0, sec - SINGLE.includedSeconds) * SINGLE.extraPerSec;
+    topic = `a custom video ad of ${dur(sec)} (${money(total)})`; sub = `About your ${dur(sec)} custom video ad · ${money(total)}`;
+  } else if(kind === "custom"){ topic = "a custom package"; sub = "Tell us about your brand and we'll build a plan around it.";
+  } else { topic = "animated ads for my brand"; sub = "We'd love to hear about your brand."; }
+  const msg = `Hi Cookshipcreatives! I'm interested in ${topic}. My name is ___ and my brand is ___.`;
+  $("#ctSub").textContent = sub;
+  const cal = $("#optCal"); cal.hidden = !SITE.calLink; if(SITE.calLink) cal.href = SITE.calLink;
+  const wa = $("#optWa"); wa.hidden = !SITE.whatsapp; if(SITE.whatsapp) wa.href = "https://wa.me/" + SITE.whatsapp.replace(/\D/g,"") + "?text=" + encodeURIComponent(msg);
+  const mail = $("#optMail"); mail.hidden = !SITE.email;
+  if(SITE.email){ mail.href = "mailto:" + SITE.email + "?subject=" + encodeURIComponent("Animated ads: " + topic) + "&body=" + encodeURIComponent(msg); $("#ctMail").textContent = SITE.email; }
+  sheet.hidden = false; document.body.style.overflow = "hidden"; $("#ctClose").focus();
+}
+function closeContact(){ sheet.hidden = true; document.body.style.overflow = ""; }
+$("#ctClose").addEventListener("click", closeContact);
+sheet.addEventListener("click", e => { if(e.target === sheet) closeContact(); });
+document.addEventListener("keydown", e => { if(e.key === "Escape" && !sheet.hidden) closeContact(); });
 
 /* sticky button hides while packages are on screen */
 const fl = $("#float");
