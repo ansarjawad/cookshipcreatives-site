@@ -362,7 +362,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px
     <div class="opts">
       <a class="opt" id="optCal" target="_blank" rel="noopener"><span class="ic cal"></span><span><b>Book a meeting</b><small>Pick a time that suits you</small></span></a>
       <a class="opt" id="optWa" target="_blank" rel="noopener"><span class="ic wa"></span><span><b>Message on WhatsApp</b><small>We usually reply within the day</small></span></a>
-      <a class="opt" id="optMail"><span class="ic mail"></span><span><b>Send an email</b><small id="ctMail"></small></span></a>
+      <a class="opt" id="optMail" target="_blank" rel="noopener"><span class="ic mail"></span><span><b>Send an email</b><small id="ctMail"></small></span></a>
     </div>
   </div>
 </div>
@@ -493,7 +493,7 @@ $("#orderOne").addEventListener("click", () => openContact("single"));
 $("#f-book").addEventListener("click", e => { e.preventDefault(); openContact("general"); });
 const linkList = (el, items) => { items.filter(x => x.url).forEach(x => { const li = document.createElement("li"), a = document.createElement("a"); a.textContent = x.name; ext(a, x.url); li.append(a); el.append(li); }); if(!el.children.length) el.closest("div").remove(); };
 linkList($("#f-learn"), COURSES); linkList($("#f-studio"), SOCIAL.studio); linkList($("#f-coopers"), SOCIAL.coopers);
-if(SITE.email){ const a = document.createElement("a"); a.href = "mailto:" + SITE.email; a.textContent = SITE.email; $("#f-email").append(a); }
+if(SITE.email){ const a = document.createElement("a"); a.href = "mailto:" + SITE.email; a.target = "_blank"; a.rel = "noopener"; a.textContent = SITE.email; $("#f-email").append(a); }
 
 /* contact sheet: book a meeting, WhatsApp, email */
 const sheet = $("#contact");
