@@ -199,6 +199,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .perad{font:800 15px/1 var(--body);color:var(--teal)}
 .dur{display:inline-flex;align-self:flex-start;align-items:center;gap:6px;background:var(--chip);border-radius:var(--r-pill);padding:6px 12px;font:800 13px/1 var(--body);margin-top:-4px}
 .mini{display:grid;gap:5px}
+.tailor{margin:-4px 0 0;text-align:center;font-weight:800;font-size:13px;color:var(--teal)}
 .mini div{margin-inline:auto;border-radius:9px;padding:8px 12px;background:var(--c);color:var(--white);display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:800;font-size:14px}
 .mini div b{font:400 18px/1 var(--display)}
 .mini div:nth-child(1){width:100%} .mini div:nth-child(2){width:92%} .mini div:nth-child(3){width:84%} .mini div:nth-child(4){width:76%}
@@ -512,6 +513,7 @@ $("#plans").innerHTML = PLANS.map(p => `
     <div class="count">${p.ads}<small>ads</small> <span class="perad">· ${money(Math.round(p.price/p.ads))} per ad</span></div>
     <div class="dur">30–60 seconds each</div>
     <div class="mini" aria-label="Ads per stage">${PHASES.map((ph,k)=>`<div class="${ph.cls}"><span>${esc(ph.name)} ${p.split[k]===1?"ad":"ads"}</span><b>${p.split[k]}</b></div>`).join("")}</div>
+    <p class="tailor">${p.ads===1?"Tailored":"Each one tailored"} to your brand's requirements</p>
     <a class="btn" href="${esc(p.checkout || "#packages")}"${p.checkout?' target="_blank" rel="noopener"':""}>Start with ${esc(p.name)}</a>
   </div>`).join("") + `
   <div class="plan custom">
