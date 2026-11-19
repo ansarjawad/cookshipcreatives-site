@@ -471,11 +471,10 @@ $("#modes").addEventListener("click", e => { const b = e.target.closest("button"
   const m = MODES.find(x => x.id === mode); current = mode === "journey" ? "T" : tagsFor(m)[0].name; renderModes(); renderTabs(); renderPanel(); });
 function renderTabs(){
   const t = $("#tabs");
+  t.classList.add("text");
   if(mode === "journey"){
-    t.classList.remove("text");
-    t.innerHTML = PHASES.map(p => `<button class="tab" role="tab" aria-selected="${p.id===current}" data-id="${p.id}">${art(p.img, p.cls)}${esc(p.name)} ads</button>`).join("");
+    t.innerHTML = PHASES.map(p => `<button class="tab" role="tab" aria-selected="${p.id===current}" data-id="${p.id}">${esc(p.name)} ads</button>`).join("");
   } else {
-    t.classList.add("text");
     t.innerHTML = tagsFor(MODES.find(x => x.id === mode)).map(g => `<button class="tab" role="tab" aria-selected="${g.name===current}" data-id="${esc(g.name)}">${esc(g.name)}</button>`).join("");
   }
 }
