@@ -159,14 +159,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .tab{font:800 17px/1 var(--body);border:0;cursor:pointer;border-radius:var(--r-pill);padding:7px 22px 7px 7px;background:var(--chip);color:var(--ink);display:inline-flex;align-items:center;gap:12px}
 .tab .art{width:60px;background:var(--white)}
-/* cut-out art: no backdrop, the character sits on the section's own colour */
-.art:not(.ph){background:transparent!important;box-shadow:none!important}
-.fband .art:not(.ph),.stair .art:not(.ph),.rung .art:not(.ph){border-radius:0;overflow:visible}
-.art:not(.ph) img{object-fit:contain;object-position:50% 100%}
-.fband{overflow:hidden}
-.fband .art:not(.ph){align-self:flex-end;margin-bottom:-14px}
-.stair .art:not(.ph) img,.rung .art:not(.ph) img{-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
-@media (max-width:640px){.fband .art:not(.ph){margin-bottom:-12px}}
 @media (max-width:560px){.tabs{display:grid;grid-template-columns:1fr;gap:8px}.tab{font-size:17px;padding:6px 18px 6px 6px;gap:12px;width:100%}.tab .art{width:56px}}
 .tab[aria-selected="true"]{background:var(--ink);color:var(--white)}
 .format{margin-top:26px}
