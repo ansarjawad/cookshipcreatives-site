@@ -12,12 +12,16 @@ const SITE = {
   logo: "assets/logo.png",              // your logo with the background removed (falls back to Cookie)
 };
 
-/* The 4 buying stages (keep the ids: T, Ex, Ev, P) */
+/* The 4 buying stages (keep the ids: T, Ex, Ev, P). "def" shows above the examples in the ad library. */
 const PHASES = [
-  { id:"T",  cls:"t",  name:"Trigger",     job:"Catch their eye",          line:"Show them something they care about.",        img:"assets/stages/trigger.webp" },
-  { id:"Ex", cls:"ex", name:"Exploration", job:"Help them see what's possible", line:"Answer the questions on their mind.",   img:"assets/stages/exploration.webp" },
-  { id:"Ev", cls:"ev", name:"Evaluation",  job:"Earn their trust",          line:"Let proof speak louder than promises.", img:"assets/stages/evaluation.webp" },
-  { id:"P",  cls:"p",  name:"Purchase",    job:"Make saying yes easy",     line:"Remove the last worry in the way.", img:"assets/stages/purchase.webp" },
+  { id:"T",  cls:"t",  name:"Trigger",     job:"Catch their eye",          line:"Show them something they care about.",        img:"assets/stages/trigger.webp",
+    def:"The first ad a customer sees. It stops the scroll and makes them care, before they even know they need you." },
+  { id:"Ex", cls:"ex", name:"Exploration", job:"Help them see what's possible", line:"Answer the questions on their mind.",   img:"assets/stages/exploration.webp",
+    def:"For people who are now curious. It shows what's possible and answers the questions on their mind." },
+  { id:"Ev", cls:"ev", name:"Evaluation",  job:"Earn their trust",          line:"Let proof speak louder than promises.", img:"assets/stages/evaluation.webp",
+    def:"For people comparing options. It earns their trust with proof: real results, reviews and demos." },
+  { id:"P",  cls:"p",  name:"Purchase",    job:"Make saying yes easy",     line:"Remove the last worry in the way.", img:"assets/stages/purchase.webp",
+    def:"For people ready to buy. It removes the last doubt and gives them a reason to say yes today." },
 ];
 
 /* Customer awareness levels. "stage" links each level to the buying stage it sits in. */
