@@ -438,7 +438,7 @@ $("#awFunnel").innerHTML = AWARENESS.map((a,i) => `
   </div>`).join('<span class="down" aria-hidden="true"></span>');
 
 /* sophistication */
-$("#stairs").innerHTML = SOPHISTICATION.map((s,i) => `<div class="stair" style="min-height:${230+i*34}px">${art(s.img)}<div class="txt"><span class="lv">Stage ${i+1}</span><b>${esc(s.market)}</b><em>${esc(s.lead)}</em><span>${esc(s.example)}</span></div></div>`).join("");
+$("#stairs").innerHTML = SOPHISTICATION.map((s,i) => `<div class="stair" style="min-height:${190+i*34}px">${art(s.img)}<div class="txt"><span class="lv">Stage ${i+1}</span><b>${esc(s.market)}</b></div></div>`).join("");
 
 /* putting it together */
 let soph = 2;
