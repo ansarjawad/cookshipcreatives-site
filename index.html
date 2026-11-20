@@ -84,6 +84,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .video.vertical{aspect-ratio:9/16}
 .video video{position:absolute;inset:0;width:100%;height:100%;display:block;background:#000;object-fit:contain}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video .tap{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;background:transparent;cursor:pointer}
+.video.paused .tap::after{content:"";position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;
+  background:var(--tomato-deep) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/32px no-repeat;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.video .bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.25);pointer-events:none}
+.video .bar i{display:block;height:100%;width:0;background:var(--sun)}
 .video button.facade{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:#000 center/cover no-repeat}
 .video button.facade::after{content:"";position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;
   background:var(--tomato-deep) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/32px no-repeat;box-shadow:0 6px 18px rgba(0,0,0,.35)}
@@ -434,9 +439,17 @@ function videoEl(src, label, vertical, poster){
   b.addEventListener("click", () => {
     if(isFile){
       const v = document.createElement("video");
-      v.src = src; v.poster = thumb; v.controls = true; v.autoplay = true; v.playsInline = true; v.preload = "auto";
+      v.src = src; v.poster = thumb; v.playsInline = true; v.preload = "auto";
       v.setAttribute("aria-label", label);
-      box.replaceChildren(v); v.play().catch(()=>{});
+      const tap = document.createElement("button"); tap.type = "button"; tap.className = "tap";
+      const bar = document.createElement("span"); bar.className = "bar"; bar.innerHTML = "<i></i>";
+      const sync = () => { box.classList.toggle("paused", v.paused); tap.setAttribute("aria-label", (v.paused ? "Play: " : "Pause: ") + label); };
+      tap.addEventListener("click", () => { v.paused ? v.play().catch(()=>{}) : v.pause(); });
+      v.addEventListener("play", () => { document.querySelectorAll("video").forEach(o => { if(o !== v && !o.paused) o.pause(); }); sync(); });
+      v.addEventListener("pause", sync);
+      v.addEventListener("ended", () => { v.currentTime = 0; sync(); });
+      v.addEventListener("timeupdate", () => { bar.firstChild.style.width = (v.duration ? v.currentTime / v.duration * 100 : 0) + "%"; });
+      box.replaceChildren(v, tap, bar); sync(); v.play().catch(sync);
     } else {
       const f = document.createElement("iframe");
       f.src = "https://www.youtube.com/embed/" + id + "?autoplay=1&rel=0&playsinline=1";
