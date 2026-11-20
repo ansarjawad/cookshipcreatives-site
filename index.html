@@ -524,8 +524,8 @@ $("#plans").innerHTML = PLANS.map(p => `
     ${p.featured?'<span class="badge">Recommended</span>':""}
     <h3>${esc(p.name)}</h3>
     <div class="price">${money(p.price)}</div>
-    <div class="count">${p.ads}<small>ads</small> <span class="perad">· ${money(Math.round(p.price/p.ads))} per ad</span></div>
-    <div class="dur">${SINGLE.minSeconds} sec – ${SINGLE.includedSeconds/60} min each</div>
+    <div class="count">${p.ads}<small>video ads</small> <span class="perad">· ${money(Math.round(p.price/p.ads))} per ad</span></div>
+    <div class="dur">${SINGLE.minSeconds} sec – ${SINGLE.includedSeconds/60} min each video</div>
     <div class="mini" aria-label="Ads per stage">${PHASES.map((ph,k)=>`<a class="${ph.cls}" href="#library" data-stage="${ph.id}"><span>${esc(ph.name)} ${p.split[k]===1?"ad":"ads"}<small>Watch an example ▶</small></span><b>${p.split[k]}</b></a>`).join("")}</div>
     <p class="tailor">${p.ads===1?"Tailored":"Each one tailored"} to your brand's requirements</p>
     <a class="btn" href="${esc(p.checkout || "#packages")}"${p.checkout?' target="_blank" rel="noopener"':""}>Start with ${esc(p.name)}</a>
