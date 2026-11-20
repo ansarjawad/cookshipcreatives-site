@@ -54,7 +54,7 @@ section{padding-block:64px}
 /* top bar */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,251,243,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--cloud)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.top .wrap{max-width:1400px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
 .brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font:400 21px/1 var(--display);min-width:0}
 .brand img{width:36px;height:36px;object-fit:contain;flex:none}
 .brand span{white-space:nowrap}
@@ -66,7 +66,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .btn.teal:hover{background:#115a59}
 .top nav{gap:10px}
 .top nav a.link{margin-right:8px}
-@media (max-width:1180px){.top nav a.link{display:none}}
+@media (max-width:1239px){.top nav a.link{display:none}}
 @media (max-width:480px){.top .wrap{flex-direction:column;gap:8px;padding-block:8px}.top nav{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:8px}.top .btn{width:100%;padding:10px 8px}}
 
 /* hero: the intro video is the title card */
@@ -278,6 +278,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px
       <a class="link" href="#path">How people buy</a>
       <a class="link" href="#awareness">How aware they are</a>
       <a class="link" href="#sophistication">How crowded your market is</a>
+      <a class="link" href="#funnel-all">How we put it together</a>
       <a class="btn teal" href="#library">Watch the ads</a>
       <a class="btn" href="#packages">See packages</a>
     </nav>
