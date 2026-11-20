@@ -108,6 +108,8 @@ const VISUALS = [
   { name:"Stop-motion",     desc:"Handmade puppets on tiny sets, moved frame by frame. Feels crafted and cosy, like a short film at a festival." },
   { name:"Toy & doll world", desc:"Characters look like posable dolls in a pastel dollhouse. Instantly nostalgic, and hard to scroll past." },
   { name:"Felt & knit",     desc:"A world made of wool, felt and yarn. Soft, warm and handmade, so even a hard story feels gentle." },
+  { name:"Lo-fi 3D",        desc:"Crude, low-poly 3D that looks cheap on purpose. In a feed full of polish, it stops the thumb." },
+  { name:"Product CGI",     desc:"Premium studio CGI of the product itself: glass, liquid and macro textures, like a luxury launch film." },
 ];
 const INDUSTRIES = [
   { name:"Skincare & beauty", desc:"Brands selling skincare, makeup, hair and body care. Animation lets us show what happens under the skin, without a single before-and-after photo." },
@@ -120,6 +122,8 @@ const INDUSTRIES = [
   { name:"Apps & tech",       desc:"Apps, software and devices. Animation turns an invisible product into a story people can see and remember." },
   { name:"Sleep",             desc:"Pillows, mattresses, snoring and sleep aids. Animation turns a bad night into a story everyone who shares a bed knows." },
   { name:"Garden & outdoors", desc:"Plants, garden tools and outdoor gear. Animation brings the outdoors to life, from a talking seedling to a mountain trail." },
+  { name:"Books & stationery", desc:"Journals, notebooks and keepsakes. Animation turns a quiet product into a story about the moments it holds." },
+  { name:"Automotive",        desc:"Cars and everything around them. Animation tells the life moment behind the purchase, not just the specs." },
 ];
 
 /* The library. One line per ad:
@@ -154,6 +158,39 @@ const ADS = [
   { stage:"T", format:"Story ads", visual:"Felt & knit", industry:"Garden & outdoors", video:"assets/ads/icepaws-back-to-chess.mp4", title:"Back to Chess", credit:"ICEPAWS · slip-on ice cleats", vertical:true },
   { stage:"T", format:"Story ads", visual:"Felt & knit", industry:"Garden & outdoors", video:"assets/ads/stayfrost-ten-years-late.mp4", title:"Ten Years Late", credit:"STAYFROST · insulated water bottle", vertical:true },
   { stage:"T", format:"Story ads", visual:"Felt & knit", industry:"Fashion", video:"assets/ads/knitkeeper-nice-sweater-sheep.mp4", title:"Nice Sweater, Sheep", credit:"KNITKEEPER · fabric shaver", vertical:true },
+  { stage:"T", format:"Educational ads", visual:"Lo-fi 3D", industry:"Health & wellness", video:"assets/ads/menerals-the-man-with-26-pacemakers.mp4", title:"The Man With 26 Pacemakers", credit:"MENERALS · 100-mineral supplement", vertical:true },
+  { stage:"T", format:"Story ads", visual:"3D animation", industry:"Books & stationery", video:"assets/ads/still-archive-the-last-time.mp4", title:"The Last Time", credit:"STILL ARCHIVE · keepsake journal for mothers", vertical:true },
+  { stage:"T", format:"Funny gag ads", visual:"3D animation", industry:"Garden & outdoors", video:"assets/ads/cased-every-rider-remembers.mp4", title:"Every Rider Remembers", credit:"CASED · protective riding gear", vertical:true },
+  { stage:"T", format:"Story ads", visual:"3D animation", industry:"Books & stationery", video:"assets/ads/still-archive-go-find-yourself.mp4", title:"Go Find Yourself", credit:"STILL ARCHIVE · travel journal", vertical:true },
+  { stage:"Ev", format:"Mascot ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/primal-queen-can-we-talk-first.mp4", title:"Can We Talk First?", credit:"PRIMAL QUEEN · beef organ supplement for women", vertical:true },
+  { stage:"T", format:"Funny gag ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/menerals-wrong-decade.mp4", title:"Wrong Decade", credit:"MENERALS · 100-mineral supplement", vertical:true },
+  { stage:"T", format:"Funny gag ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/menerals-which-house-is-yours.mp4", title:"Which House Is Yours?", credit:"MENERALS · 100-mineral supplement", vertical:true },
+  { stage:"Ev", format:"Comparison ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/menerals-thats-your-protocol.mp4", title:"That's Your Protocol?", credit:"MENERALS · 100-mineral supplement", vertical:true },
+  { stage:"T", format:"Funny gag ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/menerals-how-theyll-remember-us.mp4", title:"How They'll Remember Us", credit:"MENERALS · 100-mineral supplement", vertical:true },
+  { stage:"T", format:"Funny gag ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/menerals-the-pickle-jar.mp4", title:"The Pickle Jar", credit:"MENERALS · 100-mineral supplement", vertical:true },
+  { stage:"T", format:"Story ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/menerals-name-10-minerals.mp4", title:"Name 10 Minerals", credit:"MENERALS · 100-mineral supplement", vertical:true },
+  { stage:"T", format:"Story ads", visual:"3D animation", industry:"Automotive", video:"assets/ads/dodge-worth-making-room-for.mp4", title:"Worth Making Room For", credit:"DODGE · minivan (spec ad)", vertical:true },
+  { stage:"T", format:"Story ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/menerals-this-is-how-it-starts.mp4", title:"This Is How It Starts", credit:"MENERALS · 100-mineral supplement", vertical:true },
+  { stage:"Ev", format:"Comparison ads", visual:"Toy & doll world", industry:"Health & wellness", video:"assets/ads/bioroot-action-turmeric-is-everything.mp4", title:"Action! Turmeric Is Everything", credit:"BIOROOT · turmeric curcumin supplement", vertical:true },
+  { stage:"T", format:"Funny gag ads", visual:"Toy & doll world", industry:"Health & wellness", video:"assets/ads/bioroot-your-knees-sound-like-cereal.mp4", title:"Your Knees Sound Like Cereal", credit:"BIOROOT · turmeric curcumin supplement", vertical:true },
+  { stage:"T", format:"Educational ads", visual:"Toy & doll world", industry:"Health & wellness", video:"assets/ads/menerals-listen-up-modern-men.mp4", title:"Listen Up, Modern Men", credit:"MENERALS · 100-mineral supplement", vertical:true },
+  { stage:"Ex", format:"Explainer ads", visual:"Product CGI", industry:"Fashion", video:"assets/ads/hollow-rebuilt-from-the-ground-up.mp4", title:"Rebuilt From the Ground Up", credit:"HOLLOW · alpaca compression socks", vertical:true },
+  { stage:"Ex", format:"Educational ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/menerals-what-happened-to-modern-men.mp4", title:"What Happened to Modern Men?", credit:"MENERALS · 100-mineral supplement", vertical:true },
+  { stage:"T", format:"Story ads", visual:"Anime", industry:"Health & wellness", video:"assets/ads/menerals-no-one-remembers-agreeing.mp4", title:"No One Remembers Agreeing", credit:"MENERALS · 100-mineral supplement", vertical:true },
+  { stage:"T", format:"Musical ads", visual:"3D animation", industry:"Garden & outdoors", video:"assets/ads/nat-pat-summer-night-bugs.mp4", title:"Summer Night Bugs", credit:"NAT PAT · mosquito repellent stickers", vertical:true },
+  { stage:"Ex", format:"Explainer ads", visual:"3D animation", industry:"Fashion", video:"assets/ads/hollow-grandmothers-socks.mp4", title:"Grandmother's Socks", credit:"HOLLOW · alpaca compression socks", vertical:true },
+  { stage:"Ex", format:"Explainer ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/bioroot-your-body-doesnt-absorb-it.mp4", title:"Your Body Doesn't Absorb It", credit:"BIOROOT · turmeric curcumin supplement", vertical:true },
+  { stage:"Ev", format:"Mascot ads", visual:"3D animation", industry:"Sleep", video:"assets/ads/mellow-the-pillow-podcast.mp4", title:"The Pillow Podcast", credit:"MELLOW · CloudAlign pillow", vertical:true },
+  { stage:"Ex", format:"Explainer ads", visual:"Product CGI", industry:"Skincare & beauty", video:"assets/ads/dr-barbara-sturm-skin-care-that-understands-biol.mp4", title:"Skin Care That Understands Biology", credit:"DR. BARBARA STURM · face serum (spec ad)", vertical:true },
+  { stage:"Ex", format:"Explainer ads", visual:"Product CGI", industry:"Health & wellness", video:"assets/ads/newself-bodies-run-on-signals.mp4", title:"Bodies Run on Signals", credit:"NEWSELF · tirzepatide (GLP-1)", vertical:true },
+  { stage:"Ev", format:"Comparison ads", visual:"Product CGI", industry:"Skincare & beauty", video:"assets/ads/collagen-booster-beautys-dirty-secret.mp4", title:"Beauty's Dirty Secret", credit:"COLLAGEN BOOSTER · plant collagen booster", vertical:true },
+  { stage:"Ev", format:"Comparison ads", visual:"Motion graphics", industry:"Skincare & beauty", video:"assets/ads/collagen-booster-industrial-byproduct-detected.mp4", title:"Industrial Byproduct Detected", credit:"COLLAGEN BOOSTER · plant collagen booster", vertical:true },
+  { stage:"Ev", format:"Comparison ads", visual:"3D animation", industry:"Sleep", video:"assets/ads/mellow-no-thanks.mp4", title:"No Thanks", credit:"MELLOW · CloudAlign pillow", vertical:true },
+  { stage:"Ex", format:"Educational ads", visual:"Claymation", industry:"Health & wellness", video:"assets/ads/kwikmind-you-think-what-you-eat.mp4", title:"You Think What You Eat", credit:"KWIKMIND · brain supplement", vertical:true },
+  { stage:"Ev", format:"Explainer ads", visual:"Claymation", industry:"Health & wellness", video:"assets/ads/altrx-denied-by-insurance.mp4", title:"Denied by Insurance?", credit:"ALTRX · compounded GLP-1", vertical:true },
+  { stage:"Ex", format:"Explainer ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/altrx-not-everybodys-body-is-the-same.mp4", title:"Not Everybody's Body Is the Same", credit:"ALTRX · compounded GLP-1", vertical:true },
+  { stage:"Ex", format:"Educational ads", visual:"3D animation", industry:"Sleep", video:"assets/ads/mellow-the-pillow-since-7000-bc.mp4", title:"The Pillow Since 7000 BC", credit:"MELLOW · CloudAlign pillow", vertical:true },
+  { stage:"T", format:"Funny gag ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/menerals-stay-worth-invading.mp4", title:"Stay Worth Invading", credit:"MENERALS · 100-mineral supplement", vertical:true },
 ];
 
 /* Packages: ads per buying stage in "split" (Trigger, Exploration, Evaluation, Purchase) */
