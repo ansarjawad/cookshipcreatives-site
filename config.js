@@ -121,10 +121,7 @@ const INDUSTRIES = [
    visual (must match a name in VISUALS), industry (must match a name in INDUSTRIES),
    YouTube link or ID, a title, and a credit line. vertical:true for 9:16 Shorts. */
 const ADS = [
-  { stage:"T",  format:"Story ads", visual:"3D animation", industry:"Skincare & beauty", youtube:"", title:"Ad title", credit:"Brand · creator", vertical:true },
-  { stage:"Ex", format:"Explainer ads", visual:"2D cartoon",   industry:"Food & drink",      youtube:"", title:"Ad title", credit:"Brand · creator", vertical:true },
-  { stage:"Ev", format:"Testimonial ads", visual:"3D animation", industry:"Health & wellness", youtube:"", title:"Ad title", credit:"Brand · creator", vertical:true },
-  { stage:"P",  format:"Offer ads", visual:"Claymation",   industry:"Skincare & beauty", youtube:"", title:"Ad title", credit:"Brand · creator", vertical:true },
+  { stage:"T", format:"Musical ads", visual:"3D animation", industry:"Oral care", youtube:"JPNsO9m1WeQ", title:"Father of the Bride Toast", credit:"GLIM · teeth whitening pen", vertical:true },
 ];
 
 /* Packages: ads per buying stage in "split" (Trigger, Exploration, Evaluation, Purchase) */

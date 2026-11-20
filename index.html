@@ -181,6 +181,7 @@ section[id]{scroll-margin-top:72px}
 @media (max-width:480px){section[id]{scroll-margin-top:120px}}
 .def{margin-top:22px;border-left:6px solid var(--c);background:var(--white);border-radius:0 16px 16px 0;padding:14px 18px;max-width:760px}
 .def.visual{--c:var(--teal)} .def.format{--c:#8A5A00} .def.industry{--c:var(--tomato-deep)}
+.soon{margin-top:22px;font-weight:700;color:var(--ink-muted)} .soon a{color:var(--tomato-deep)}
 .def b{font:400 22px/1.1 var(--display);color:var(--c)}
 .def p{margin:6px 0 0;font-size:16px;color:var(--ink)}
 .format{margin-top:26px}
@@ -499,7 +500,7 @@ function renderPanel(){
     if(ph && ph.def){ const d = document.createElement("div"); d.className = `def ${ph.cls}`; d.innerHTML = `<b>${esc(ph.name)} ads</b><p>${esc(ph.def)}</p>`; panel.append(d); }
     const ads = ADS.filter(a => a.stage === current);
     const sec = document.createElement("div"); sec.className = "format";
-    sec.innerHTML = `<h3>Examples <small>${ads.length} ${ads.length===1?"ad":"ads"}</small></h3>`;
+    sec.innerHTML = ads.length ? `<h3>Examples <small>${ads.length} ${ads.length===1?"ad":"ads"}</small></h3>` : `<p class="soon">New ${esc(ph.name)} ads are on the way. Want one made for your brand? <a href="#packages">See packages</a></p>`;
     const g = document.createElement("div"); g.className = "grid";
     ads.forEach(a => g.append(adCard(a, [a.format, a.visual, a.industry].filter(Boolean).map(x => `<i>${esc(x)}</i>`))));
     sec.append(g); panel.append(sec);
