@@ -14,16 +14,16 @@ const SITE = {
 
 /* The 4 buying stages (keep the ids: T, Ex, Ev, P). "moment" describes the step in the funnel; "def" shows above the examples in the ad library. */
 const PHASES = [
-  { id:"T",  cls:"t",  name:"Trigger",     job:"Catch their eye",          line:"Show them something they care about.",        img:"assets/stages/trigger.webp",
+  { id:"T",  cls:"t",  name:"Trigger",     job:"Make them feel the problem",          line:"Show them something they care about.",        img:"assets/stages/trigger.webp",
     moment:"They notice a problem and start to feel they need a fix.",
     def:"When they notice a problem. A Trigger ad puts that feeling into a story they can't scroll past, so your brand is the first one they think of." },
-  { id:"Ex", cls:"ex", name:"Exploration", job:"Help them see what's possible", line:"Answer the questions on their mind.",   img:"assets/stages/exploration.webp",
+  { id:"Ex", cls:"ex", name:"Exploration", job:"Show how you solve it", line:"Answer the questions on their mind.",   img:"assets/stages/exploration.webp",
     moment:"They go looking for ways to solve it, searching and scrolling online.",
     def:"When they go looking for a fix. An Exploration ad shows how your product solves it and answers their questions before they ask." },
-  { id:"Ev", cls:"ev", name:"Evaluation",  job:"Earn their trust",          line:"Let proof speak louder than promises.", img:"assets/stages/evaluation.webp",
+  { id:"Ev", cls:"ev", name:"Evaluation",  job:"Prove you're better than the rest",          line:"Let proof speak louder than promises.", img:"assets/stages/evaluation.webp",
     moment:"They compare the options they found and ask, which one can I trust?",
     def:"When they compare their options. An Evaluation ad shows them how your product is better than your competitors (results, experience and outcomes)." },
-  { id:"P",  cls:"p",  name:"Purchase",    job:"Make saying yes easy",     line:"Remove the last worry in the way.", img:"assets/stages/purchase.webp",
+  { id:"P",  cls:"p",  name:"Purchase",    job:"Give them a reason to buy today",     line:"Remove the last worry in the way.", img:"assets/stages/purchase.webp",
     moment:"They've made up their mind. Now they just need a reason to buy today.",
     def:"When they've made up their mind. A Purchase ad removes the last doubt and gives them a reason to buy today: an offer, a guarantee or a deadline." },
 ];
@@ -37,13 +37,24 @@ const AWARENESS = [
   { name:"Most aware",     thinks:"“I want your product. Give me a reason to buy!”", ad:"Make it easy, and give them a reason today.",  stage:"P",  img:"assets/stages/aware-5.webp" },
 ];
 
-/* Market sophistication stages, and what an ad should lead with at each */
+/* Market sophistication stages. "angles" is what each ad (Trigger, Exploration, Evaluation, Purchase)
+   should do in that market; it shows in the "Putting it together" section. */
 const SOPHISTICATION = [
-  { market:"First to market", about:"You're the only one selling this. Buyers just need to hear what it does.",     lead:"Say it simply",            example:"“Lose weight.”",                    img:"assets/stages/market-1.webp" },
-  { market:"A few competitors", about:"Others now sell the same thing, so buyers go with the boldest promise.",   lead:"Make a bolder promise",       example:"“Lose 10 kg in 30 days.”",         img:"assets/stages/market-2.webp" },
-  { market:"Claims stop working", about:"Everyone makes big promises, so buyers stop believing any of them.", lead:"Show them something new",      example:"“The 2-minute morning reset.”",    img:"assets/stages/market-3.webp" },
-  { market:"Copycat mechanisms", about:"Rivals copy how your product works too. Buyers can't tell you apart.",  lead:"Show them a better way", example:"“The reset, now with zero prep.”", img:"assets/stages/market-4.webp" },
-  { market:"Buyers tune out", about:"Buyers have heard it all. They only listen to brands that feel like them.",     lead:"Speak to who they are",        example:"“For moms who never get a minute.”", img:"assets/stages/market-5.webp" },
+  { market:"First to market",
+    angles:{ T:"Name the problem plainly. They've never seen a fix before.", Ex:"Explain simply what your product does and how.", Ev:"Show it working. Being first is proof enough.", P:"Tell them where to get it, and make the first order easy." },
+    about:"You're the only one selling this. Buyers just need to hear what it does.",     lead:"Say it simply",            example:"“Lose weight.”",                    img:"assets/stages/market-1.webp" },
+  { market:"A few competitors",
+    angles:{ T:"Make a bigger, bolder promise than the others.", Ex:"Show a faster or bigger result than anyone else.", Ev:"Put numbers on it: how much, how fast, how many.", P:"Beat the others on the offer: a bonus, a bundle or a better price." },
+    about:"Others now sell the same thing, so buyers go with the boldest promise.",   lead:"Make a bolder promise",       example:"“Lose 10 kg in 30 days.”",         img:"assets/stages/market-2.webp" },
+  { market:"Claims stop working",
+    angles:{ T:"Lead with something new, not another big promise.", Ex:"Explain the new way your product works.", Ev:"Prove the new way works with real results.", P:"Lower the risk with a guarantee or a free trial." },
+    about:"Everyone makes big promises, so buyers stop believing any of them.", lead:"Show them something new",      example:"“The 2-minute morning reset.”",    img:"assets/stages/market-3.webp" },
+  { market:"Copycat mechanisms",
+    angles:{ T:"Show why the usual fixes keep failing them.", Ex:"Show what makes your way better than the copies.", Ev:"Compare side by side, and let customers say why you win.", P:"Give them a reason to choose you today, not later." },
+    about:"Rivals copy how your product works too. Buyers can't tell you apart.",  lead:"Show them a better way", example:"“The reset, now with zero prep.”", img:"assets/stages/market-4.webp" },
+  { market:"Buyers tune out",
+    angles:{ T:"Speak to who they are, not what you sell.", Ex:"Show people like them already using it.", Ev:"Let your community do the talking.", P:"Invite them in to join people like them." },
+    about:"Buyers have heard it all. They only listen to brands that feel like them.",     lead:"Speak to who they are",        example:"“For moms who never get a minute.”", img:"assets/stages/market-5.webp" },
 ];
 
 /* Footer links. Leave a url empty ("") to hide it. */

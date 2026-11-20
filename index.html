@@ -153,6 +153,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .who .art{width:44px;height:44px;flex:none;background:var(--sky);box-shadow:0 0 0 2px rgba(255,255,255,.25)}
 .together .fband.p{background:#2A1A12}
 .angle{font-size:15px;color:#E3D5C8}
+.who em{font-style:normal;display:flex;flex-direction:column;line-height:1.15}
+.who em small{font-weight:600;font-size:12.5px;opacity:.8;margin-top:2px}
+.who > span{border-radius:24px}
 .angle b{color:var(--sun)}
 @media (max-width:760px){.jrow{grid-template-columns:1fr;gap:12px;padding:10px 10px 16px}.jrow .side{padding-inline:6px}}
 
@@ -449,8 +452,8 @@ function renderJoined(){
   $("#seg").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.i === soph));
   const s = SOPHISTICATION[soph];
   $("#joined").innerHTML = PHASES.map(p => {
-    const who = AWARENESS.filter(a => a.stage === p.id).map(a => `<span>${art(a.img)}${esc(a.name)}</span>`).join("");
-    const angle = p.id === "P" ? `Make it <b>easy, and give them a reason to act today</b>` : `Lead with <b>${esc(s.lead.toLowerCase())}</b>`;
+    const who = AWARENESS.filter(a => a.stage === p.id).map(a => `<span>${art(a.img)}<em>${esc(a.name)}<small>${esc(a.thinks)}</small></em></span>`).join("");
+    const angle = s.angles && s.angles[p.id] ? `Your ad: <b>${esc(s.angles[p.id])}</b>` : "";
     return `<div class="jrow"><div class="fband ${p.cls}">${art(p.img)}<div class="txt"><b>${esc(p.name)}</b><span class="job">${esc(p.job)}</span></div></div>
       <div class="side"><div class="who">${who}</div><div class="angle">${angle}</div></div></div>`;
   }).join("");
