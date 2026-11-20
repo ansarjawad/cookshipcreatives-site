@@ -511,7 +511,7 @@ function renderPanel(){
     if(ph && ph.def){ const d = document.createElement("div"); d.className = `def ${ph.cls}`; d.innerHTML = `<b>${esc(ph.name)} ads</b><p>${esc(ph.def)}</p>`; panel.append(d); }
     const ads = ADS.filter(a => a.stage === current);
     const sec = document.createElement("div"); sec.className = "format";
-    sec.innerHTML = ads.length ? `<h3>Examples <small>${ads.length} ${ads.length===1?"ad":"ads"}</small></h3>` : `<p class="soon">New ${esc(ph.name)} ads are on the way. Want one made for your brand? <a href="#packages">See packages</a></p>`;
+    sec.innerHTML = ads.length ? "" : `<p class="soon">New ${esc(ph.name)} ads are on the way. Want one made for your brand? <a href="#packages">See packages</a></p>`;
     const g = document.createElement("div"); g.className = "grid";
     ads.forEach(a => g.append(adCard(a, [a.format, a.visual, a.industry].filter(Boolean).map(x => `<i>${esc(x)}</i>`))));
     sec.append(g); panel.append(sec);
@@ -522,7 +522,7 @@ function renderPanel(){
   const ads = ADS.filter(a => a[m.key] === current);
   const sec = document.createElement("div"); sec.className = "format";
   if(tag.desc){ const d = document.createElement("div"); d.className = `def ${mode}`; d.innerHTML = `<b>${esc(current)}</b><p>${esc(tag.desc)}</p>`; panel.append(d); }
-  sec.innerHTML = `<h3>${tag.desc ? "Examples" : esc(current)} <small>${ads.length} ${ads.length===1?"ad":"ads"}</small></h3>`;
+  sec.innerHTML = tag.desc ? "" : `<h3>${esc(current)}</h3>`;
   const g = document.createElement("div"); g.className = "grid";
   ads.forEach(a => { const p = phase(a.stage);
     g.append(adCard(a, [p ? `<i class="st ${p.cls}">${esc(p.name)} ad</i>` : "", ...others.filter(k => a[k]).map(k => `<i>${esc(a[k])}</i>`)].filter(Boolean))); });
