@@ -121,6 +121,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .stairs{margin-top:30px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;align-items:end}
 .stair{background:var(--cloud);border-radius:var(--r-md) var(--r-md) 10px 10px;padding:14px 14px 18px;display:flex;flex-direction:column;gap:8px;min-width:0}
 .stair .art{width:96px;box-shadow:0 0 0 3px var(--peach)}
+.stair .about{display:block;margin-top:6px;font-size:14px;line-height:1.35;color:var(--ink-muted);font-weight:600}
 .stair .lv{font:400 16px/1 var(--display);color:var(--tomato-deep)}
 .stair b{font:400 18px/1.1 var(--display)}
 .stair em{font-style:normal;font-weight:800;font-size:14px;color:var(--teal)}
@@ -438,7 +439,7 @@ $("#awFunnel").innerHTML = AWARENESS.map((a,i) => `
   </div>`).join('<span class="down" aria-hidden="true"></span>');
 
 /* sophistication */
-$("#stairs").innerHTML = SOPHISTICATION.map((s,i) => `<div class="stair" style="min-height:${190+i*34}px">${art(s.img)}<div class="txt"><span class="lv">Stage ${i+1}</span><b>${esc(s.market)}</b></div></div>`).join("");
+$("#stairs").innerHTML = SOPHISTICATION.map((s,i) => `<div class="stair" style="min-height:${250+i*30}px">${art(s.img)}<div class="txt"><span class="lv">Stage ${i+1}</span><b>${esc(s.market)}</b>${s.about ? `<span class="about">${esc(s.about)}</span>` : ""}</div></div>`).join("");
 
 /* putting it together */
 let soph = 2;

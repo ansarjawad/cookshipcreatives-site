@@ -39,11 +39,11 @@ const AWARENESS = [
 
 /* Market sophistication stages, and what an ad should lead with at each */
 const SOPHISTICATION = [
-  { market:"First to market",     lead:"Say it simply",            example:"“Lose weight.”",                    img:"assets/stages/market-1.webp" },
-  { market:"A few competitors",   lead:"Make a bolder promise",       example:"“Lose 10 kg in 30 days.”",         img:"assets/stages/market-2.webp" },
-  { market:"Claims stop working", lead:"Show them something new",      example:"“The 2-minute morning reset.”",    img:"assets/stages/market-3.webp" },
-  { market:"Copycat mechanisms",  lead:"Show them a better way", example:"“The reset, now with zero prep.”", img:"assets/stages/market-4.webp" },
-  { market:"Buyers tune out",     lead:"Speak to who they are",        example:"“For moms who never get a minute.”", img:"assets/stages/market-5.webp" },
+  { market:"First to market", about:"You're the only one selling this. Buyers just need to hear what it does.",     lead:"Say it simply",            example:"“Lose weight.”",                    img:"assets/stages/market-1.webp" },
+  { market:"A few competitors", about:"Others now sell the same thing, so buyers go with the boldest promise.",   lead:"Make a bolder promise",       example:"“Lose 10 kg in 30 days.”",         img:"assets/stages/market-2.webp" },
+  { market:"Claims stop working", about:"Everyone makes big promises, so buyers stop believing any of them.", lead:"Show them something new",      example:"“The 2-minute morning reset.”",    img:"assets/stages/market-3.webp" },
+  { market:"Copycat mechanisms", about:"Rivals copy how your product works too. Buyers can't tell you apart.",  lead:"Show them a better way", example:"“The reset, now with zero prep.”", img:"assets/stages/market-4.webp" },
+  { market:"Buyers tune out", about:"Buyers have heard it all. They only listen to brands that feel like them.",     lead:"Speak to who they are",        example:"“For moms who never get a minute.”", img:"assets/stages/market-5.webp" },
 ];
 
 /* Footer links. Leave a url empty ("") to hide it. */
