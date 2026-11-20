@@ -176,6 +176,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 section[id]{scroll-margin-top:72px}
 @media (max-width:480px){section[id]{scroll-margin-top:120px}}
 .def{margin-top:22px;border-left:6px solid var(--c);background:var(--white);border-radius:0 16px 16px 0;padding:14px 18px;max-width:760px}
+.def.visual{--c:var(--teal)} .def.industry{--c:var(--tomato-deep)}
 .def b{font:400 22px/1.1 var(--display);color:var(--c)}
 .def p{margin:6px 0 0;font-size:16px;color:var(--ink)}
 .format{margin-top:26px}
@@ -310,7 +311,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px
       <div class="single" aria-labelledby="sv-h">
         <div>
           <h3 id="sv-h">Need a custom video ad?</h3>
-          <label for="len">Length <output id="lenOut">1 min</output></label>
+          <label for="len">Length <output id="lenOut">2 min</output></label>
           <input id="len" type="range" step="5">
           <div class="ticks"><span id="tMin"></span><span id="tMax"></span></div>
         </div>
@@ -505,7 +506,8 @@ function renderPanel(){
   const other = mode === "visual" ? "industry" : "visual";
   const ads = ADS.filter(a => a[m.key] === current);
   const sec = document.createElement("div"); sec.className = "format";
-  sec.innerHTML = `<h3>${esc(current)} <small>${ads.length} ${ads.length===1?"ad":"ads"}</small></h3>${tag.desc ? `<p>${esc(tag.desc)}</p>` : ""}`;
+  if(tag.desc){ const d = document.createElement("div"); d.className = `def ${mode}`; d.innerHTML = `<b>${esc(current)}</b><p>${esc(tag.desc)}</p>`; panel.append(d); }
+  sec.innerHTML = `<h3>${tag.desc ? "Examples" : esc(current)} <small>${ads.length} ${ads.length===1?"ad":"ads"}</small></h3>`;
   const g = document.createElement("div"); g.className = "grid";
   ads.forEach(a => { const p = phase(a.stage);
     g.append(adCard(a, [p ? `<i class="st ${p.cls}">${esc(p.name)} ad</i>` : "", a[other] ? `<i>${esc(a[other])}</i>` : ""].filter(Boolean))); });
@@ -523,7 +525,7 @@ $("#plans").innerHTML = PLANS.map(p => `
     <h3>${esc(p.name)}</h3>
     <div class="price">${money(p.price)}</div>
     <div class="count">${p.ads}<small>ads</small> <span class="perad">· ${money(Math.round(p.price/p.ads))} per ad</span></div>
-    <div class="dur">30–60 seconds each</div>
+    <div class="dur">${SINGLE.minSeconds} sec – ${SINGLE.includedSeconds/60} min each</div>
     <div class="mini" aria-label="Ads per stage">${PHASES.map((ph,k)=>`<a class="${ph.cls}" href="#library" data-stage="${ph.id}"><span>${esc(ph.name)} ${p.split[k]===1?"ad":"ads"}<small>Watch an example ▶</small></span><b>${p.split[k]}</b></a>`).join("")}</div>
     <p class="tailor">${p.ads===1?"Tailored":"Each one tailored"} to your brand's requirements</p>
     <a class="btn" href="${esc(p.checkout || "#packages")}"${p.checkout?' target="_blank" rel="noopener"':""}>Start with ${esc(p.name)}</a>

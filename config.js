@@ -80,20 +80,20 @@ const FORMATS = {
 /* Visual styles and industries the library can be browsed by.
    Only tags that at least one ad uses show up on the site. Rename, add or remove freely. */
 const VISUALS = [
-  { name:"3D animation",    desc:"Soft, Pixar-style characters with real depth." },
-  { name:"2D cartoon",      desc:"Flat, bold and fast. Made for the scroll." },
-  { name:"Claymation",      desc:"Handmade texture that feels warm and real." },
-  { name:"Anime",           desc:"Big emotion, bigger expressions." },
-  { name:"Motion graphics", desc:"Clean shapes and type that explain in seconds." },
+  { name:"3D animation",    desc:"Rounded, Pixar-style characters with real depth and lighting. Feels like a movie, so people stop and watch." },
+  { name:"2D cartoon",      desc:"Flat, bold and fast. Simple shapes and bright colours that read in a second on a small screen." },
+  { name:"Claymation",      desc:"Characters that look handmade from clay. The texture feels warm and real, and stands out in a feed full of polish." },
+  { name:"Anime",           desc:"Big eyes, big emotion, big reactions. Made for audiences who grew up on anime and love a dramatic moment." },
+  { name:"Motion graphics", desc:"Clean shapes, icons and type in motion. Best for explaining how something works in a few seconds." },
 ];
 const INDUSTRIES = [
-  { name:"Skincare & beauty", desc:"" },
-  { name:"Food & drink",      desc:"" },
-  { name:"Health & wellness", desc:"" },
-  { name:"Fashion",           desc:"" },
-  { name:"Home & kitchen",    desc:"" },
-  { name:"Pets",              desc:"" },
-  { name:"Apps & tech",       desc:"" },
+  { name:"Skincare & beauty", desc:"Brands selling skincare, makeup, hair and body care. Animation lets us show what happens under the skin, without a single before-and-after photo." },
+  { name:"Food & drink",      desc:"Snacks, drinks, coffee, sauces and meal kits. Animation makes taste visible: the crunch, the fizz, the first sip." },
+  { name:"Health & wellness", desc:"Supplements, fitness, sleep and personal care. Animation explains how it works simply, and keeps claims friendly and clear." },
+  { name:"Fashion",           desc:"Clothing, shoes, jewellery and accessories. Characters wear the product in worlds a photoshoot can't reach." },
+  { name:"Home & kitchen",    desc:"Cookware, cleaning, decor and gadgets. Animation shows the everyday problem and the product fixing it, in one scene." },
+  { name:"Pets",              desc:"Food, toys and care for dogs, cats and more. A pet character tells the story the owner already feels." },
+  { name:"Apps & tech",       desc:"Apps, software and devices. Animation turns an invisible product into a story people can see and remember." },
 ];
 
 /* The library. One line per ad:
@@ -114,6 +114,7 @@ const PLANS = [
   { name:"Ultra",   ads:20, split:[5,5,5,5], price:9000, checkout:"https://whop.com/checkout/plan_IFkXNRnojoSZe" },
 ];
 
-/* Single custom video: price up to includedSeconds, then a rate per extra second */
-const SINGLE = { base:550, includedSeconds:60, extraPerSec:9, minSeconds:15, maxSeconds:600 };
+/* Ad length. Package ads run from minSeconds up to includedSeconds.
+   Single custom video: flat base price up to includedSeconds, then a rate per extra second. */
+const SINGLE = { base:550, includedSeconds:120, extraPerSec:9, minSeconds:15, maxSeconds:600 };
 /* ===================================================================== */
