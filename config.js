@@ -22,7 +22,7 @@ const PHASES = [
     def:"When they go looking for a fix. An Exploration ad shows how your product solves it and answers their questions before they ask." },
   { id:"Ev", cls:"ev", name:"Evaluation",  job:"Earn their trust",          line:"Let proof speak louder than promises.", img:"assets/stages/evaluation.webp",
     moment:"They compare the options they found and ask, which one can I trust?",
-    def:"When they compare their options. An Evaluation ad gives them proof (results, reviews and real moments) that you're the one to trust." },
+    def:"When they compare their options. An Evaluation ad shows them how your product is better than your competitors (results, experience and outcomes)." },
   { id:"P",  cls:"p",  name:"Purchase",    job:"Make saying yes easy",     line:"Remove the last worry in the way.", img:"assets/stages/purchase.webp",
     moment:"They've made up their mind. Now they just need a reason to buy today.",
     def:"When they've made up their mind. A Purchase ad removes the last doubt and gives them a reason to buy today: an offer, a guarantee or a deadline." },
