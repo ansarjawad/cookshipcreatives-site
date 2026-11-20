@@ -428,7 +428,7 @@ document.querySelector('[data-yt="intro"]').replaceWith(videoEl(SITE.introVideo,
 /* buying funnel */
 $("#funnel").innerHTML = PHASES.map((p,i) => `
   <div class="fband ${p.cls}" style="--w:${100-i*8}%">${art(p.img)}
-    <div class="txt" style="text-align:left"><b>${esc(p.name)}</b><span class="job">${esc(p.job)}</span><span class="line">${esc(p.line)}</span></div>
+    <div class="txt" style="text-align:left"><b>${esc(p.name)}</b><span class="job">${esc(p.moment || p.job)}</span></div>
     </div>`).join('<span class="down" aria-hidden="true"></span>');
 
 /* awareness */
