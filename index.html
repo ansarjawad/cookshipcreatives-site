@@ -192,6 +192,8 @@ section[id]{scroll-margin-top:72px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:14px}
 @media (max-width:480px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
 .ad{min-width:0}
+.morewrap{text-align:center;margin:22px 0 0}
+.btn.more[hidden]{display:none}
 .ad .meta{margin-top:8px;font-size:14px;line-height:1.35}
 .ad .meta b{display:block}
 .ad .meta span{color:var(--ink-muted)}
@@ -504,6 +506,20 @@ function adCard(a, chips){
   m.innerHTML = `<b>${esc(a.title)}</b><span>${esc(a.credit)}</span>` + (chips.length ? `<span class="chips">${chips.join("")}</span>` : "");
   c.append(m); return c;
 }
+/* show two rows of ads at a time; "Load more" adds two more */
+function paginate(g, sec){
+  const cards = [...g.children]; if(!cards.length) return;
+  const cols = () => Math.max(1, getComputedStyle(g).gridTemplateColumns.split(" ").filter(Boolean).length);
+  let shown = 0;
+  const btn = document.createElement("button"); btn.type = "button"; btn.className = "btn more";
+  const step = () => { shown += cols() * 2;
+    cards.forEach((c,i) => c.hidden = i >= shown);
+    const left = cards.length - Math.min(shown, cards.length);
+    btn.hidden = left <= 0; btn.textContent = `Load more (${left})`; };
+  btn.addEventListener("click", () => { const first = cards[shown]; step(); first && first.querySelector("button, a")?.focus({preventScroll:true}); });
+  const wrap = document.createElement("p"); wrap.className = "morewrap"; wrap.append(btn); sec.append(wrap);
+  requestAnimationFrame(step);
+}
 function renderPanel(){
   const panel = $("#panel"); panel.innerHTML = "";
   if(mode === "journey"){
@@ -515,6 +531,7 @@ function renderPanel(){
     const g = document.createElement("div"); g.className = "grid";
     ads.forEach(a => g.append(adCard(a, [a.format, a.visual, a.industry].filter(Boolean).map(x => `<i>${esc(x)}</i>`))));
     sec.append(g); panel.append(sec);
+    paginate(g, sec);
     return;
   }
   const m = MODES.find(x => x.id === mode), tag = m.list.find(t => t.name === current) || {};
@@ -527,6 +544,7 @@ function renderPanel(){
   ads.forEach(a => { const p = phase(a.stage);
     g.append(adCard(a, [p ? `<i class="st ${p.cls}">${esc(p.name)} ad</i>` : "", ...others.filter(k => a[k]).map(k => `<i>${esc(a[k])}</i>`)].filter(Boolean))); });
   sec.append(g); panel.append(sec);
+  paginate(g, sec);
 }
 renderModes(); renderTabs(); renderPanel();
 
