@@ -30,11 +30,11 @@ const PHASES = [
 
 /* Customer awareness levels. "stage" links each level to the buying stage it sits in. */
 const AWARENESS = [
-  { name:"Unaware",        thinks:"“I'm fine.”", ad:"Start with what they want, not what you sell.",            stage:"T",  img:"assets/stages/aware-1.webp" },
-  { name:"Problem aware",  thinks:"“Something's wrong.”", ad:"Show them you understand the problem better than anyone.",   stage:"T",  img:"assets/stages/aware-2.webp" },
-  { name:"Solution aware", thinks:"“What fixes this?”", ad:"Show them, simply, how it can be solved.",     stage:"Ex", img:"assets/stages/aware-3.webp" },
-  { name:"Product aware",  thinks:"“Is yours the best?”", ad:"Let happy customers do the talking.",   stage:"Ev", img:"assets/stages/aware-4.webp" },
-  { name:"Most aware",     thinks:"“I want it. Give me a reason!”", ad:"Make it easy, and give them a reason today.",  stage:"P",  img:"assets/stages/aware-5.webp" },
+  { name:"Unaware",        thinks:"“I'm fine, I don't have any problem.”", ad:"Start with what they want, not what you sell.",            stage:"T",  img:"assets/stages/aware-1.webp" },
+  { name:"Problem aware",  thinks:"“Something's wrong with me. I should research online.”", ad:"Show them you understand the problem better than anyone.",   stage:"T",  img:"assets/stages/aware-2.webp" },
+  { name:"Solution aware", thinks:"“What solutions are out there for my problem?”", ad:"Show them, simply, how it can be solved.",     stage:"Ex", img:"assets/stages/aware-3.webp" },
+  { name:"Product aware",  thinks:"“Why is your product better than the others?”", ad:"Let happy customers do the talking.",   stage:"Ev", img:"assets/stages/aware-4.webp" },
+  { name:"Most aware",     thinks:"“I want your product. Give me a reason to buy!”", ad:"Make it easy, and give them a reason today.",  stage:"P",  img:"assets/stages/aware-5.webp" },
 ];
 
 /* Market sophistication stages, and what an ad should lead with at each */
