@@ -119,9 +119,10 @@ const INDUSTRIES = [
 /* The library. One line per ad:
    stage (T, Ex, Ev, P), format (must match a name in FORMATS),
    visual (must match a name in VISUALS), industry (must match a name in INDUSTRIES),
-   YouTube link or ID, a title, and a credit line. vertical:true for 9:16 Shorts. */
+   video: a file in assets/ads/ (mp4 under 25 MB; a .webp with the same name is the poster),
+   or youtube: a link or ID. If both are set, the file plays. A title and a credit line. vertical:true for 9:16. */
 const ADS = [
-  { stage:"T", format:"Musical ads", visual:"3D animation", industry:"Oral care", youtube:"JPNsO9m1WeQ", title:"Father of the Bride Toast", credit:"GLIM · teeth whitening pen", vertical:true },
+  { stage:"T", format:"Musical ads", visual:"3D animation", industry:"Oral care", video:"assets/ads/glim-father-of-the-bride.mp4", youtube:"JPNsO9m1WeQ", title:"Father of the Bride Toast", credit:"GLIM · teeth whitening pen", vertical:true },
 ];
 
 /* Packages: ads per buying stage in "split" (Trigger, Exploration, Evaluation, Purchase) */

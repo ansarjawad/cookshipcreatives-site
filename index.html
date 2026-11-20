@@ -82,6 +82,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* video */
 .video{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:var(--r-md);overflow:hidden;background:var(--ink);box-shadow:0 18px 40px -18px rgba(42,26,18,.45)}
 .video.vertical{aspect-ratio:9/16}
+.video video{position:absolute;inset:0;width:100%;height:100%;display:block;background:#000;object-fit:contain}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .video button.facade{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:#000 center/cover no-repeat}
 .video button.facade::after{content:"";position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;
@@ -412,19 +413,28 @@ const art = (src, cls="") => `<span class="art ph ${cls}"><img src="${esc(src||"
 /* logo: use the uploaded logo if present */
 if(SITE.logo){ const probe = new Image(); probe.onload = () => document.querySelectorAll("img.logo").forEach(i => i.src = SITE.logo); probe.src = SITE.logo; }
 
-function videoEl(src, label, vertical){
+function videoEl(src, label, vertical, poster){
   const box = document.createElement("div");
   box.className = "video" + (vertical ? " vertical" : "");
-  const id = ytId(src);
-  if(!id){ box.innerHTML = '<div class="empty">Video coming soon</div>'; return box; }
+  const isFile = /\.(mp4|webm)(\?|$)/i.test(src || "");
+  const id = isFile ? "" : ytId(src);
+  if(!isFile && !id){ box.innerHTML = '<div class="empty">Video coming soon</div>'; return box; }
   const b = document.createElement("button");
   b.className = "facade"; b.type = "button"; b.setAttribute("aria-label", "Play: " + label);
-  b.style.backgroundImage = "url(https://i.ytimg.com/vi/" + id + "/hqdefault.jpg)";
+  const thumb = isFile ? (poster || src.replace(/\.(mp4|webm)$/i, ".webp")) : "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
+  b.style.backgroundImage = "url(" + thumb + ")";
   b.addEventListener("click", () => {
-    const f = document.createElement("iframe");
-    f.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0&playsinline=1";
-    f.title = label; f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen = true;
-    box.replaceChildren(f);
+    if(isFile){
+      const v = document.createElement("video");
+      v.src = src; v.poster = thumb; v.controls = true; v.autoplay = true; v.playsInline = true; v.preload = "auto";
+      v.setAttribute("aria-label", label);
+      box.replaceChildren(v); v.play().catch(()=>{});
+    } else {
+      const f = document.createElement("iframe");
+      f.src = "https://www.youtube.com/embed/" + id + "?autoplay=1&rel=0&playsinline=1";
+      f.title = label; f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen = true;
+      box.replaceChildren(f);
+    }
   });
   box.append(b); return box;
 }
@@ -488,7 +498,7 @@ function renderTabs(){
 $("#tabs").addEventListener("click", e => { const b = e.target.closest(".tab"); if(!b) return; current = b.dataset.id; renderTabs(); renderPanel(); });
 function adCard(a, chips){
   const c = document.createElement("div"); c.className = "ad";
-  c.append(videoEl(a.youtube, a.title, a.vertical));
+  c.append(videoEl(a.video || a.youtube, a.title, a.vertical, a.poster));
   const m = document.createElement("div"); m.className = "meta";
   m.innerHTML = `<b>${esc(a.title)}</b><span>${esc(a.credit)}</span>` + (chips.length ? `<span class="chips">${chips.join("")}</span>` : "");
   c.append(m); return c;
