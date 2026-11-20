@@ -87,6 +87,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .video .tap{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;background:transparent;cursor:pointer}
 .video.paused .tap::after{content:"";position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;
   background:var(--tomato-deep) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/32px no-repeat;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.video.loading::before{content:"";position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;background:rgba(20,10,5,.55);pointer-events:none;z-index:1}
+.video.loading::after{content:"";position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;
+  border:4px solid rgba(255,255,255,.25);border-top-color:var(--sun);animation:spin .8s linear infinite;pointer-events:none;z-index:2}
+.video.loading.paused .tap::after{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.video.loading::after{animation-duration:2s}}
 .video .bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.25);pointer-events:none}
 .video .bar i{display:block;height:100%;width:0;background:var(--sun)}
 .video button.facade{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:#000 center/cover no-repeat}
@@ -449,7 +455,13 @@ function videoEl(src, label, vertical, poster){
       v.addEventListener("pause", sync);
       v.addEventListener("ended", () => { v.currentTime = 0; sync(); });
       v.addEventListener("timeupdate", () => { bar.firstChild.style.width = (v.duration ? v.currentTime / v.duration * 100 : 0) + "%"; });
-      box.replaceChildren(v, tap, bar); sync(); v.play().catch(sync);
+      const load = on => box.classList.toggle("loading", on);
+      v.addEventListener("waiting", () => load(true));
+      v.addEventListener("playing", () => load(false));
+      v.addEventListener("pause", () => load(false));
+      v.addEventListener("error", () => load(false));
+      tap.addEventListener("click", () => { if(v.paused && v.readyState < 3) load(true); });
+      box.replaceChildren(v, tap, bar); sync(); load(true); v.play().catch(() => { load(false); sync(); });
     } else {
       const f = document.createElement("iframe");
       f.src = "https://www.youtube.com/embed/" + id + "?autoplay=1&rel=0&playsinline=1";
