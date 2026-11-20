@@ -434,7 +434,7 @@ $("#funnel").innerHTML = PHASES.map((p,i) => `
 /* awareness */
 $("#awFunnel").innerHTML = AWARENESS.map((a,i) => `
   <div class="fband aw${i+1}" style="--w:${100-i*7}%">${art(a.img)}
-    <div class="txt" style="text-align:left"><b>${esc(a.name)}</b><span class="job">${esc(a.thinks)}</span><span class="line">${esc(a.ad)}</span></div>
+    <div class="txt" style="text-align:left"><b>${esc(a.name)}</b><span class="job">${esc(a.thinks)}</span></div>
   </div>`).join('<span class="down" aria-hidden="true"></span>');
 
 /* sophistication */
