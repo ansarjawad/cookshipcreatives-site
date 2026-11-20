@@ -87,6 +87,7 @@ const SOCIAL = {
 /* Ad formats the library can be browsed by. Rename, add or remove freely. */
 const FORMATS = [
   { name:"Story ads",       desc:"A short story with a beginning, a problem and a happy ending, where your product is the turning point." },
+  { name:"Musical ads",     desc:"The whole story is sung, like a music video. The song carries the feeling, and the chorus sticks." },
   { name:"Explainer ads",   desc:"Shows how your product works, step by step, so nobody is left guessing." },
   { name:"Educational ads", desc:"Teaches them something useful first, so your brand becomes the one they trust." },
   { name:"Funny gag ads",   desc:"A quick joke or sketch that gets a laugh, gets shared, and gets remembered." },
@@ -106,6 +107,7 @@ const VISUALS = [
 ];
 const INDUSTRIES = [
   { name:"Skincare & beauty", desc:"Brands selling skincare, makeup, hair and body care. Animation lets us show what happens under the skin, without a single before-and-after photo." },
+  { name:"Oral care",         desc:"Whitening, toothpaste, mouthwash and dental care. Animation makes a smile the hero of the story, without close-ups of real teeth." },
   { name:"Food & drink",      desc:"Snacks, drinks, coffee, sauces and meal kits. Animation makes taste visible: the crunch, the fizz, the first sip." },
   { name:"Health & wellness", desc:"Supplements, fitness, sleep and personal care. Animation explains how it works simply, and keeps claims friendly and clear." },
   { name:"Fashion",           desc:"Clothing, shoes, jewellery and accessories. Characters wear the product in worlds a photoshoot can't reach." },
