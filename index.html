@@ -191,11 +191,15 @@ section[id]{scroll-margin-top:72px}
 .format p{margin:4px 0 0;color:var(--ink-muted);font-size:15px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:14px}
 @media (max-width:480px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
-.ad{min-width:0}
+.ad{min-width:0;display:flex;flex-direction:column}
+.ad[hidden]{display:none}
+.ad .meta{flex:1;display:flex;flex-direction:column;align-items:flex-start}
 #panel .morewrap{text-align:center;margin:48px 0 0}
 .btn.more[hidden]{display:none}
 .ad .meta{margin-top:8px;font-size:14px;line-height:1.35}
 .ad .meta b{display:block}
+.ad .meta .like{display:inline-block;margin-top:auto;padding-top:10px!important;padding:0;border:0;background:none;cursor:pointer;font:800 14px/1.2 var(--body);color:var(--tomato-deep);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;text-decoration-color:transparent;transition:text-decoration-color .15s ease}
+.ad .meta .like:hover,.ad .meta .like:focus-visible{text-decoration-color:currentColor}
 .ad .meta span{color:var(--ink-muted)}
 
 /* packages */
@@ -504,7 +508,9 @@ function adCard(a, chips){
   c.append(videoEl(a.video || a.youtube, a.title, a.vertical, a.poster));
   const m = document.createElement("div"); m.className = "meta";
   m.innerHTML = `<b>${esc(a.title)}</b><span>${esc(a.credit)}</span>` + (chips.length ? `<span class="chips">${chips.join("")}</span>` : "");
-  c.append(m); return c;
+  const like = document.createElement("button"); like.type = "button"; like.className = "like"; like.textContent = "Get ads like this →";
+  like.addEventListener("click", () => openContact("like", a.title));
+  m.append(like); c.append(m); return c;
 }
 /* show two rows of ads at a time; "Load more" adds two more */
 function paginate(g, sec){
@@ -595,14 +601,17 @@ if(SITE.email){ const a = document.createElement("a"); a.href = "mailto:" + SITE
 
 /* contact sheet: book a meeting, WhatsApp, email */
 const sheet = $("#contact");
-function openContact(kind){
-  let topic, sub;
-  if(kind === "single"){
+function openContact(kind, adTitle){
+  let topic, sub, msgOverride;
+  if(kind === "like"){
+    topic = `ads like "${adTitle}"`; sub = `About ads like "${adTitle}"`;
+    msgOverride = `Hi Cookshipcreatives! I saw "${adTitle}" in your ad library and want ads like it for my brand. My name is ___ and my brand is ___.`;
+  } else if(kind === "single"){
     const sec = +$("#len").value, total = SINGLE.base + Math.max(0, sec - SINGLE.includedSeconds) * SINGLE.extraPerSec;
     topic = `a custom video ad of ${dur(sec)} (${money(total)})`; sub = `About your ${dur(sec)} custom video ad · ${money(total)}`;
   } else if(kind === "custom"){ topic = "a custom package"; sub = "Tell us about your brand and we'll build a plan around it.";
   } else { topic = "animated ads for my brand"; sub = "We'd love to hear about your brand."; }
-  const msg = `Hi Cookshipcreatives! I'm interested in ${topic}. My name is ___ and my brand is ___.`;
+  const msg = msgOverride || `Hi Cookshipcreatives! I'm interested in ${topic}. My name is ___ and my brand is ___.`;
   $("#ctSub").textContent = sub;
   const cal = $("#optCal"); cal.hidden = !SITE.calLink; if(SITE.calLink) cal.href = SITE.calLink;
   const wa = $("#optWa"); wa.hidden = !SITE.whatsapp; if(SITE.whatsapp) wa.href = "https://wa.me/" + SITE.whatsapp.replace(/\D/g,"") + "?text=" + encodeURIComponent(msg);
