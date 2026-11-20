@@ -198,8 +198,9 @@ section[id]{scroll-margin-top:72px}
 .btn.more[hidden]{display:none}
 .ad .meta{margin-top:8px;font-size:14px;line-height:1.35}
 .ad .meta b{display:block}
-.ad .meta .like{display:inline-block;margin-top:auto;padding-top:10px!important;padding:0;border:0;background:none;cursor:pointer;font:800 14px/1.2 var(--body);color:var(--tomato-deep);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;text-decoration-color:transparent;transition:text-decoration-color .15s ease}
-.ad .meta .like:hover,.ad .meta .like:focus-visible{text-decoration-color:currentColor}
+.ad .meta .like{display:inline-flex;align-self:center;margin-top:auto;border:0;cursor:pointer;font:800 14px/1 var(--body);color:var(--white);background:var(--tomato-deep);border-radius:var(--r-pill);padding:10px 18px;transition:transform .15s ease,background .15s ease}
+.ad .meta .like:hover{transform:translateY(-1px);background:var(--tomato)}
+.ad .meta .chips{margin-bottom:12px}
 .ad .meta span{color:var(--ink-muted)}
 
 /* packages */
@@ -508,7 +509,7 @@ function adCard(a, chips){
   c.append(videoEl(a.video || a.youtube, a.title, a.vertical, a.poster));
   const m = document.createElement("div"); m.className = "meta";
   m.innerHTML = `<b>${esc(a.title)}</b><span>${esc(a.credit)}</span>` + (chips.length ? `<span class="chips">${chips.join("")}</span>` : "");
-  const like = document.createElement("button"); like.type = "button"; like.className = "like"; like.textContent = "Get ads like this →";
+  const like = document.createElement("button"); like.type = "button"; like.className = "like"; like.textContent = "Get ads like this";
   like.addEventListener("click", () => openContact("like", a.title));
   m.append(like); c.append(m); return c;
 }
