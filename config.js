@@ -16,16 +16,16 @@ const SITE = {
 const PHASES = [
   { id:"T",  cls:"t",  name:"Trigger",     job:"Catch their eye",          line:"Show them something they care about.",        img:"assets/stages/trigger.webp",
     moment:"They notice a problem and start to feel they need a fix.",
-    def:"The first ad a customer sees. It stops the scroll and makes them care, before they even know they need you." },
+    def:"When they notice a problem. A Trigger ad puts that feeling into a story they can't scroll past, so your brand is the first one they think of." },
   { id:"Ex", cls:"ex", name:"Exploration", job:"Help them see what's possible", line:"Answer the questions on their mind.",   img:"assets/stages/exploration.webp",
     moment:"They go looking for ways to solve it, searching and scrolling online.",
-    def:"For people who are now curious. It shows what's possible and answers the questions on their mind." },
+    def:"When they go looking for a fix. An Exploration ad shows how your product solves it and answers their questions before they ask." },
   { id:"Ev", cls:"ev", name:"Evaluation",  job:"Earn their trust",          line:"Let proof speak louder than promises.", img:"assets/stages/evaluation.webp",
     moment:"They compare the options they found and ask, which one can I trust?",
-    def:"For people comparing options. It earns their trust with proof: real results, reviews and demos." },
+    def:"When they compare their options. An Evaluation ad gives them proof (results, reviews and real moments) that you're the one to trust." },
   { id:"P",  cls:"p",  name:"Purchase",    job:"Make saying yes easy",     line:"Remove the last worry in the way.", img:"assets/stages/purchase.webp",
     moment:"They've made up their mind. Now they just need a reason to buy today.",
-    def:"For people ready to buy. It removes the last doubt and gives them a reason to say yes today." },
+    def:"When they've made up their mind. A Purchase ad removes the last doubt and gives them a reason to buy today: an offer, a guarantee or a deadline." },
 ];
 
 /* Customer awareness levels. "stage" links each level to the buying stage it sits in. */
