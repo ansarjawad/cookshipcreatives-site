@@ -192,7 +192,7 @@ section[id]{scroll-margin-top:72px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:14px}
 @media (max-width:480px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
 .ad{min-width:0}
-.morewrap{text-align:center;margin:22px 0 0}
+.morewrap{text-align:center;margin:44px 0 0}
 .btn.more[hidden]{display:none}
 .ad .meta{margin-top:8px;font-size:14px;line-height:1.35}
 .ad .meta b{display:block}
@@ -515,7 +515,7 @@ function paginate(g, sec){
   const step = () => { shown += cols() * 2;
     cards.forEach((c,i) => c.hidden = i >= shown);
     const left = cards.length - Math.min(shown, cards.length);
-    btn.hidden = left <= 0; btn.textContent = `Load more (${left})`; };
+    btn.hidden = left <= 0; btn.textContent = "Load more"; };
   btn.addEventListener("click", () => { const first = cards[shown]; step(); first && first.querySelector("button, a")?.focus({preventScroll:true}); });
   const wrap = document.createElement("p"); wrap.className = "morewrap"; wrap.append(btn); sec.append(wrap);
   requestAnimationFrame(step);
