@@ -230,14 +230,7 @@ section[id]{scroll-margin-top:72px}
 .count small{font:800 13px/1 var(--body);color:var(--ink-muted);margin-left:4px}
 .perad{font:800 15px/1 var(--body);color:var(--teal)}
 .dur{display:inline-flex;align-self:flex-start;align-items:center;gap:6px;background:var(--chip);border-radius:var(--r-pill);padding:6px 12px;font:800 13px/1 var(--body);margin-top:-4px}
-.mini{display:grid;gap:5px}
-.tailor{margin:-4px 0 0;text-align:center;font-weight:800;font-size:13px;color:var(--teal)}
-.mini a{margin-inline:auto;border-radius:9px;padding:7px 12px;background:var(--c);color:var(--white);display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:800;font-size:14px;line-height:1.15;text-decoration:none;transition:transform .15s ease,filter .15s ease}
-.mini a:hover{transform:translateY(-1px);filter:brightness(1.12)}
-.mini a:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
-.mini a small{display:block;font-weight:700;font-size:11.5px;opacity:.85;margin-top:2px;white-space:nowrap}
-.mini a b{font:400 18px/1 var(--display)}
-.mini a:nth-child(1){width:100%} .mini a:nth-child(2){width:92%} .mini a:nth-child(3){width:84%} .mini a:nth-child(4){width:76%}
+.tailor{margin:0;text-align:left;font-weight:800;font-size:13px;color:var(--teal)}
 .plan .btn{margin-top:auto}
 .plan.custom{background:var(--ink);color:var(--white)}
 .plan.custom .btn{background:var(--sun);color:var(--ink)}
@@ -332,7 +325,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px
     <div class="wrap">
       <p class="eyebrow">Packages</p>
       <h2 id="pk-h">Choose the help you need</h2>
-      <p class="sub" style="color:var(--ink)">Every package covers all 4 steps of your customer's journey.</p>
+      <p class="sub" style="color:var(--ink)">You choose what we make. Every ad is built around your brand.</p>
       <div class="plans" id="plans"></div>
 
       <div class="single" aria-labelledby="sv-h">
@@ -514,29 +507,25 @@ function renderJoined(){
 }
 renderJoined();
 
-/* library: browse by journey (TEEP), visual style or industry */
+/* library: browse by format, visual style or industry */
 const MODES = [
-  { id:"journey",  label:"Journey" },
   { id:"format",   label:"Format",       key:"format",   list:(Array.isArray(FORMATS)?FORMATS:[]) },
   { id:"visual",   label:"Visual style", key:"visual",   list:(typeof VISUALS!=="undefined"?VISUALS:[]) },
   { id:"industry", label:"Industry",     key:"industry", list:(typeof INDUSTRIES!=="undefined"?INDUSTRIES:[]) },
 ].filter(m => !m.key || m.list.some(t => ADS.some(a => a[m.key] === t.name)));
-let mode = "journey", current = "T";
 const tagsFor = m => m.list.filter(t => ADS.some(a => a[m.key] === t.name));
+let mode = MODES.length ? MODES[0].id : "", current = MODES.length ? tagsFor(MODES[0])[0].name : "";
 function renderModes(){
   $("#modes").innerHTML = MODES.map(m => `<button type="button" aria-pressed="${m.id===mode}" data-m="${m.id}">${esc(m.label)}</button>`).join("");
   $(".browse").hidden = MODES.length < 2;
 }
 $("#modes").addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return; mode = b.dataset.m;
-  const m = MODES.find(x => x.id === mode); current = mode === "journey" ? "T" : tagsFor(m)[0].name; renderModes(); renderTabs(); renderPanel(); });
+  const m = MODES.find(x => x.id === mode); current = tagsFor(m)[0].name; renderModes(); renderTabs(); renderPanel(); });
 function renderTabs(){
   const t = $("#tabs");
   t.classList.add("text");
-  if(mode === "journey"){
-    t.innerHTML = PHASES.map(p => `<button class="tab" role="tab" aria-selected="${p.id===current}" data-id="${p.id}">${esc(p.name)} ads</button>`).join("");
-  } else {
-    t.innerHTML = tagsFor(MODES.find(x => x.id === mode)).map(g => `<button class="tab" role="tab" aria-selected="${g.name===current}" data-id="${esc(g.name)}">${esc(g.name)}</button>`).join("");
-  }
+  const m = MODES.find(x => x.id === mode); if(!m){ t.innerHTML = ""; return; }
+  t.innerHTML = tagsFor(m).map(g => `<button class="tab" role="tab" aria-selected="${g.name===current}" data-id="${esc(g.name)}">${esc(g.name)}</button>`).join("");
 }
 $("#tabs").addEventListener("click", e => { const b = e.target.closest(".tab"); if(!b) return; current = b.dataset.id; renderTabs(); renderPanel(); });
 function adCard(a, chips){
@@ -564,18 +553,7 @@ function paginate(g, sec){
 }
 function renderPanel(){
   const panel = $("#panel"); panel.innerHTML = "";
-  if(mode === "journey"){
-    const ph = phase(current);
-    if(ph && ph.def){ const d = document.createElement("div"); d.className = `def ${ph.cls}`; d.innerHTML = `<b>${esc(ph.name)} ads</b><p>${esc(ph.def)}</p>`; panel.append(d); }
-    const ads = ADS.filter(a => a.stage === current);
-    const sec = document.createElement("div"); sec.className = "format";
-    sec.innerHTML = ads.length ? "" : `<p class="soon">New ${esc(ph.name)} ads are on the way. Want one made for your brand? <a href="#packages">See packages</a></p>`;
-    const g = document.createElement("div"); g.className = "grid";
-    ads.forEach(a => g.append(adCard(a, [a.format, a.visual, a.industry].filter(Boolean).map(x => `<i>${esc(x)}</i>`))));
-    sec.append(g); panel.append(sec);
-    paginate(g, sec);
-    return;
-  }
+  const m0 = MODES.find(x => x.id === mode); if(!m0) return;
   const m = MODES.find(x => x.id === mode), tag = m.list.find(t => t.name === current) || {};
   const others = ["format","visual","industry"].filter(k => k !== m.key);
   const ads = ADS.filter(a => a[m.key] === current);
@@ -583,17 +561,13 @@ function renderPanel(){
   if(tag.desc){ const d = document.createElement("div"); d.className = `def ${mode}`; d.innerHTML = `<b>${esc(current)}</b><p>${esc(tag.desc)}</p>`; panel.append(d); }
   sec.innerHTML = tag.desc ? "" : `<h3>${esc(current)}</h3>`;
   const g = document.createElement("div"); g.className = "grid";
-  ads.forEach(a => { const p = phase(a.stage);
-    g.append(adCard(a, [p ? `<i class="st ${p.cls}">${esc(p.name)} ad</i>` : "", ...others.filter(k => a[k]).map(k => `<i>${esc(a[k])}</i>`)].filter(Boolean))); });
+  ads.forEach(a => g.append(adCard(a, others.filter(k => a[k]).map(k => `<i>${esc(a[k])}</i>`))));
   sec.append(g); panel.append(sec);
   paginate(g, sec);
 }
 renderModes(); renderTabs(); renderPanel();
 
 /* packages */
-$("#plans").addEventListener("click", e => { const a = e.target.closest(".mini a"); if(!a) return; e.preventDefault();
-  mode = "journey"; current = a.dataset.stage; renderModes(); renderTabs(); renderPanel();
-  $("#library").scrollIntoView({behavior:"smooth", block:"start"}); });
 $("#plans").innerHTML = PLANS.map(p => `
   <div class="plan${p.featured?" featured":""}">
     ${p.featured?'<span class="badge">Recommended</span>':""}
@@ -601,7 +575,6 @@ $("#plans").innerHTML = PLANS.map(p => `
     <div class="price">${money(p.price)}</div>
     <div class="count">${p.ads}<small>video ads</small> <span class="perad">· ${money(Math.round(p.price/p.ads))} per ad</span></div>
     <div class="dur">${SINGLE.minSeconds} sec – ${SINGLE.includedSeconds/60} min each video</div>
-    <div class="mini" aria-label="Ads per stage">${PHASES.map((ph,k)=>`<a class="${ph.cls}" href="#library" data-stage="${ph.id}"><span>${esc(ph.name)} ${p.split[k]===1?"ad":"ads"}<small>Watch an example ▶</small></span><b>${p.split[k]}</b></a>`).join("")}</div>
     <p class="tailor">${p.ads===1?"Tailored":"Each one tailored"} to your brand's requirements</p>
     <a class="btn" href="${esc(p.checkout || "#packages")}"${p.checkout?' target="_blank" rel="noopener"':""}>Start with ${esc(p.name)}</a>
   </div>`).join("") + `
