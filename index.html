@@ -210,7 +210,14 @@ section[id]{scroll-margin-top:72px}
 #panel .morewrap{text-align:center;margin:48px 0 0}
 .btn.more[hidden]{display:none}
 .ad .meta{margin-top:8px;font-size:14px;line-height:1.35}
-.ad .meta b{display:block}
+.ad .meta .who{display:block;font:400 20px/1.1 var(--display);color:var(--ink)}
+.ad .meta .who b,.ad .meta .what b{font:800 11px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted);margin-right:4px;vertical-align:2px}
+.ad .meta .what{display:block;margin-top:3px;font-weight:800;font-size:14px;color:var(--ink)}
+.ad .meta .ttl{display:block;margin-top:8px;font-size:13px;font-style:italic;color:var(--ink-muted)}
+.ad .meta .chips{margin-top:10px!important}
+.ad .meta .chips i{display:inline-flex;gap:5px;align-items:baseline}
+.ad .meta .chips i em{font-style:normal;font-weight:700;color:var(--ink-muted)}
+.ad .meta .chips i em::after{content:":"}
 .ad .meta .like{display:inline-flex;align-self:center;margin-top:auto;border:0;cursor:pointer;font:800 14px/1 var(--body);color:var(--white);background:var(--tomato-deep);border-radius:var(--r-pill);padding:10px 18px;transition:transform .15s ease,background .15s ease}
 .ad .meta .like:hover{transform:translateY(-1px);background:var(--tomato)}
 .ad .meta .chips{margin-bottom:12px}
@@ -462,7 +469,9 @@ function videoEl(src, label, vertical, poster){
         else if(v.webkitEnterFullscreen){ v.webkitEnterFullscreen(); v.play().catch(()=>{}); }
       });
       document.addEventListener("fullscreenchange", () => { if(document.fullscreenElement !== v) v.controls = false; });
-      v.addEventListener("playing", () => { fs.hidden = false; }, { once: true });
+      v.addEventListener("playing", () => { fs.hidden = false; });
+      v.addEventListener("pause", () => { if(document.fullscreenElement !== v) fs.hidden = true; });
+      v.addEventListener("ended", () => { fs.hidden = true; });
       if(!box.nextElementSibling || !box.nextElementSibling.classList.contains("fsbtn")) box.after(fs);
       box.replaceChildren(v, tap, bar); sync(); load(true); v.play().catch(() => { load(false); sync(); });
     } else {
@@ -532,7 +541,13 @@ function adCard(a, chips){
   const c = document.createElement("div"); c.className = "ad";
   c.append(videoEl(a.video || a.youtube, a.title, a.vertical, a.poster));
   const m = document.createElement("div"); m.className = "meta";
-  m.innerHTML = `<b>${esc(a.title)}</b><span>${esc(a.credit)}</span>` + (chips.length ? `<span class="chips">${chips.join("")}</span>` : "");
+  const [cb, cp] = String(a.credit || "").split(" · ");
+  const brand = a.brand || cb || "", product = a.product || cp || "";
+  const cap = t => t ? t.charAt(0).toUpperCase() + t.slice(1) : "";
+  m.innerHTML = (brand ? `<span class="who"><b>Brand:</b> ${esc(brand)}</span>` : "")
+    + (product ? `<span class="what"><b>Product:</b> ${esc(cap(product))}</span>` : "")
+    + (chips.length ? `<span class="chips">${chips.join("")}</span>` : "")
+    + `<span class="ttl">“${esc(a.title)}”</span>`;
   const like = document.createElement("button"); like.type = "button"; like.className = "like"; like.textContent = "Get ads like this";
   like.addEventListener("click", () => openContact("like", a.title));
   m.append(like); c.append(m); return c;
@@ -561,7 +576,8 @@ function renderPanel(){
   if(tag.desc){ const d = document.createElement("div"); d.className = `def ${mode}`; d.innerHTML = `<b>${esc(current)}</b><p>${esc(tag.desc)}</p>`; panel.append(d); }
   sec.innerHTML = tag.desc ? "" : `<h3>${esc(current)}</h3>`;
   const g = document.createElement("div"); g.className = "grid";
-  ads.forEach(a => g.append(adCard(a, others.filter(k => a[k]).map(k => `<i>${esc(a[k])}</i>`))));
+  const LBL = { format:"Format", visual:"Style", industry:"Industry" };
+  ads.forEach(a => g.append(adCard(a, others.filter(k => a[k]).map(k => `<i><em>${LBL[k]}</em>${esc(a[k])}</i>`))));
   sec.append(g); panel.append(sec);
   paginate(g, sec);
 }
