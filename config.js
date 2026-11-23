@@ -5,7 +5,7 @@
    Images: drop the files into assets/stages/ with the names below.
    ===================================================================== */
 const SITE = {
-  introVideo: "",                       // YouTube link or ID of your intro video
+  introVideo: "assets/intro.mp4",                     // YouTube link or ID of your intro video
   calLink: "https://cal.com/cookshipcreatives/discovery-call",                          // cal.com booking link (Book a meeting)
   whatsapp: "923233874756",             // WhatsApp number, country code first, digits only
   email: "hello@cookshipcreatives.com",
