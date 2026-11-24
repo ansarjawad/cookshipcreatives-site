@@ -192,6 +192,7 @@ const ADS = [
   { stage:"Ex", format:"Educational ads", visual:"3D animation", industry:"Sleep", video:"assets/ads/mellow-the-pillow-since-7000-bc.mp4", title:"The Pillow Since 7000 BC", credit:"MELLOW · CloudAlign pillow", vertical:true },
   { stage:"T", format:"Funny gag ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/menerals-stay-worth-invading.mp4", title:"Stay Worth Invading", credit:"MENERALS · 100-mineral supplement", vertical:true },
   { stage:"Ev", format:"Testimonial ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/resilia-six-weeks-in-82-seconds.mp4", title:"Six Weeks in 82 Seconds", credit:"RESILIA · oil of oregano softgels", vertical:true },
+  { stage:"Ev", format:"Story ads", visual:"2D cartoon", industry:"Oral care", video:"assets/ads/scandi-bet-you-cant.mp4", title:"Bet You Can't", credit:"SCANDI · teeth whitening gum", vertical:true },
 ];
 
 /* Packages: ads per buying stage in "split" (Trigger, Exploration, Evaluation, Purchase) */
