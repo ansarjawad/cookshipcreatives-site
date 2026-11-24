@@ -193,6 +193,8 @@ const ADS = [
   { stage:"T", format:"Funny gag ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/menerals-stay-worth-invading.mp4", title:"Stay Worth Invading", credit:"MENERALS · 100-mineral supplement", vertical:true },
   { stage:"Ev", format:"Testimonial ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/resilia-six-weeks-in-82-seconds.mp4", title:"Six Weeks in 82 Seconds", credit:"RESILIA · oil of oregano softgels", vertical:true },
   { stage:"Ev", format:"Story ads", visual:"2D cartoon", industry:"Oral care", video:"assets/ads/scandi-bet-you-cant.mp4", title:"Bet You Can't", credit:"SCANDI · teeth whitening gum", vertical:true },
+  { stage:"Ev", format:"Comparison ads", visual:"3D animation", industry:"Oral care", video:"assets/ads/still-here-coffee-stain.mp4", title:"Still Here", credit:"PAP teeth whitening powder", vertical:true },
+  { stage:"Ev", format:"Comparison ads", visual:"3D animation", industry:"Oral care", video:"assets/ads/still-here-tea-stain.mp4", title:"Still Here (tea version)", credit:"PAP teeth whitening powder", vertical:true },
 ];
 
 /* Packages: ads per buying stage in "split" (Trigger, Exploration, Evaluation, Purchase) */
