@@ -187,8 +187,29 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .modes{display:inline-grid;grid-auto-flow:column;gap:6px;background:var(--ink);padding:6px;border-radius:16px}
 .modes button{font:800 16px/1 var(--body);border:0;cursor:pointer;border-radius:11px;padding:12px 20px;background:transparent;color:var(--white);white-space:nowrap}
 .modes button[aria-pressed="true"]{background:var(--sun);color:var(--ink)}
-@media (max-width:560px){.browse{display:grid;gap:8px}.modes{display:grid;grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr))}.modes button{font-size:14px;padding:11px 4px;white-space:normal}}
+@media (max-width:560px){.browse{display:grid;gap:8px}.modes{display:grid;grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr))}.modes button{font-size:14px;padding:11px 4px;white-space:normal}}
 .tabs.text .tab{padding:14px 22px;font-size:16px}
+/* browsing cues */
+.lbl .num{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--white);font-size:12px;letter-spacing:0;margin-right:8px;vertical-align:middle}
+p.lbl.pick{font:800 13px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted);margin:26px 0 0}
+p.lbl.pick + .tabs{margin-top:12px}
+.tabs .tab{border:2px solid transparent;transition:transform .15s,background .15s,border-color .15s}
+.tabs .tab[aria-selected="false"]:hover{background:var(--white);border-color:var(--ink);transform:translateY(-2px)}
+.tabs .tab[aria-selected="true"]::before{content:"✓";font-size:13px;margin-right:-4px}
+.modes button[aria-pressed="false"]:hover{background:rgba(255,255,255,.14)}
+.ad .meta .chips .jump{font:800 11px/1 var(--body);padding:5px 8px;border-radius:var(--r-pill);background:var(--chip);color:var(--ink);border:1.5px solid transparent;cursor:pointer;display:inline-flex;gap:5px;align-items:baseline;transition:background .15s,border-color .15s}
+.ad .meta .chips .jump em{font-style:normal;font-weight:700;color:var(--ink-muted)}
+.ad .meta .chips .jump em::after{content:":"}
+.ad .meta .chips .jump span{opacity:.45;transition:transform .15s,opacity .15s}
+.ad .meta .chips .jump:hover{background:var(--white);border-color:var(--ink)}
+.ad .meta .chips .jump:hover span{opacity:1;transform:translateX(2px)}
+.nextnav{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 20px;margin-top:28px;padding-top:24px;border-top:2px dashed var(--line)}
+.nextnav .nx{display:inline-flex;flex-direction:column;align-items:flex-start;gap:4px;border:2px solid var(--ink);background:var(--white);color:var(--ink);border-radius:18px;padding:12px 22px;font:800 18px/1.1 var(--body);cursor:pointer;transition:transform .15s,background .15s}
+.nextnav .nx b{white-space:nowrap;font-weight:800}
+.nextnav .nx small{font:800 11px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted)}
+.nextnav .nx:hover{background:var(--sun);transform:translateY(-2px)}
+.nextnav .or{font-weight:700;color:var(--ink-muted)}
+.nextnav .sw{border:0;background:none;padding:0;font:800 16px/1 var(--body);color:var(--tomato-deep);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 @media (max-width:560px){.tabs.text{display:flex}.tabs.text .tab{width:auto;padding:12px 18px;font-size:15px}}
 .ad .meta .chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
 .ad .meta .chips i{font-style:normal;font-weight:800;font-size:11px;line-height:1;padding:5px 8px;border-radius:var(--r-pill);background:var(--chip);color:var(--ink)}
@@ -324,8 +345,9 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px
     <div class="wrap">
       <p class="eyebrow">Ad library</p>
       <h2 id="lib-h">See what's possible for your brand</h2>
-      <div class="browse"><span class="lbl" id="browse-l">Browse by</span><div class="modes" id="modes" role="group" aria-labelledby="browse-l"></div></div>
-      <div class="tabs" role="tablist" aria-label="Ad categories" id="tabs"></div>
+      <div class="browse"><span class="lbl" id="browse-l"><span class="num">1</span>Browse by</span><div class="modes" id="modes" role="group" aria-labelledby="browse-l"></div></div>
+      <p class="lbl pick" id="pick-l"><span class="num">2</span><span id="pick-t">Choose an industry</span></p>
+      <div class="tabs" role="tablist" aria-labelledby="pick-l" id="tabs"></div>
       <div id="panel" role="tabpanel"></div>
     </div>
   </section>
@@ -520,9 +542,9 @@ renderJoined();
 
 /* library: browse by format, visual style or industry */
 const MODES = [
-  { id:"format",   label:"Format",       key:"format",   list:(Array.isArray(FORMATS)?FORMATS:[]) },
-  { id:"visual",   label:"Visual style", key:"visual",   list:(typeof VISUALS!=="undefined"?VISUALS:[]) },
-  { id:"industry", label:"Industry",     key:"industry", list:(typeof INDUSTRIES!=="undefined"?INDUSTRIES:[]) },
+  { id:"industry", label:"Industry",     key:"industry", noun:"an industry", list:(typeof INDUSTRIES!=="undefined"?INDUSTRIES:[]) },
+  { id:"visual",   label:"Visual style", key:"visual",   noun:"a visual style", list:(typeof VISUALS!=="undefined"?VISUALS:[]) },
+  { id:"format",   label:"Format",       key:"format",   noun:"a format", list:(Array.isArray(FORMATS)?FORMATS:[]) },
 ].filter(m => !m.key || m.list.some(t => ADS.some(a => a[m.key] === t.name)));
 const tagsFor = m => m.list.filter(t => ADS.some(a => a[m.key] === t.name));
 let mode = MODES.length ? MODES[0].id : "", current = MODES.length ? tagsFor(MODES[0])[0].name : "";
@@ -532,10 +554,17 @@ function renderModes(){
 }
 $("#modes").addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return; mode = b.dataset.m;
   const m = MODES.find(x => x.id === mode); current = tagsFor(m)[0].name; renderModes(); renderTabs(); renderPanel(); });
+/* jump to another category (from an ad's tag or the "next" links) */
+function goTo(k, v){
+  const m = MODES.find(x => x.key === k); if(!m || !tagsFor(m).some(t => t.name === v)) return;
+  mode = m.id; current = v; renderModes(); renderTabs(); renderPanel();
+  const lib = $("#library"); lib && lib.scrollIntoView({behavior:"smooth", block:"start"});
+}
 function renderTabs(){
   const t = $("#tabs");
   t.classList.add("text");
   const m = MODES.find(x => x.id === mode); if(!m){ t.innerHTML = ""; return; }
+  $("#pick-t").textContent = "Choose " + m.noun;
   t.innerHTML = tagsFor(m).map(g => `<button class="tab" role="tab" aria-selected="${g.name===current}" data-id="${esc(g.name)}">${esc(g.name)}</button>`).join("");
 }
 $("#tabs").addEventListener("click", e => { const b = e.target.closest(".tab"); if(!b) return; current = b.dataset.id; renderTabs(); renderPanel(); });
@@ -571,18 +600,29 @@ function renderPanel(){
   const panel = $("#panel"); panel.innerHTML = "";
   const m0 = MODES.find(x => x.id === mode); if(!m0) return;
   const m = MODES.find(x => x.id === mode), tag = m.list.find(t => t.name === current) || {};
-  const others = ["format","visual","industry"].filter(k => k !== m.key);
+  const others = ["industry","visual","format"].filter(k => k !== m.key);
   const ads = ADS.filter(a => a[m.key] === current);
   const sec = document.createElement("div"); sec.className = "format";
   if(tag.desc){ const d = document.createElement("div"); d.className = `def ${mode}`; d.innerHTML = `<b>${esc(current)}</b><p>${esc(tag.desc)}</p>`; panel.append(d); }
   sec.innerHTML = tag.desc ? "" : `<h3>${esc(current)}</h3>`;
   const g = document.createElement("div"); g.className = "grid";
   const LBL = { format:"Format", visual:"Style", industry:"Industry" };
-  ads.forEach(a => g.append(adCard(a, others.filter(k => a[k]).map(k => `<i><em>${LBL[k]}</em>${esc(a[k])}</i>`))));
+  ads.forEach(a => g.append(adCard(a, others.filter(k => a[k]).map(k => `<button type="button" class="jump" data-k="${k}" data-v="${esc(a[k])}" title="See all ${esc(a[k])} ads"><em>${LBL[k]}</em>${esc(a[k])}<span aria-hidden="true">→</span></button>`))));
   sec.append(g); panel.append(sec);
   paginate(g, sec);
+  /* keep browsing: next category in this lens + switch lens */
+  const list = tagsFor(m), i = list.findIndex(t => t.name === current), next = list[(i + 1) % list.length];
+  const alt = MODES.filter(x => x.id !== mode);
+  const nav = document.createElement("div"); nav.className = "nextnav";
+  nav.innerHTML = (list.length > 1 ? `<button type="button" class="nx" data-k="${m.key}" data-v="${esc(next.name)}"><small>Next ${esc(m.label.toLowerCase())}</small><b>${esc(next.name)} <span aria-hidden="true">→</span></b></button>` : "")
+    + `<span class="or">or browse by ${alt.map(x => `<button type="button" class="sw" data-m="${x.id}">${esc(x.label)}</button>`).join(" or ")}</span>`;
+  panel.append(nav);
 }
 renderModes(); renderTabs(); renderPanel();
+$("#panel").addEventListener("click", e => {
+  const j = e.target.closest(".jump, .nx"); if(j){ goTo(j.dataset.k, j.dataset.v); return; }
+  const s = e.target.closest(".sw"); if(s){ mode = s.dataset.m; current = tagsFor(MODES.find(x => x.id === mode))[0].name; renderModes(); renderTabs(); renderPanel(); $("#library").scrollIntoView({behavior:"smooth", block:"start"}); }
+});
 
 /* packages */
 $("#plans").innerHTML = PLANS.map(p => `
