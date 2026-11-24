@@ -1,7 +1,7 @@
 // Render one library ad with the 4 platform overlays.
 // usage: node render.js <path-to-site-repo> <ad-slug> <out-dir>
 //   ad-slug = file name of the ad video without .mp4 (assets/ads/<slug>.mp4)
-// out: <out>/<BRAND>-{reels,tiktok,shorts,feed}.mp4, each under 9.6 MB (Chrome upload limit 10 MB), plus ad.json
+// out: <out>/<BRAND>-{reels,tiktok,shorts,feed}.mp4 at full 1080p quality, a <BRAND>-<layout>-small.mp4 fallback under 10 MB each, plus ad.json
 const { chromium } = require('playwright');
 const fs = require('fs'), path = require('path'), { execSync } = require('child_process');
 const [site, slug, out] = process.argv.slice(2);
@@ -39,11 +39,14 @@ const cap = s => s ? s[0].toUpperCase() + s.slice(1) : s;
     }
     // X free accounts: max 140 s
     const d = lay === 'feed' ? Math.min(dur, 139) : dur;
-    const size = d > 70 ? '720:1280' : '1080:1920';
+    const name = `${out}/${brand.replace(/[^A-Za-z0-9]+/g, '')}-${lay}`;
+    const ov = `-i "${src}" -i ${tmp}/${lay}-A.mov -stream_loop -1 -i ${tmp}/${lay}-L.mov -filter_complex "[0:v]scale=1080:1920,setsar=1,fps=30[v];[1:v][2:v]concat=n=2[o0];[v][o0]overlay=eof_action=pass[x]" -map "[x]" -map 0:a? -t ${d}`;
+    // full quality, no size cap
+    execSync(`ffmpeg -v error -y ${ov} -c:v libx264 -preset veryfast -crf 20 -c:a aac -b:a 160k -movflags +faststart "${name}.mp4"`);
+    console.log(name + '.mp4', (fs.statSync(name + '.mp4').size / 1048576).toFixed(1) + ' MB');
+    // fallback copy under 10 MB, used only if a full-size upload fails
     const vk = Math.max(300, Math.floor(9.3 * 8 * 1024 / d - 128));
-    const file = `${out}/${brand.replace(/[^A-Za-z0-9]+/g, '')}-${lay}.mp4`;
-    execSync(`ffmpeg -v error -y -i "${src}" -i ${tmp}/${lay}-A.mov -stream_loop -1 -i ${tmp}/${lay}-L.mov -filter_complex "[0:v]scale=1080:1920,setsar=1,fps=30[v];[1:v][2:v]concat=n=2[o0];[v][o0]overlay=eof_action=pass,scale=${size}[x]" -map "[x]" -map 0:a? -t ${d} -c:v libx264 -preset veryfast -b:v ${vk}k -maxrate ${vk}k -bufsize ${vk * 2}k -c:a aac -b:a 128k -movflags +faststart "${file}"`);
-    console.log(file, (fs.statSync(file).size / 1048576).toFixed(1) + ' MB');
+    execSync(`ffmpeg -v error -y -i "${name}.mp4" -c:v libx264 -preset veryfast -b:v ${vk}k -maxrate ${vk}k -bufsize ${vk * 2}k -c:a aac -b:a 128k -movflags +faststart "${name}-small.mp4"`);
   }
   await b.close();
   fs.writeFileSync(`${out}/ad.json`, JSON.stringify({ slug, brand, product, ...ad, duration: dur }, null, 2));
