@@ -193,8 +193,16 @@ const ADS = [
   { stage:"T", format:"Funny gag ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/menerals-stay-worth-invading.mp4", title:"Stay Worth Invading", credit:"MENERALS · 100-mineral supplement", vertical:true },
   { stage:"Ev", format:"Testimonial ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/resilia-six-weeks-in-82-seconds.mp4", title:"Six Weeks in 82 Seconds", credit:"RESILIA · oil of oregano softgels", vertical:true },
   { stage:"Ev", format:"Story ads", visual:"2D cartoon", industry:"Oral care", video:"assets/ads/scandi-bet-you-cant.mp4", title:"Bet You Can't", credit:"SCANDI · teeth whitening gum", vertical:true },
-  { stage:"Ev", format:"Comparison ads", visual:"3D animation", industry:"Oral care", video:"assets/ads/still-here-coffee-stain.mp4", title:"Still Here", credit:"PAP teeth whitening powder", vertical:true },
-  { stage:"Ev", format:"Comparison ads", visual:"3D animation", industry:"Oral care", video:"assets/ads/still-here-tea-stain.mp4", title:"Still Here (tea version)", credit:"PAP teeth whitening powder", vertical:true },
+  { stage:"Ev", format:"Comparison ads", visual:"3D animation", industry:"Oral care", video:"assets/ads/still-here-coffee-stain.mp4", title:"Still Here", credit:"ECO BRIGHT SMILE · teeth whitening powder", vertical:true },
+  { stage:"Ev", format:"Comparison ads", visual:"3D animation", industry:"Oral care", video:"assets/ads/still-here-tea-stain.mp4", title:"Still Here (tea version)", credit:"ECO BRIGHT SMILE · teeth whitening powder", vertical:true },
+  { stage:"Ex", format:"Explainer ads", visual:"2D cartoon", industry:"Oral care", video:"assets/ads/ecobrightsmile-over-50.mp4", title:"Over 50", credit:"ECO BRIGHT SMILE · teeth whitening powder", vertical:true },
+  { stage:"Ex", format:"Musical ads", visual:"3D animation", industry:"Oral care", video:"assets/ads/ecobrightsmile-nobody-told-you.mp4", title:"Nobody Told You", credit:"ECO BRIGHT SMILE · teeth whitening powder", vertical:true },
+  { stage:"P", format:"Offer ads", visual:"Claymation", industry:"Oral care", video:"assets/ads/ecobrightsmile-we-made-too-much.mp4", title:"We Made Too Much", credit:"ECO BRIGHT SMILE · teeth whitening powder", vertical:true },
+  { stage:"P", format:"Offer ads", visual:"3D animation", industry:"Oral care", video:"assets/ads/ecobrightsmile-we-owe-you-an-apology.mp4", title:"We Owe You an Apology", credit:"ECO BRIGHT SMILE · teeth whitening powder", vertical:true },
+  { stage:"Ex", format:"Story ads", visual:"Claymation", industry:"Oral care", video:"assets/ads/ecobrightsmile-laura-s-story.mp4", title:"Laura's Story", credit:"ECO BRIGHT SMILE · teeth whitening powder", vertical:true },
+  { stage:"Ex", format:"Explainer ads", visual:"Product CGI", industry:"Oral care", video:"assets/ads/ecobrightsmile-two-weeks-of-nano-ha.mp4", title:"Two Weeks of Nano-HA", credit:"ECO BRIGHT SMILE · teeth whitening powder", vertical:true },
+  { stage:"Ex", format:"Explainer ads", visual:"Product CGI", industry:"Oral care", video:"assets/ads/ecobrightsmile-tiny-man-giant-tooth.mp4", title:"Tiny Man, Giant Tooth", credit:"ECO BRIGHT SMILE · teeth whitening powder", vertical:true },
+  { stage:"Ev", format:"Educational ads", visual:"3D animation", industry:"Oral care", video:"assets/ads/ecobrightsmile-four-ingredients.mp4", title:"Four Ingredients", credit:"ECO BRIGHT SMILE · teeth whitening powder", vertical:true },
 ];
 
 /* Packages: ads per buying stage in "split" (Trigger, Exploration, Evaluation, Purchase) */
