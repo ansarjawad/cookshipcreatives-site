@@ -42,6 +42,7 @@
     try { if (window.gtag) { gtag("event", name, params); if (/^(book_call|whatsapp_click|email_click)$/.test(name)) gtag("event", "generate_lead", Object.assign({ method: name }, params)); } } catch(e){}
     const m = STD[name];
     try { if (window.fbq) m ? fbq("track", m.meta, params) : fbq("trackCustom", name, params); } catch(e){}
+    try { const X = A.xEvents || {}; if (window.twq) { if (X.lead && /^(book_call|whatsapp_click|email_click)$/.test(name)) twq("event", X.lead, {}); if (X.checkout && name === "begin_checkout") twq("event", X.checkout, {}); } } catch(e){}
     try { if (window.ttq) ttq.track(m ? m.tt : "ClickButton", Object.assign({ content_name: name }, params)); } catch(e){}
   };
 

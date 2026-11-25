@@ -17,6 +17,7 @@ const SITE = {
     tiktokPixel: "",  // TikTok pixel ID
     linkedin: "",     // LinkedIn Insight Tag partner ID, digits
     xPixel: "rk7gv",     // X (Twitter) pixel ID
+    xEvents: { lead: "tw-rk7gv-rk7nv", checkout: "tw-rk7gv-rk7nx" },  // X event IDs from Events manager
   },
 };
 
