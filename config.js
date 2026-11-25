@@ -10,6 +10,14 @@ const SITE = {
   whatsapp: "923233874756",             // WhatsApp number, country code first, digits only
   email: "hello@cookshipcreatives.com",
   logo: "assets/logo.png",              // your logo with the background removed (falls back to Cookie)
+  // Tracking IDs. Leave "" to switch a tool off.
+  analytics: {
+    ga4: "",          // Google Analytics 4 measurement ID, e.g. "G-XXXXXXXXXX"
+    metaPixel: "",    // Meta (Facebook/Instagram) pixel ID, digits
+    tiktokPixel: "",  // TikTok pixel ID
+    linkedin: "",     // LinkedIn Insight Tag partner ID, digits
+    xPixel: "",       // X (Twitter) pixel ID
+  },
 };
 
 /* The 4 buying stages (keep the ids: T, Ex, Ev, P). "moment" describes the step in the funnel; "def" shows above the examples in the ad library. */
