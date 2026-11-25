@@ -12,11 +12,11 @@ const SITE = {
   logo: "assets/logo.png",              // your logo with the background removed (falls back to Cookie)
   // Tracking IDs. Leave "" to switch a tool off.
   analytics: {
-    ga4: "",          // Google Analytics 4 measurement ID, e.g. "G-XXXXXXXXXX"
-    metaPixel: "",    // Meta (Facebook/Instagram) pixel ID, digits
+    ga4: "G-4DC5N3PKY3",        // Google Analytics 4 measurement ID, e.g. "G-XXXXXXXXXX"
+    metaPixel: "1347835650723278",    // Meta (Facebook/Instagram) pixel ID, digits
     tiktokPixel: "",  // TikTok pixel ID
     linkedin: "",     // LinkedIn Insight Tag partner ID, digits
-    xPixel: "",       // X (Twitter) pixel ID
+    xPixel: "rk7gv",     // X (Twitter) pixel ID
   },
 };
 
