@@ -1,7 +1,7 @@
 /* Cookshipcreatives tracking: loads only the tools whose IDs are set in SITE.analytics,
    then sends the same events to all of them. */
 (function(){
-  const A = (window.SITE && SITE.analytics) || {};
+  const A = (typeof SITE !== "undefined" && SITE.analytics) || {};
   const load = (src, attrs) => { const s = document.createElement("script"); s.async = true; s.src = src; Object.assign(s, attrs || {}); document.head.appendChild(s); };
 
   if (A.ga4) {
