@@ -27,5 +27,19 @@
       "linkedin": "ok"
     },
     "note": "All 7 platforms in full 1080p quality (IG/FB low-quality first posts deleted by user, reposted)."
+  },
+  {
+    "slug": "echo-grandpa-hears-it",
+    "brand": "ECHO",
+    "date": "2026-11-25",
+    "platforms": {
+      "instagram": "https://www.instagram.com/p/DgLG9EZtQhW/",
+      "facebook": "ok",
+      "threads": "ok",
+      "tiktok": "ok",
+      "youtube": "https://youtube.com/shorts/Rqlu4W4bi3Y",
+      "x": "ok",
+      "linkedin": "ok"
+    }
   }
 ]
