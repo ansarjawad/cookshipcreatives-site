@@ -5,31 +5,22 @@ html,body{margin:0;background:transparent}
 .top{position:absolute;left:var(--l);top:var(--t);display:flex;flex-direction:column;align-items:flex-start;gap:12px}
 .love{font:400 46px/1 L;background:#FFB938;color:#2A1A12;padding:16px 28px 14px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
 .love small{font:800 30px/1 N;opacity:.8;margin-right:10px;vertical-align:3px}
-.tags{display:flex;gap:10px}
-.tags span{font:800 28px/1 N;background:rgba(255,251,243,.92);color:#2A1A12;padding:11px 20px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,.2)}
 .cta{position:absolute;left:var(--l);bottom:var(--b);display:flex;align-items:center;gap:18px;background:#C2412A;color:#FFFBF3;padding:14px 34px 14px 14px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.3)}
 .cta img{width:78px;height:78px;border-radius:50%;background:#FFFBF3;object-fit:contain;padding:4px;box-sizing:border-box}
 .cta b{display:block;font:400 44px/1 L}
 .cta i{display:block;font:800 26px/1 N;font-style:normal;opacity:.92;margin-top:6px}
 
-.cta{overflow:hidden;transform-origin:20% 50%}
-.cta::after{content:"";position:absolute;top:0;bottom:0;width:90px;left:-140px;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg)}
-.cta b span{display:inline-block}
 .A .top{animation:slide .55s cubic-bezier(.2,.9,.3,1.3) .15s both}
-.A .tags{animation:fade .4s ease .5s both}
-.A .cta{animation:pop .7s cubic-bezier(.2,.9,.3,1.4) .7s both}
-.L .cta{animation:pulse 3s ease-in-out infinite}
-.L .cta::after{animation:shine 3s ease-in-out infinite}
-.L .cta img{animation:wiggle 3s ease-in-out infinite}
+.A .cta{animation:fade .5s ease .6s both}
+/* only motion after the intro: Cookie turns slowly clockwise; the button itself stays still */
+.cta img{animation:spin 8s linear infinite}
+.L .cta img{animation-delay:-1.5s}
 @keyframes slide{from{transform:translateX(-120%);opacity:0}to{transform:none;opacity:1}}
 @keyframes fade{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
-@keyframes pop{0%{transform:scale(0);opacity:0}60%{transform:scale(1.12);opacity:1}100%{transform:scale(1)}}
-@keyframes pulse{0%,60%,100%{transform:scale(1)}70%{transform:scale(1.07)}80%{transform:scale(.98)}90%{transform:scale(1.03)}}
-@keyframes shine{0%,55%{left:-140px}85%,100%{left:110%}}
-@keyframes wiggle{0%,62%,100%{transform:rotate(0)}68%{transform:rotate(-12deg)}76%{transform:rotate(10deg)}84%{transform:rotate(-5deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
 .prod{font:800 32px/1 N;background:#2A1A12;color:#FFFBF3;padding:12px 22px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .A .prod{animation:fade .4s ease .4s both}
 </style></head><body><div class="c __MODE__">
-<div class=top><div class=love><small>Ad we love:</small>__BRAND__</div><div class=prod>__PRODUCT__</div><div class=tags>__TAGS__</div></div>
+<div class=top><div class=love><small>Ad we love:</small>__BRAND__</div><div class=prod>__PRODUCT__</div></div>
 <div class=cta><img src=cookie.webp><div><b>Get ads like this</b><i>cookshipcreatives.com</i></div></div>
 </div></body></html>

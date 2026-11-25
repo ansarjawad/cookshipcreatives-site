@@ -21,13 +21,12 @@ const cap = s => s ? s[0].toUpperCase() + s.slice(1) : s;
 (async () => {
   const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
   const base = fs.readFileSync(path.join(HERE, 'overlay.html'), 'utf8')
-    .replace('__BRAND__', esc(brand)).replace('__PRODUCT__', esc(cap(product)))
-    .replace('__TAGS__', [ad.format, ad.industry].filter(Boolean).map(t => `<span>${esc(t)}</span>`).join(''));
+    .replace('__BRAND__', esc(brand)).replace('__PRODUCT__', esc(cap(product)));
   await p.goto('file://' + path.join(HERE, 'overlay.html'));
   const tmp = fs.mkdtempSync('/tmp/ovl-');
   for (const [lay, v] of Object.entries(LAYOUT)) {
     const html = base.replace('--l:56px;--t:236px;--b:470px', `--l:${v.l}px;--t:${v.t}px;--b:${v.b}px`);
-    for (const [mode, n] of [['A', 45], ['L', 90]]) {
+    for (const [mode, n] of [['A', 45], ['L', 240]]) { // L = one 8 s Cookie turn, loops seamlessly
       const dir = `${tmp}/${lay}-${mode}`; fs.mkdirSync(dir);
       await p.evaluate(h => { document.open(); document.write(h); document.close(); }, html.replace('__MODE__', mode));
       await p.waitForTimeout(250);
