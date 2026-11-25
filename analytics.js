@@ -39,7 +39,7 @@
   };
   window.csTrack = function(name, params){
     params = params || {};
-    try { if (window.gtag) gtag("event", name, params); } catch(e){}
+    try { if (window.gtag) { gtag("event", name, params); if (/^(book_call|whatsapp_click|email_click)$/.test(name)) gtag("event", "generate_lead", Object.assign({ method: name }, params)); } } catch(e){}
     const m = STD[name];
     try { if (window.fbq) m ? fbq("track", m.meta, params) : fbq("trackCustom", name, params); } catch(e){}
     try { if (window.ttq) ttq.track(m ? m.tt : "ClickButton", Object.assign({ content_name: name }, params)); } catch(e){}
