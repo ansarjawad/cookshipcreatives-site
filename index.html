@@ -686,7 +686,13 @@ function openContact(kind, adTitle){
   const cal = $("#optCal"); cal.hidden = !SITE.calLink; if(SITE.calLink) cal.href = SITE.calLink;
   const wa = $("#optWa"); wa.hidden = !SITE.whatsapp; if(SITE.whatsapp) wa.href = "https://wa.me/" + SITE.whatsapp.replace(/\D/g,"") + "?text=" + encodeURIComponent(msg);
   const mail = $("#optMail"); mail.hidden = !SITE.email;
-  if(SITE.email){ mail.href = "mailto:" + SITE.email + "?subject=" + encodeURIComponent("Animated ads: " + topic) + "&body=" + encodeURIComponent(msg); $("#ctMail").textContent = SITE.email; }
+  if(SITE.email){
+    const subj = "Animated ads: " + topic, mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    /* phones open their mail app; computers open Gmail compose in a new tab, because many computers have no mail app and a mailto link opens a blank page */
+    if(mobile){ mail.href = "mailto:" + SITE.email + "?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(msg); mail.removeAttribute("target"); }
+    else { mail.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(SITE.email) + "&su=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(msg); mail.target = "_blank"; }
+    $("#ctMail").textContent = SITE.email;
+  }
   sheet.hidden = false; document.body.style.overflow = "hidden"; $("#ctClose").focus();
 }
 function closeContact(){ sheet.hidden = true; document.body.style.overflow = ""; }
