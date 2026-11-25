@@ -122,8 +122,8 @@ const VISUALS = [
 ];
 const INDUSTRIES = [
   { name:"Health & wellness", desc:"Supplements, fitness, sleep and personal care. Animation explains how it works simply, and keeps claims friendly and clear." },
-  { name:"Skincare & beauty", desc:"Brands selling skincare, makeup, hair and body care. Animation lets us show what happens under the skin, without a single before-and-after photo." },
   { name:"Oral care",         desc:"Whitening, toothpaste, mouthwash and dental care. Animation makes a smile the hero of the story, without close-ups of real teeth." },
+  { name:"Skincare & beauty", desc:"Brands selling skincare, makeup, hair and body care. Animation lets us show what happens under the skin, without a single before-and-after photo." },
   { name:"Food & drink",      desc:"Snacks, drinks, coffee, sauces and meal kits. Animation makes taste visible: the crunch, the fizz, the first sip." },
   { name:"Fashion",           desc:"Clothing, shoes, jewellery and accessories. Characters wear the product in worlds a photoshoot can't reach." },
   { name:"Home & kitchen",    desc:"Cookware, cleaning, decor and gadgets. Animation shows the everyday problem and the product fixing it, in one scene." },
