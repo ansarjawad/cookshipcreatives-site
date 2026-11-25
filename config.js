@@ -14,7 +14,7 @@ const SITE = {
   analytics: {
     ga4: "G-4DC5N3PKY3",        // Google Analytics 4 measurement ID, e.g. "G-XXXXXXXXXX"
     metaPixel: "1347835650723278",    // Meta (Facebook/Instagram) pixel ID, digits
-    tiktokPixel: "",  // TikTok pixel ID
+    tiktokPixel: "DC397CJC77U5ERI5460G",  // TikTok pixel ID
     linkedin: "11425065",   // LinkedIn Insight Tag partner ID, digits
     xPixel: "rk7gv",     // X (Twitter) pixel ID
     xEvents: { lead: "tw-rk7gv-rk7nv", checkout: "tw-rk7gv-rk7nx" },  // X event IDs from Events manager
