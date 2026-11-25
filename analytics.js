@@ -58,6 +58,7 @@
     if (!m && !PIXEL_CUSTOM.test(name)) return;
     try { if (window.fbq) m ? fbq("track", m.meta, params) : fbq("trackCustom", name, params); } catch(e){}
     try { const X = A.xEvents || {}; if (window.twq) { if (X.lead && (LEADS.test(name) || name === "booking_completed")) twq("event", X.lead, {}); if (X.checkout && name === "begin_checkout") twq("event", X.checkout, {}); } } catch(e){}
+    try { if (window.lintrk && A.linkedinLead && (LEADS.test(name) || name === "booking_completed")) lintrk("track", { conversion_id: Number(A.linkedinLead) }); } catch(e){}
     try { if (window.ttq) ttq.track(m ? m.tt : "ClickButton", Object.assign({ content_name: name }, params)); } catch(e){}
   };
 

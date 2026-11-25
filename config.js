@@ -16,6 +16,7 @@ const SITE = {
     metaPixel: "1347835650723278",    // Meta (Facebook/Instagram) pixel ID, digits
     tiktokPixel: "DC397CJC77U5ERI5460G",  // TikTok pixel ID
     linkedin: "11425065",   // LinkedIn Insight Tag partner ID, digits
+    linkedinLead: "33277913",   // LinkedIn conversion ID for "Lead (call, WhatsApp, email)"
     xPixel: "rk7gv",     // X (Twitter) pixel ID
     xEvents: { lead: "tw-rk7gv-rk7nv", checkout: "tw-rk7gv-rk7nx" },  // X event IDs from Events manager
   },
