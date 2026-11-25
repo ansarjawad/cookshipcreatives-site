@@ -680,7 +680,8 @@ function openContact(kind, adTitle){
     topic = `a custom video ad of ${dur(sec)} (${money(total)})`; sub = `About your ${dur(sec)} custom video ad · ${money(total)}`;
   } else if(kind === "custom"){ topic = "a custom package"; sub = "Tell us about your brand and we'll build a plan around it.";
   } else { topic = "animated ads for my brand"; sub = "We'd love to hear about your brand."; }
-  const msg = msgOverride || `Hi Cookshipcreatives! I'm interested in ${topic}. My name is ___ and my brand is ___.`;
+  const intro = msgOverride ? msgOverride.replace(/ My name is ___ and my brand is ___\.$/, "") : `Hi Cookshipcreatives! I'm interested in ${topic}.`;
+  const msg = intro + `\n\nA few quick details (just fill in the blanks):\n1. Website or store link: ___\n2. Product(s) the ads are for: ___\n3. Monthly ad spend (under $5k / $5k-$20k / $20k-$50k / $50k+ / not running ads yet): ___\n4. When you need the first ads (within 2 weeks / this month / next month / just exploring): ___\n\nMy name: ___`;
   $("#ctSub").textContent = sub;
   const cal = $("#optCal"); cal.hidden = !SITE.calLink; if(SITE.calLink) cal.href = SITE.calLink;
   const wa = $("#optWa"); wa.hidden = !SITE.whatsapp; if(SITE.whatsapp) wa.href = "https://wa.me/" + SITE.whatsapp.replace(/\D/g,"") + "?text=" + encodeURIComponent(msg);
