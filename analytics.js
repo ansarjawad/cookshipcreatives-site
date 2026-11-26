@@ -50,7 +50,7 @@
     begin_checkout:    { meta: "InitiateCheckout", tt: "InitiateCheckout" },
     video_play:        { meta: "ViewContent",      tt: "ViewContent" },
   };
-  const PIXEL_CUSTOM = /^(get_ads_like_this|contact_open)$/; // custom events worth sending to ad pixels
+  const PIXEL_CUSTOM = /^(get_ads_like_this|contact_open|dig_deeper)$/; // custom events worth sending to ad pixels
   window.csTrack = function(name, params){
     params = params || {};
     try { if (window.gtag) { gtag("event", name, params); if (LEADS.test(name)) gtag("event", "generate_lead", Object.assign({ method: name }, params)); } } catch(e){}
@@ -62,7 +62,7 @@
     try { if (window.ttq) ttq.track(m ? m.tt : "ClickButton", Object.assign({ content_name: name }, params)); } catch(e){}
   };
 
-  const adTitle = el => { const c = el.closest(".ad"); const t = c && c.querySelector(".meta i.title"); return t ? t.textContent.replace(/^Title/, "").trim().slice(0, 100) : undefined; };
+  const adTitle = el => { if (el.dataset && el.dataset.ad) return el.dataset.ad.slice(0, 100); const dg = el.closest("#dig"); if (dg) return (dg.querySelector("#dg-h") || {}).textContent; const c = el.closest(".ad"); const t = c && c.querySelector(".meta i.title"); return t ? t.textContent.replace(/^Title/, "").trim().slice(0, 100) : undefined; };
   const videoName = v => v.closest(".intro, .hero") ? "intro" : (adTitle(v) || (v.currentSrc || "").split("/").pop());
 
   // clicks

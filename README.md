@@ -10,6 +10,7 @@ Edit it on GitHub, commit, and the site updates in about a minute.
 ## Files
 - `index.html` – the page (layout, styles, logic)
 - `config.js` – all content and links
+- `breakdowns.js` – the "Dig deeper" breakdown for each ad (who it talks to, the moment, awareness, buying stage, desire, message, format, hook, structure), keyed by the ad's video file. Copied from the internal Ad Vault.
 - `assets/` – images
 - `_headers` – caching rules for Cloudflare Pages
 
