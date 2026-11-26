@@ -4197,5 +4197,365 @@ const BREAKDOWNS = {
     "Red carpet, Diamond shocked; 'Get you Primal Queen, girl'; pack on a lit court"
    ]
   ]
+ },
+ "assets/ads/the-4pm-line.mp4": {
+  "who": "Women over 40 who keep buying new creams and still see the same fine lines",
+  "moment": "Around 4 p.m. she sees foundation settle into the line by her mouth, feels it, and says nothing",
+  "feeling": "Frustration, then quiet resentment",
+  "intensity": "Medium",
+  "felt": "Private",
+  "desire": "Beauty & style",
+  "desire2": "Saving money",
+  "message": "New creams every season change nothing; there is a long-known way that does.",
+  "hookLayers": {
+   "visual": "A woman in a blue shirt studies two cream jars at a bathroom sink, tired and worried",
+   "text": "THE 4PM LINE NOBODY MENTIONS",
+   "spoken": "It's that one line beside your mouth that shows up around 4 p.m., the one your foundation keeps settling into."
+  },
+  "awareness": "Problem aware",
+  "structure": [
+   [
+    "0:00–0:08",
+    "Hook",
+    "Jars at the sink; the 4pm line beside the mouth"
+   ],
+   [
+    "0:08–0:15",
+    "Setup",
+    "Shopping with American friends; she smiles and pretends"
+   ],
+   [
+    "0:15–0:24",
+    "Rival habit",
+    "Friends grab the newest cream and swear by it"
+   ],
+   [
+    "0:24–0:32",
+    "Turn",
+    "I'm Korean, I'm 54; a small fortune, skin looks the same"
+   ],
+   [
+    "0:32–0:36",
+    "Promise",
+    "So let me share what we learned a long time ago"
+   ]
+  ],
+  "hook": "Sees: A woman in a blue shirt studies two cream jars at a bathroom sink, tired and worried. Text: \"THE 4PM LINE NOBODY MENTIONS\". Hears: \"It's that one line beside your mouth that shows up around 4 p.m., the one your foundation keeps settling into.\"",
+  "hookWhy": "A tiny, exact flaw viewers check on their own face at 4pm. The woman on screen is not the narrator, so the story link comes a few seconds later."
+ },
+ "assets/ads/one-spot-all-day.mp4": {
+  "who": "Dog owners who work away from home and worry about their dog alone",
+  "moment": "Leaving for work, kissing the dog goodbye, and wondering all day if he is okay",
+  "feeling": "Worry, then relief",
+  "intensity": "Medium",
+  "felt": "Private",
+  "desire": "Protecting loved ones",
+  "desire2": "Freedom from fear & pain",
+  "message": "A tiny clip on the collar watches his breathing, heart and sleep for the hours you can't.",
+  "hookLayers": {
+   "visual": "A crochet dog sits in a sunny patch of floor while the label says 1 Spot, All Day",
+   "text": "1 Spot, All Day",
+   "spoken": "While you were gone all day, he never really woke up."
+  },
+  "awareness": "Problem aware",
+  "structure": [
+   [
+    "0:00–0:08",
+    "Hook",
+    "He never really woke up; keys, a kiss, be good"
+   ],
+   [
+    "0:08–0:24",
+    "Unseen hours",
+    "He curls in the same spot; quiet doesn't mean okay"
+   ],
+   [
+    "0:24–0:35",
+    "The window",
+    "Not just a dog, the whole of your day"
+   ],
+   [
+    "0:35–0:55",
+    "The clip",
+    "Clipped to his collar; breathing, heart, sleep; the alert"
+   ],
+   [
+    "0:55–1:06",
+    "Calm",
+    "The vet sees the nights written down; you don't carry it"
+   ]
+  ],
+  "hook": "Sees: A crochet dog sits in a sunny patch of floor while the label says 1 Spot, All Day. Text: \"1 Spot, All Day\". Hears: \"While you were gone all day, he never really woke up.\"",
+  "hookWhy": "The image is calm but the line says something is wrong, so the owner wants to know what happened."
+ },
+ "assets/ads/i-wanted-you.mp4": {
+  "who": "Women trying for a baby for years, who have been through tests and treatments",
+  "moment": "Looking at one more single-line pregnancy test after years of trying",
+  "feeling": "Longing, then heartbreak",
+  "intensity": "High",
+  "felt": "Private",
+  "desire": "Love & companionship",
+  "desire2": "Freedom from fear & pain",
+  "message": "The road to a baby can take years of tests and treatments; the product is not shown before the cut.",
+  "hookLayers": {
+   "visual": "A mother laughs bathing a baby, then a close-up of a teary baby face",
+   "text": "",
+   "spoken": "I always knew I wanted you."
+  },
+  "awareness": "Unaware",
+  "structure": [
+   [
+    "0:00–0:07",
+    "Hook",
+    "Baby in the tub; I wanted you"
+   ],
+   [
+    "0:07–0:25",
+    "Wrong timing",
+    "Not the year, the how or the who; the job; bad dates; then Dan"
+   ],
+   [
+    "0:25–0:36",
+    "Ready",
+    "A year of dating; moving in; years of trying"
+   ],
+   [
+    "0:36–0:46",
+    "One line",
+    "Test after test; the drawer"
+   ],
+   [
+    "0:46–1:01",
+    "Treatments",
+    "Pills, injections; IVF round one and two fail; hopeful last shot"
+   ]
+  ],
+  "hook": "Sees: A mother laughs bathing a baby, then a close-up of a teary baby face. Hears: \"I always knew I wanted you.\"",
+  "hookWhy": "A wish said to a baby, which pulls anyone who has wanted a child."
+ },
+ "assets/ads/three-things-keep-me-satisfied.mp4": {
+  "who": "Dog owners who think their dog could sleep better and enjoy a joke",
+  "moment": "Scrolling the feed, a cocky bulldog stops them, and they think of their own dog's bed",
+  "feeling": "Amusement",
+  "intensity": "Low",
+  "felt": "Private",
+  "desire": "Comfortable living",
+  "desire2": "Quality & reliability",
+  "message": "Memory foam is where a dog really recovers.",
+  "hookLayers": {
+   "visual": "A fawn bulldog in a Brooklyn tank top and gold chain sits behind a white clay table",
+   "text": "Three things keep",
+   "spoken": "Three things keep me satisfied. Two of them are not what you're thinking."
+  },
+  "awareness": "Unaware",
+  "structure": [
+   [
+    "0:00–0:04",
+    "Hook",
+    "Three things keep me satisfied"
+   ],
+   [
+    "0:04–0:12",
+    "#1 Walks",
+    "Two a day; that's the grind; cardio keeps me sharp"
+   ],
+   [
+    "0:12–0:20",
+    "#2 The bed",
+    "Memory foam; I do not do floors; recovery; eighteen hours"
+   ]
+  ],
+  "hook": "Sees: A fawn bulldog in a Brooklyn tank top and gold chain sits behind a white clay table. Text: \"Three things keep\". Hears: \"Three things keep me satisfied. Two of them are not what you're thinking.\"",
+  "hookWhy": "A gym-bro bulldog and a cheeky line make people wait for the answer."
+ },
+ "assets/ads/lost-weight-strange-skin.mp4": {
+  "who": "Women who lost weight and now see papery, tired skin on their face",
+  "moment": "Stepping off the scale proud, then catching a tired face in the mirror",
+  "feeling": "Pride, then disappointment",
+  "intensity": "Medium",
+  "felt": "Private",
+  "desire": "Beauty & style",
+  "desire2": "Saving money",
+  "message": "Creams only sit on the surface and fillers cost a fortune, so the fix has to reach deeper.",
+  "hookLayers": {
+   "visual": "A woman in grey stands on a scale, head down, then a close-up of her tired face",
+   "text": "LOST WEIGHT, AND YOUR SKIN IS STRANGE?",
+   "spoken": "The scale went down and you're proud, no doubt, but your skin turned papery, dull, worn out."
+  },
+  "awareness": "Problem aware",
+  "structure": [
+   [
+    "0:00–0:08",
+    "Hook",
+    "Scale down, skin papery"
+   ],
+   [
+    "0:08–0:22",
+    "Earned body",
+    "Gym, salad, tired face"
+   ],
+   [
+    "0:22–0:34",
+    "Not alone",
+    "Three women; the creams and serums; the bathroom of bottles"
+   ],
+   [
+    "0:34–0:48",
+    "Why they fail",
+    "Fillers; cream sits on the surface; $14,000 receipt"
+   ],
+   [
+    "0:48–0:55",
+    "Leave it behind",
+    "Jars in the bin; same tired face; a happy flash-forward"
+   ]
+  ],
+  "hook": "Sees: A woman in grey stands on a scale, head down, then a close-up of her tired face. Text: \"LOST WEIGHT, AND YOUR SKIN IS STRANGE?\". Hears: \"The scale went down and you're proud, no doubt, but your skin turned papery, dull, worn out.\"",
+  "hookWhy": "Names a win and its hidden cost in the first line."
+ },
+ "assets/ads/two-years-and-nobody-looked.mp4": {
+  "who": "Women around 47 whose intimate life has gone quiet for years (inferred)",
+  "moment": "Lying in bed next to her husband years after things went quiet and nobody asks about it",
+  "feeling": "Loneliness, then defiance",
+  "intensity": "High",
+  "felt": "Private",
+  "desire": "Love & companionship",
+  "desire2": "Comfortable living",
+  "message": "Years of neglect isn't the end: 'I'm not dead. I'm not done.'",
+  "hookLayers": {
+   "visual": "A small pink character wrapped in a grey blanket hugs his knees on a welcome mat",
+   "text": "2 YEARS AND NOBODY LOOKED AT THIS",
+   "spoken": "Two years. And not one person has checked on me."
+  },
+  "awareness": "Unaware",
+  "structure": [
+   [
+    "0:00–0:12",
+    "Hook",
+    "Two years; nobody has checked on me; I'll tell you"
+   ],
+   [
+    "0:12–0:30",
+    "The one downstairs",
+    "The woman upstairs; it used to be so loud down here"
+   ],
+   [
+    "0:30–0:45",
+    "Heat went off",
+    "Moved out sign; same room, now under a blanket"
+   ],
+   [
+    "0:45–1:02",
+    "Nobody asks",
+    "The couple upstairs; two whole years; I'm not done"
+   ],
+   [
+    "1:02–1:10",
+    "Reveal",
+    "I'm cold; the woman upstairs, 47, love her"
+   ]
+  ],
+  "hook": "Sees: A small pink character wrapped in a grey blanket hugs his knees on a welcome mat. Text: \"2 YEARS AND NOBODY LOOKED AT THIS\". Hears: \"Two years. And not one person has checked on me.\"",
+  "hookWhy": "A sad little character and a number make people ask who is being ignored."
+ },
+ "assets/ads/from-300-to-18.mp4": {
+  "who": "Women in their 50s paying for fillers or injections every few months",
+  "moment": "At the clinic desk, asked to rebook while her card is already out, she hesitates",
+  "feeling": "Regret, then relief",
+  "intensity": "Medium",
+  "felt": "Public",
+  "desire": "Saving money",
+  "desire2": "Beauty & style",
+  "message": "A smoother look for $18 instead of $300; the product is not shown before the cut.",
+  "hookLayers": {
+   "visual": "A woman in profile touches the lines around her mouth in soft window light",
+   "text": "FROM $300 TO $18",
+   "spoken": "I used to pay $300 for the lines around my mouth. I pay $18 now."
+  },
+  "awareness": "Most aware",
+  "structure": [
+   [
+    "0:00–0:06",
+    "Hook",
+    "$300 to $18"
+   ],
+   [
+    "0:06–0:25",
+    "The desk",
+    "Asked to book again; the banking app shows 11 years"
+   ],
+   [
+    "0:25–0:42",
+    "The math",
+    "Doing math in the waiting room; she books anyway"
+   ],
+   [
+    "0:42–1:10",
+    "My face forgot",
+    "Getting older; jawline; lines that stayed; the fillers"
+   ],
+   [
+    "1:10–1:26",
+    "Sick of it",
+    "The clinic chair gets colder, the price higher"
+   ],
+   [
+    "1:26–1:52",
+    "The search",
+    "Forums, friends, then Simone from high school"
+   ]
+  ],
+  "hook": "Sees: A woman in profile touches the lines around her mouth in soft window light. Text: \"FROM $300 TO $18\". Hears: \"I used to pay $300 for the lines around my mouth. I pay $18 now.\"",
+  "hookWhy": "Two prices and a body part in the first three seconds."
+ },
+ "assets/ads/glp-1-face.mp4": {
+  "who": "Women on GLP-1 weight-loss drugs who see their face looking older",
+  "moment": "Stepping off the scale happy, then seeing a loose neck, jawline and mouth in the mirror",
+  "feeling": "Pride, then dismay",
+  "intensity": "Medium",
+  "felt": "Private",
+  "desire": "Beauty & style",
+  "desire2": "Saving money",
+  "message": "GLP-1 face is real; creams sit on top and fillers cost a fortune; the fix is not shown before the cut.",
+  "hookLayers": {
+   "visual": "A gaunt woman pulls at her cheek in a gold oval mirror, then a filler syringe on a clinic trolley",
+   "text": "",
+   "spoken": "Lost the weight, but now you look deflated and gaunt? Don't book the filler yet."
+  },
+  "awareness": "Problem aware",
+  "structure": [
+   [
+    "0:00–0:08",
+    "Hook",
+    "Lost the weight, deflated and gaunt; don't book filler"
+   ],
+   [
+    "0:08–0:18",
+    "The name",
+    "Neck, jawline and mouth; it's called GLP-1 face"
+   ],
+   [
+    "0:18–0:34",
+    "Why",
+    "The volume that held it up is gone; skin caves in"
+   ],
+   [
+    "0:34–0:40",
+    "Feeling",
+    "Deflated, gaunt, older; the old you got lost"
+   ],
+   [
+    "0:40–0:55",
+    "Mistake",
+    "Creams and serums sit on top and can't reach deep"
+   ],
+   [
+    "0:55–1:00",
+    "Cost",
+    "Filler or surgery is a fortune on top of the meds"
+   ]
+  ],
+  "hook": "Sees: A gaunt woman pulls at her cheek in a gold oval mirror, then a filler syringe on a clinic trolley. Hears: \"Lost the weight, but now you look deflated and gaunt? Don't book the filler yet.\"",
+  "hookWhy": "Names the exact new worry and stops people about to book filler."
  }
 };

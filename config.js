@@ -214,6 +214,14 @@ const ADS = [
   { stage:"Ex", format:"Explainer ads", visual:"Product CGI", industry:"Oral care", video:"assets/ads/ecobrightsmile-tiny-man-giant-tooth.mp4", title:"Tiny Man, Giant Tooth", credit:"ECO BRIGHT SMILE · teeth whitening powder", vertical:true },
   { stage:"Ev", format:"Educational ads", visual:"3D animation", industry:"Oral care", video:"assets/ads/ecobrightsmile-four-ingredients.mp4", title:"Four Ingredients", credit:"ECO BRIGHT SMILE · teeth whitening powder", vertical:true },
   { stage:"T", format:"Musical ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/primal-queen-queen-back.mp4", title:"Queen Back", credit:"PRIMAL QUEEN · beef organ capsules", vertical:true },
+  { stage:"T", format:"Story ads", visual:"3D animation", industry:"Skincare & beauty", video:"assets/ads/the-4pm-line.mp4", title:"The 4PM Line", credit:"BRAND UNKNOWN · anti-aging skincare", vertical:true },
+  { stage:"Ex", format:"Story ads", visual:"Felt & knit", industry:"Pets", video:"assets/ads/one-spot-all-day.mp4", title:"1 Spot, All Day", credit:"BRAND UNKNOWN · dog health tracker", vertical:true },
+  { stage:"T", format:"Story ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/i-wanted-you.mp4", title:"I Wanted You", credit:"BRAND UNKNOWN · fertility support", vertical:true },
+  { stage:"T", format:"Funny gag ads", visual:"Claymation", industry:"Pets", video:"assets/ads/three-things-keep-me-satisfied.mp4", title:"Three Things Keep Me Satisfied", credit:"BRAND UNKNOWN · memory-foam dog bed", vertical:true },
+  { stage:"Ex", format:"Educational ads", visual:"3D animation", industry:"Skincare & beauty", video:"assets/ads/lost-weight-strange-skin.mp4", title:"Lost Weight, Strange Skin", credit:"BRAND UNKNOWN · skin firming", vertical:true },
+  { stage:"T", format:"Story ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/two-years-and-nobody-looked.mp4", title:"2 Years and Nobody Looked", credit:"BRAND UNKNOWN · intimate wellness", vertical:true },
+  { stage:"Ex", format:"Story ads", visual:"3D animation", industry:"Skincare & beauty", video:"assets/ads/from-300-to-18.mp4", title:"From $300 to $18", credit:"BRAND UNKNOWN · anti-aging skincare", vertical:true },
+  { stage:"Ex", format:"Educational ads", visual:"3D animation", industry:"Skincare & beauty", video:"assets/ads/glp-1-face.mp4", title:"GLP-1 Face", credit:"BRAND UNKNOWN · skin firming", vertical:true },
 ];
 
 /* Packages: ads per buying stage in "split" (Trigger, Exploration, Evaluation, Purchase) */
