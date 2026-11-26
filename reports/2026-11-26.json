@@ -1,0 +1,68 @@
+{
+  "report_date": "2026-11-26",
+  "data_day": "2026-11-25",
+  "timezone": "Asia/Karachi",
+  "captured": "2026-11-26 morning PKT; per-post figures are lifetime-to-capture",
+  "comparison": "baseline day, no comparison yet",
+  "social": {
+    "followers": {"instagram": 4, "facebook": null, "threads": 0, "tiktok": 1, "youtube": 0, "x": 2, "linkedin": 1},
+    "posts": {
+      "glim-father-of-the-bride": {
+        "instagram": {"views": 67, "reach": 65, "likes": 0, "comments": 0, "shares": 0, "saves": 0, "avg_watch_s": 7},
+        "facebook": {"views": 175, "viewers": 168, "likes": 0, "shares": 0, "avg_watch_s": 10},
+        "threads": {"views": null},
+        "tiktok": {"views": 21, "likes": 0, "comments": 0, "shares": 0, "avg_watch_s": 4.01, "restricted": "For You and search: Unoriginal, low-quality and QR code content"},
+        "youtube": {"views": 3},
+        "x": {"views": 8},
+        "linkedin": {"impressions": 10, "views": 3, "clicks": 1, "reactions": 0}
+      },
+      "echo-grandpa-hears-it": {
+        "instagram": {"views": 37, "reach": 38, "likes": 0, "comments": 0, "shares": 0, "saves": 0, "avg_watch_s": 4},
+        "facebook": {"views": 229, "viewers": 218, "likes": 0, "shares": 0, "avg_watch_s": 6},
+        "threads": {"views": null},
+        "tiktok": {"views": 45, "likes": 1, "comments": 0, "shares": 0, "avg_watch_s": 3.54},
+        "youtube": {"views": 0, "likes": 0},
+        "x": {"views": 4},
+        "linkedin": {"impressions": 3, "views": 2, "clicks": 3, "reactions": 0}
+      },
+      "hushnest-the-bear-moved-in": {
+        "instagram": {"views": 263, "reach": 212, "likes": 3, "shares": 1, "avg_watch_s": 17},
+        "facebook": {"views": 318, "viewers": 275, "likes": 1, "shares": 0, "avg_watch_s": 5},
+        "threads": {"views": null},
+        "tiktok": {"views": 29, "likes": 3, "avg_watch_s": 5.5, "new_followers": 1},
+        "youtube": {"views": 1},
+        "x": {"views": 13},
+        "linkedin": {"impressions": 18, "views": 3, "clicks": 1}
+      }
+    },
+    "account_context": {
+      "instagram_7d_dashboard_lagging": {"views": 29, "interactions": 7, "profile_visits": 3},
+      "facebook_28d_to_11_24": {"views": 605, "viewers": 475, "follows": 1, "visits": 3, "interactions": 1, "three_sec_views": 91},
+      "threads_daily_views": {"2026-11-23": 47, "2026-11-24": 80, "2026-11-25": 5},
+      "threads_30d": {"views": 132, "viewers": 34, "interactions": 16, "net_followers": 0},
+      "tiktok_7d_to_11_24": {"views": 296, "likes": 6, "profile_views": 0, "shares": 0},
+      "youtube": {"views_28d_to_11_24": 21, "views_48h": 28, "subscribers": 0},
+      "linkedin_28d_to_11_24": {"impressions": 105, "reactions": 0, "comments": 0, "reposts": 0},
+      "linkedin_page_visitors_7d": 3
+    }
+  },
+  "ga4": {
+    "2026-11-25": {"users": 9, "new_users": 9, "sessions": 16, "engaged_sessions": 10, "engagement_rate": 0.625, "avg_engagement_per_session_s": 80, "page_views": 46, "events": 309, "key_events": 16,
+      "source_medium_sessions": {"(direct)/(none)": 10, "audit/test": 2, "chatgpt.com/ai-assistant": 1, "cookshipcreatives.com/referral": 1, "eventsmanager.facebook.com/referral": 1, "google/organic": 1},
+      "countries_users": {"Pakistan": 5, "(not set)": 3, "United States": 1},
+      "event_counts": {"page_view": 46, "section_view": 41, "scroll_depth": 27, "video_progress": 23, "library_browse": 22, "video_play": 21, "generate_lead": 20, "book_call": 11, "get_ads_like_this": 10, "begin_checkout": 5, "email_click": 5, "contact_open": 4, "whatsapp_click": 4, "booking_completed": 0},
+      "note": "all engaged sessions and key events are from Pakistan; likely own testing"},
+    "2026-11-24": null
+  },
+  "cloudflare": {"2026-11-25": {"visits": 51, "page_views": 53, "countries": {"Pakistan": 46, "United States": 5}, "referrers": {"direct": 45, "eventsmanager.facebook.com": 3, "google.com": 2, "m.facebook.com": 1}},
+    "2026-11-24_derived_from_pct_change": {"visits": 33, "page_views": 33},
+    "last_7d": {"visits": 323, "page_views": 325, "countries": {"Pakistan": 301, "United States": 21, "India": 1}}},
+  "pixels": {
+    "meta": {"PageView": 44, "ViewContent": 14, "get_ads_like_this": 9, "Lead": 9, "Contact": 5, "InitiateCheckout": 4, "library_browse": 2, "contact_open": 1, "Schedule": 0, "diagnostics": "confirm domain (allowlist)"},
+    "tiktok": {"total": 71, "Pageview": 20, "ViewContent": 14, "LandingPageView": 11, "EngagedSession": 9, "Contact": 8, "ClickButton": 7, "InitiateCheckout": 2, "diagnostics": 3},
+    "linkedin": {"tag": "Active", "conversion": "Active, 0 ad sets", "conversion_count": null},
+    "x": {"site_visits_last": "2026-11-25 23:20", "lead_last": "2026-11-25 18:11", "checkout_last": "2026-11-25 16:14", "landing_page_views": "Inactive", "counts": null}
+  },
+  "search_console": null,
+  "whop": {"balance_usd": 0, "payments_today": 0, "visits": null, "checkouts": null}
+}
