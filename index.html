@@ -273,6 +273,10 @@ section[id]{scroll-margin-top:72px}
 .dlist .tags span{font:800 12px/1 var(--body);padding:6px 9px;border-radius:var(--r-pill);background:var(--chip);color:var(--ink)}
 .dlist .tags span.hot{background:var(--c,var(--tomato-deep));color:var(--white)}
 .dlist .stage{display:inline-block;margin-top:6px;font:400 19px/1 var(--display);color:var(--white);background:var(--c);border-radius:var(--r-pill);padding:7px 13px}
+.layers{margin:8px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:15px}
+.layers dt{font:800 12px/1.6 var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-muted);white-space:nowrap}
+.layers dd{margin:0;color:var(--ink);font-weight:600;line-height:1.45}
+@media (max-width:480px){.layers{grid-template-columns:1fr;gap:2px}.layers dd{margin-bottom:6px}}
 .dlist .hook{margin:6px 0 0;font-size:16px;line-height:1.45;color:var(--ink);font-weight:600}
 .beats{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:0}
 .beats li{display:grid;grid-template-columns:86px 1fr;gap:10px;padding:7px 0;border-top:1px dashed var(--line);font-size:15px}
@@ -708,7 +712,7 @@ function openDig(a, d, from){
     item("What they really want", `<p class="v">${esc(d.desire)}</p>`),
     item("The one message", `<p class="v">${esc(d.message)}</p>`),
     item("Format", `<p class="v">${esc(a.format)}${a.visual ? " · " + esc(a.visual) : ""}</p>${note(fmt && fmt.desc)}`),
-    item("The hook (first 3 seconds)", `<p class="hook">${esc(d.hook)}</p><p class="n"><b>Why it stops the scroll:</b> ${esc(d.hookWhy)}</p>`),
+    item("The hook (first 3 seconds)", (d.hookLayers ? `<dl class="layers">${[["What you see", d.hookLayers.visual], ["Text on screen", d.hookLayers.text], ["What you hear", d.hookLayers.spoken]].filter(x => x[1]).map(x => `<dt>${x[0]}</dt><dd>${esc(x[1])}</dd>`).join("")}</dl>` : `<p class="hook">${esc(d.hook)}</p>`) + `<p class="n"><b>Why it stops the scroll:</b> ${esc(d.hookWhy)}</p>`),
     item("How it's built", `<ul class="beats">${(d.structure || []).map(b => `<li><time>${esc(b[0])}</time><span><b>${esc(b[1])}</b>${b[2] ? `<small>${esc(b[2])}</small>` : ""}</span></li>`).join("")}</ul>`),
   ].join("");
   dsheet.hidden = false; dsheet.scrollTop = 0; document.body.style.overflow = "hidden"; $("#dgClose").focus();
