@@ -1,13 +1,13 @@
 // Render one library ad with the 4 platform overlays.
 // usage: node render.js <path-to-site-repo> <ad-slug> <out-dir>
 //   ad-slug = file name of the ad video without .mp4 (assets/ads/<slug>.mp4)
-// out: <out>/<BRAND>-{reels,tiktok,shorts,feed}.mp4 at full 1080p quality, a <BRAND>-<layout>-small.mp4 fallback under 10 MB each, plus ad.json
+// out: <out>/<BRAND>-{reels,tiktok,shorts,feed}.mp4 at full 1080p quality, plus ad.json
 const { chromium } = require('playwright');
 const fs = require('fs'), path = require('path'), { execSync } = require('child_process');
 const [site, slug, out] = process.argv.slice(2);
 const HERE = __dirname;
 // safe zones (px on 1080x1920): from memory of each app's UI, tuned by eye
-const LAYOUT = { reels:{l:56,t:236,b:470}, tiktok:{l:48,t:200,b:560}, shorts:{l:56,t:230,b:430}, feed:{l:56,t:80,b:90} };
+const LAYOUT = { reels:{l:56,t:236}, tiktok:{l:48,t:200}, shorts:{l:56,t:230}, feed:{l:56,t:80} };
 const cfg = fs.readFileSync(path.join(site, 'config.js'), 'utf8').replace(/\bconst\b/g, 'var');
 const ADS = new Function('window', cfg + ';return ADS;')({});
 const ad = ADS.find(a => (a.video || '').endsWith('/' + slug + '.mp4'));
@@ -25,7 +25,7 @@ const cap = s => s ? s[0].toUpperCase() + s.slice(1) : s;
   await p.goto('file://' + path.join(HERE, 'overlay.html'));
   const tmp = fs.mkdtempSync('/tmp/ovl-');
   for (const [lay, v] of Object.entries(LAYOUT)) {
-    const html = base.replace('--l:56px;--t:236px;--b:470px', `--l:${v.l}px;--t:${v.t}px;--b:${v.b}px`);
+    const html = base.replace('--l:56px;--t:236px', `--l:${v.l}px;--t:${v.t}px`);
     for (const [mode, n] of [['A', 45], ['L', 240]]) { // L = one 8 s Cookie turn, loops seamlessly
       const dir = `${tmp}/${lay}-${mode}`; fs.mkdirSync(dir);
       await p.evaluate(h => { document.open(); document.write(h); document.close(); }, html.replace('__MODE__', mode));
@@ -43,9 +43,6 @@ const cap = s => s ? s[0].toUpperCase() + s.slice(1) : s;
     // full quality, no size cap
     execSync(`ffmpeg -v error -y ${ov} -c:v libx264 -preset veryfast -crf 20 -c:a aac -b:a 160k -movflags +faststart "${name}.mp4"`);
     console.log(name + '.mp4', (fs.statSync(name + '.mp4').size / 1048576).toFixed(1) + ' MB');
-    // fallback copy under 10 MB, used only if a full-size upload fails
-    const vk = Math.max(300, Math.floor(9.3 * 8 * 1024 / d - 128));
-    execSync(`ffmpeg -v error -y -i "${name}.mp4" -c:v libx264 -preset veryfast -b:v ${vk}k -maxrate ${vk}k -bufsize ${vk * 2}k -c:a aac -b:a 128k -movflags +faststart "${name}-small.mp4"`);
   }
   await b.close();
   fs.writeFileSync(`${out}/ad.json`, JSON.stringify({ slug, brand, product, ...ad, duration: dur }, null, 2));
