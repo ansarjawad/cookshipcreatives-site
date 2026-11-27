@@ -56,5 +56,35 @@
       "linkedin": "ok"
     },
     "note": "All 7 in full 1080p. Ad is 3:01, so YouTube filed it as a regular video, not a Short (Shorts max 3:00). TikTok was 'content under review' right after posting."
+  },
+  {
+    "slug": "flufflift-meet-fur-boy",
+    "brand": "FLUFFLIFT",
+    "date": "2026-11-26",
+    "platforms": {
+      "instagram": "https://www.instagram.com/p/DgNohnOtodR/",
+      "facebook": "ok",
+      "threads": "ok",
+      "tiktok": "ok",
+      "youtube": "ok",
+      "x": "ok",
+      "linkedin": "ok"
+    },
+    "note": "Found live on 2026-11-27 but missing from posted.json."
+  },
+  {
+    "slug": "lastbar-dead-phone-abroad",
+    "brand": "LASTBAR",
+    "date": "2026-11-27",
+    "platforms": {
+      "instagram": "ok",
+      "facebook": "ok",
+      "threads": "ok",
+      "tiktok": "ok",
+      "youtube": "https://youtube.com/shorts/eyBDouM4JTI",
+      "x": "ok",
+      "linkedin": "ok"
+    },
+    "note": "All 7 in full 1080p."
   }
 ]
