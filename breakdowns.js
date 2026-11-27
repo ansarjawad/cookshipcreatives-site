@@ -4197,5 +4197,55 @@ const BREAKDOWNS = {
     "Red carpet, Diamond shocked; 'Get you Primal Queen, girl'; pack on a lit court"
    ]
   ]
+ },
+ "assets/ads/mmmanifest-hypnosis.mp4": {
+  "who": "People who want more confidence, money or romance and are curious about hypnosis",
+  "moment": "Scrolling the feed, a question about self-hypnosis makes them picture a swinging watch, then headphones",
+  "feeling": "Curiosity, then aspiration",
+  "intensity": "Medium",
+  "felt": "Private",
+  "desire": "To be superior / win",
+  "desire2": "Curiosity",
+  "message": "Custom hypnosis audio, built from your details, so you feel who you want to be.",
+  "hookLayers": {
+   "visual": "A faceless hypnotist swings a pocket watch beside a lamp, smashes it with a hammer, then holds up red headphones",
+   "text": "Hypnotized / no no no / of hypnosis / this kind",
+   "spoken": "Have you ever hypnotized yourself? No, no, no! Not this kind of hypnosis. This kind."
+  },
+  "awareness": "Solution aware",
+  "structure": [
+   [
+    "0:00–0:09",
+    "Hook",
+    "Pocket watch, hammer smash, red headphones"
+   ],
+   [
+    "0:09–0:20",
+    "Press play",
+    "Headphones on, phone app, leap into the blue world"
+   ],
+   [
+    "0:20–0:52",
+    "The game in your ears",
+    "Best-looking guy, $10 becomes $100, restaurant without prices"
+   ],
+   [
+    "0:52–1:06",
+    "What hypnosis is",
+    "Telling the universe who you want to be"
+   ],
+   [
+    "1:06–1:33",
+    "Afterwards",
+    "Step outside, train, handshake, friends want it too"
+   ],
+   [
+    "1:33–1:44",
+    "Offer",
+    "I build it, you feel it; want me to make yours?"
+   ]
+  ],
+  "hook": "Sees: A faceless hypnotist swings a pocket watch beside a lamp, smashes it with a hammer, then holds up red headphones. Text: \"Hypnotized / no no no / of hypnosis / this kind\". Hears: \"Have you ever hypnotized yourself? No, no, no! Not this kind of hypnosis. This kind.\"",
+  "hookWhy": "A cliché watch is smashed on screen, so people stay to see 'this kind'. It targets the curious broadly, not a named person, which is a weak spot."
  }
 };

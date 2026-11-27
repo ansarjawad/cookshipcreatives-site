@@ -119,6 +119,7 @@ const VISUALS = [
   { name:"Toy & doll world", desc:"Characters look like posable dolls in a pastel dollhouse. Instantly nostalgic, and hard to scroll past." },
   { name:"Felt & knit",     desc:"A world made of wool, felt and yarn. Soft, warm and handmade, so even a hard story feels gentle." },
   { name:"Lo-fi 3D",        desc:"Crude, low-poly 3D that looks cheap on purpose. In a feed full of polish, it stops the thumb." },
+  { name:"Cinematic silhouette", desc:"Moody, realistic-looking scenes where every person is a faceless silhouette lit by a thin glowing rim. Two colour worlds make the viewer feel the change." },
   { name:"Product CGI",     desc:"Premium studio CGI of the product itself: glass, liquid and macro textures, like a luxury launch film." },
 ];
 const INDUSTRIES = [
@@ -214,6 +215,7 @@ const ADS = [
   { stage:"Ex", format:"Explainer ads", visual:"Product CGI", industry:"Oral care", video:"assets/ads/ecobrightsmile-tiny-man-giant-tooth.mp4", title:"Tiny Man, Giant Tooth", credit:"ECO BRIGHT SMILE · teeth whitening powder", vertical:true },
   { stage:"Ev", format:"Educational ads", visual:"3D animation", industry:"Oral care", video:"assets/ads/ecobrightsmile-four-ingredients.mp4", title:"Four Ingredients", credit:"ECO BRIGHT SMILE · teeth whitening powder", vertical:true },
   { stage:"T", format:"Musical ads", visual:"3D animation", industry:"Health & wellness", video:"assets/ads/primal-queen-queen-back.mp4", title:"Queen Back", credit:"PRIMAL QUEEN · beef organ capsules", vertical:true },
+  { stage:"Ex", format:"Explainer ads", visual:"Cinematic silhouette", industry:"Apps & tech", video:"assets/ads/mmmanifest-hypnosis.mp4", title:"Have You Ever Hypnotized Yourself?", credit:"mmmanifest \u00b7 personalized hypnosis audio", vertical:true },
 ];
 
 /* Packages: ads per buying stage in "split" (Trigger, Exploration, Evaluation, Purchase) */
